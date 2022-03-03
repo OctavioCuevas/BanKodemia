@@ -8,4 +8,7 @@
     <string name="btn_crear_contrasena">Crear Contraseña</string>
     <string name="bk_logo">bk_logo</string>
     <string name="hint_contrasena">Contraseña</string>
+    <string name="_enviando_tus_datos">Espera un momento, estamos enviando tus datos</string>
+    <string name="texto_confirmación">¡Listo! Recibimos tu información. Usualmente tardamos unos minutos en verificar, pero en caso de tener algún problema, nos comunicaremos contigo.</string>
+    <string name="gracias_por_usar_bankodemia">¡GRACIAS POR USAR BANKODEMIA!</string>
 </resources>
