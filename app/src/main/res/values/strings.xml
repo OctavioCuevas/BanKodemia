@@ -3,7 +3,9 @@
     <string name="texto_3_contrasena">La usarás para entrar a la app y confimar tus transacciones.</string>
     <string name="texto_4_contrasena"> Usa al menos 6 caracteres alfanúmericos, no consecutivos ni repetidos.</string>
     <string name="text_view_safe_password">Crea una contraseña segura</string>
-    <string name="text_view_backpassword"><![CDATA[<--- CONTRASEÑA]]></string>
+    <string name="text_view_backpassword">CONTRASEÑA</string>
     <string name="text_input_edit_confirma_pssword">Confirma contraseña</string>
     <string name="btn_crear_contrasena">Crear Contraseña</string>
+    <string name="bk_logo">bk_logo</string>
+    <string name="hint_contrasena">Contraseña</string>
 </resources>
