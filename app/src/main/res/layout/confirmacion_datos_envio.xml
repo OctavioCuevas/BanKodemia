@@ -58,11 +58,13 @@
         android:id="@+id/btn_vlover_inicio"
         android:layout_width="242dp"
         android:layout_height="51dp"
+        android:layout_marginBottom="64dp"
         android:fontFamily="@font/poppins"
         android:text="Volver al inicio"
         android:textSize="16sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="627dp" />
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
