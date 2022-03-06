@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">BanKodemia</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="welcomeText1">¡Adiós a las complicaciones!</string>
+    <string name="welcomeText2">Usa el dinero a <font fgcolor='#00CCCC'>TU</font> manera</string><!--green-->
+    <string name="createAccount">Crear Cuenta</string>
+    <string name="logintxt">Iniciar Sesión</string>
+    <string name="bk_logo">bk_logo</string>
+    <string name="brieflogintxt">Escribe el correo y telefóno con el que te registraste, a través de estos te enviaremos el acceso</string>
+    <string name="hintcorreo">Escribe tu correo</string>
+    <string name="hintpwd">Escribe tu contraseña</string>
+    <string name="helplogintxt">¿Necesitas ayuda? Escríbenos a</string>
+    <string name="helpmailbk"><u>bankodemia@com.mx</u></string>
+    <string name="briefcreateaccounttxt">Aquí recibirás comprobantes de tus movimientos e información sobre tu cuenta</string>
+    <string name="privacyaccepttxt">Al tocar continuar aceptas nuestro</string>
+    <string name="privacytermstxt"><u>Aviso de privacidad</u></string>
 </resources>
