@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="conoce_c_mo">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">#626262</item>
+        <item name="android:fontFamily">@font/poppins</item>
+    </style>
+    <style name="pasaporte">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">#4D4D4D</item>
+        <item name="android:fontFamily">@font/poppins</item>
+    </style>
+    <style name="documento_m">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">#4D4D4D</item>
+        <item name="android:fontFamily">@font/poppins</item>
+    </style>
+    <style name="ine">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">#4D4D4D</item>
+        <item name="android:fontFamily">@font/poppins</item>
+    </style>
+    <style name="seleccionad">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">#161616</item>
+        <item name="android:fontFamily">@font/poppins</item>
+    </style>
+    <style name="deber_s_sub">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">#4D4D4D</item>
+        <item name="android:fontFamily">@font/poppins</item>
+    </style>
+    <style name="enviar_a">
+        <item name="android:textSize">14sp</item>
+        <item name="android:letterSpacing">0.05</item>
+        <item name="android:textColor">#4D4D4D</item>
+        <item name="android:fontFamily">@font/poppins</item>
+    </style>
+    <style name="nombre_beneficiario">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">#161616</item>
+        <item name="android:fontFamily">@font/poppins</item>
+    </style>
+    <style name="cuenta_banco">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">#4D4D4D</item>
+        <item name="android:fontFamily">@font/poppins</item>
+    </style>
+    <style name="cantidad"><item name="android:textSize">14sp</item>
+        <item name="android:letterSpacing">0.05</item>
+        <item name="android:textColor">#4D4D4D</item>
+        <item name="android:fontFamily">@font/poppins</item>
+    </style>
+    <style name="some_id">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">#161616</item>
+        <item name="android:fontFamily">@font/poppins</item>
+    </style>
+    <style name="spei_sin_co">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">#00CCCC</item>
+        <item name="android:fontFamily">@font/poppins</item>
+    </style>
+    <style name="concepto_de">
+        <item name="android:textSize">14sp</item>
+        <item name="android:letterSpacing">0.05</item>
+        <item name="android:textColor">#4D4D4D</item>
+        <item name="android:fontFamily">@font/poppins</item>
+    </style>
+    <style name="pago_croque">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">#4D4D4D</item>
+        <item name="android:fontFamily">@font/poppins</item>
+    </style>
+    <style name="confirmaci_">
+        <item name="android:textSize">14sp</item>
+        <item name="android:letterSpacing">0.05</item>
+        <item name="android:textColor">#626262</item>
+        <item name="android:fontFamily">@font/poppins</item>
+    </style>
+    <style name="est_s_segur">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">#161616</item>
+        <item name="android:fontFamily">@font/poppins</item>
+    </style>
+    <style name="espera_un_m">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">#161616</item>
+        <item name="android:fontFamily">@font/poppins</item>
+    </style>
+    <style name="tu_transacc">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">#161616</item>
+        <item name="android:fontFamily">@font/poppins</item>
+    </style>
+</resources>
