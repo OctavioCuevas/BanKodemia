@@ -26,9 +26,6 @@ private val binding get() = _binding!!
 
 class Transferencia : Fragment() {
 
-
-    //val tiet_concepto: TextInputEditText = binding.tietConcepto
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

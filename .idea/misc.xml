@@ -4,17 +4,19 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/drawable/fill.xml" value="0.2295" />
+        <entry key="app/src/main/res/drawable/punteado.xml" value="0.28110656738281253" />
         <entry key="app/src/main/res/drawable/round_corner.xml" value="0.198" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.22604166666666667" />
         <entry key="app/src/main/res/layout/activity_verificacion_actividad.xml" value="0.36342592592592593" />
         <entry key="app/src/main/res/layout/fragment_dialog_transferencia.xml" value="0.2902542372881356" />
         <entry key="app/src/main/res/layout/fragment_procesando_transaccion.xml" value="0.22604166666666667" />
         <entry key="app/src/main/res/layout/fragment_seleccionar_documento_identidad.xml" value="0.22604166666666667" />
-        <entry key="app/src/main/res/layout/fragment_subir_documento_identidad.xml" value="0.20596160888671877" />
+        <entry key="app/src/main/res/layout/fragment_subir_documento_identidad.xml" value="0.6740356445312501" />
         <entry key="app/src/main/res/layout/fragment_transaccion_finalizada.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_transferencia.xml" value="0.2335958005249344" />
         <entry key="app/src/main/res/layout/fragment_verificacion_identidad.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_verificar_documento_identidad.xml" value="0.43429209391276047" />
+        <entry key="app/src/main/res/xml/file_paths.xml" value="0.22604166666666667" />
       </map>
     </option>
   </component>

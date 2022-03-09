@@ -1,32 +1,48 @@
 package com.honeykoders.bankodemia.view
 
+import android.annotation.SuppressLint
+import android.app.Activity
+import android.content.Intent
+import android.content.pm.PackageManager
+import android.graphics.BitmapFactory
+import android.net.Uri
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.os.Environment
+import android.provider.MediaStore
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.honeykoders.bankodemia.R
+import androidx.activity.result.ActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.content.ContextCompat
+import androidx.core.content.FileProvider
+import androidx.fragment.app.Fragment
+import coil.clear
+import com.honeykoders.bankodemia.databinding.FragmentSubirDocumentoIdentidadBinding
+import java.io.File
+import java.io.IOException
+import java.text.SimpleDateFormat
+import java.util.*
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+@Suppress("DEPRECATION")
 
-/**
- * A simple [Fragment] subclass.
- * Use the [subir_documento_identidad.newInstance] factory method to
- * create an instance of this fragment.
- */
-class subir_documento_identidad : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+class SubirDocumentoIdentidad : Fragment() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+    private var _binding: FragmentSubirDocumentoIdentidadBinding? = null
+    private val binding get() = _binding!!
+    lateinit var absolutePathImagen: String
+    var archivoFoto: File? = null
+
+    private val startForResult = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ){
+            result: ActivityResult->
+        if (result.resultCode == Activity.RESULT_OK){
+            val imagen = BitmapFactory.decodeFile(absolutePathImagen)
+            binding.ivDocId.setImageBitmap(imagen)
+            /*archivoFoto?.also { foto ->
+                viewModel.enviarFoto(foto)
+            }*/
         }
     }
 
@@ -34,27 +50,63 @@ class subir_documento_identidad : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_subir_documento_identidad, container, false)
+        _binding = FragmentSubirDocumentoIdentidadBinding.inflate(inflater, container, false)
+        val root: View = binding.root
+        binding.btnSubirInformacion.setOnClickListener {
+            solicitarPermisos()
+        }
+        return root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment subir_documento_identidad.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            subir_documento_identidad().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+    private fun solicitarPermisos() {
+        val REQUEST_CODE_CAMARA = 100
+        val permisoCamara = ContextCompat.checkSelfPermission(requireContext(),android.Manifest.permission.CAMERA)
+        if (permisoCamara == PackageManager.PERMISSION_GRANTED){
+            lanzarCamara()
+        }else{
+            requestPermissions(
+                arrayOf(android.Manifest.permission.CAMERA),
+                REQUEST_CODE_CAMARA
+            )
+        }
+    }
+
+    @SuppressLint("QueryPermissionsNeeded")
+    private fun lanzarCamara() {
+        val packageManager = requireContext().packageManager
+        Intent(MediaStore.ACTION_IMAGE_CAPTURE).also { camara ->
+            camara.resolveActivity(packageManager)?.also{
+                archivoFoto = try {
+                    crearImagen()
+                }catch (ex:IOException){
+                    null
+                }
+                archivoFoto?.also {archivo ->
+                    val photoPATH: Uri = FileProvider.getUriForFile(
+                        requireContext(),
+                        "com.honeykoders.bankodemia.fileprovider",
+                        archivo
+                    )
+                    camara.putExtra(MediaStore.EXTRA_OUTPUT, photoPATH)
+                    camara.putExtra("REQUEST_TAKE_PHOTO", 100)
+                    startForResult.launch(camara)
                 }
             }
+        }
     }
+
+    @SuppressLint("SimpleDateFormat")
+    private fun crearImagen(): File? {
+        val timeStamp: String = SimpleDateFormat("yyyyMMdd_HHmmss").format(Date())
+        val directorioAlmacenamineto: File? = getActivity()?.getExternalFilesDir(Environment.DIRECTORY_PICTURES)
+        return File.createTempFile(
+            "JPEG_${timeStamp}",
+            ".jpeg",
+            directorioAlmacenamineto
+        ).apply {
+            absolutePathImagen = absolutePath
+        }
+    }
+
+
 }

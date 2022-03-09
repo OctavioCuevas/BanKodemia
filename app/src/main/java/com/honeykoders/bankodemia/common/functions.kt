@@ -1,6 +1,7 @@
 package com.honeykoders.bankodemia.common
 
 import android.text.Editable
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.honeykoders.bankodemia.R
 
@@ -21,3 +22,4 @@ fun validarCantidad(value: Editable?):Double{
         return 0.00
     }
 }
+
