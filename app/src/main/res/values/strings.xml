@@ -11,4 +11,8 @@
     <string name="_enviando_tus_datos">Espera un momento, estamos enviando tus datos</string>
     <string name="texto_confirmación">¡Listo! Recibimos tu información. Usualmente tardamos unos minutos en verificar, pero en caso de tener algún problema, nos comunicaremos contigo.</string>
     <string name="gracias_por_usar_bankodemia">¡GRACIAS POR USAR BANKODEMIA!</string>
+    <string name="title_activity_bottom_navigation_menu">Bottom_navigation_menu</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
 </resources>
