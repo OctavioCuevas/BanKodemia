@@ -3,6 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/DESARROLLO/AndroidStudioProjects/BanKodemia/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/Users/DESARROLLO/AndroidStudioProjects/BanKodemia/app/src/main/res/layout/fragment_customer_data.xml" value="0.2" />
+        <entry key="..\:/Users/DESARROLLO/AndroidStudioProjects/BanKodemia/app/src/main/res/layout/fragment_phone.xml" value="0.2" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
         <entry key="app/src/main/res/drawable/fill.xml" value="0.2295" />
         <entry key="app/src/main/res/drawable/punteado.xml" value="0.28110656738281253" />
         <entry key="app/src/main/res/drawable/round_corner.xml" value="0.198" />
