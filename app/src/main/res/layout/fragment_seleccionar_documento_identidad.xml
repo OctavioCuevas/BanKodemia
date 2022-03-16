@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="view.VerificacionIdentidad">
+    tools:context="view.SeleccionarDocumentoIdentidad">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -64,20 +64,19 @@
             android:layout_width="50dp"
             android:layout_height="20dp"
             android:layout_marginEnd="32dp"
-            android:layout_marginTop="24dp"
             app:icon="@drawable/ic_baseline_arrow_forward"
             app:iconTint="#000000"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_dale_permiso" />
+            app:layout_constraintTop_toTopOf="@+id/ine" />
 
         <TextView
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:textColor="#4D4D4D"
             android:layout_marginStart="32dp"
+            android:layout_marginTop="32dp"
             android:text="@string/documento_m"
+            android:textColor="#4D4D4D"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ine" />
 
@@ -87,11 +86,10 @@
             android:layout_width="50dp"
             android:layout_height="20dp"
             android:layout_marginEnd="32dp"
-            android:layout_marginTop="16dp"
             app:icon="@drawable/ic_baseline_arrow_forward"
             app:iconTint="#000000"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_INE" />
+            app:layout_constraintTop_toTopOf="@+id/textView2" />
 
         <TextView
             android:id="@+id/pasaporte"
@@ -99,7 +97,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="32dp"
             android:text="@string/pasaporte"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView2" />
@@ -110,15 +108,14 @@
             android:layout_width="50dp"
             android:layout_height="20dp"
             android:layout_marginEnd="32dp"
-            android:layout_marginTop="16dp"
             app:icon="@drawable/ic_baseline_arrow_forward"
             app:iconTint="#000000"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_DocMig" />
+            app:layout_constraintTop_toTopOf="@+id/pasaporte" />
 
         <TextView
             android:id="@+id/conoce_c_mo"
-            android:layout_width="328dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="24dp"
             android:clickable="true"

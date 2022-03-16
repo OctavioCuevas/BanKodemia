@@ -1,11 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <fragment android:name="com.honeykoders.bankodemia.view.SubirDocumentoIdentidad"
-        android:id="@+id/list"
+
+    <!--androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentContainerView"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_weight="1"
-        android:layout_width="0dp"
-        android:layout_height="match_parent" />
+        app:defaultNavHost="true"
+        app:navGraph="@navigation/nav_graph" /-->
+
+    <androidx.fragment.app.FragmentContainerView
+       android:id="@+id/fragmentContainerView"
+       android:name="androidx.navigation.fragment.NavHostFragment"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:layout_weight="1"
+       app:defaultNavHost="true"
+       app:navGraph="@navigation/nav_graph"/>
+    <!--androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentContainerView"
+        android:name="com.honeykoders.bankodemia.view.Transferencia"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"/-->
 </LinearLayout>

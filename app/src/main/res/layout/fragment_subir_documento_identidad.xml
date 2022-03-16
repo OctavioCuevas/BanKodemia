@@ -62,6 +62,19 @@
             app:layout_constraintTop_toBottomOf="@+id/btn_atras" />
 
         <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_tomar_foto"
+            android:layout_width="wrap_content"
+            android:layout_height="42dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:fontFamily="@font/poppins"
+            android:text="Tomar Foto"
+            app:icon="@drawable/ic_baseline_photo_camera_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_doc_id" />
+
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_subir_informacion"
             android:layout_width="297dp"
             android:layout_height="42dp"

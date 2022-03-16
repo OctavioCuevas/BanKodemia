@@ -23,7 +23,7 @@
     <string name="pago_croque">Pago croquetas gatos</string>
     <string name="hacertransferencia">Hacer Transferencia</string>
     <string name="concepto_de_pago">Concepto de pago</string>
-    <string name="cantidad_pago">150.00</string>
+    <string name="cantidad_pago">150</string>
     <string name="confirmacion">CONFIRMACIÓN DE TRANSFERENCIA</string>
     <string name="est_s_segur">¿Estás segura(o) que quieres realizar esta transacción?</string>
     <string name="aceptar">Aceptar</string>

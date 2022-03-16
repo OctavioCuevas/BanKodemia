@@ -15,12 +15,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun llamarFragment() {
-        val fragmentManager = supportFragmentManager
+       /* val fragmentManager = supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
         //val fragment = Transferencia()
-        val fragment = SubirDocumentoIdentidad()
-        fragmentTransaction.add(R.id.list, fragment)
-        fragmentTransaction.commit()
+        val fragment = SeleccionarDocumentoIdentidad()
+        fragmentTransaction.add(R.id.seleccionarDocumentoIdentidad, fragment)
+        fragmentTransaction.commit()*/
     }
 
 }
