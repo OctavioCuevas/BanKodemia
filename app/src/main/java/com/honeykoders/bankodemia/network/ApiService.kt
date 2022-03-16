@@ -12,7 +12,7 @@ interface ApiService {
     @POST("/users")
     suspend fun singUp(@Body singUpModel: SingUpModel): Response<ResponseSingUp>
     //Transactions
-    @Headers("Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MjJhOTk3NzhjZTZjNDc4ZDBlMWJmZDEiLCJpYXQiOjE2NDc0MDIwMTcsImV4cCI6MTY0NzQwNTYxN30.InI-CY5EsrpuryqLhoH0eMpaTYOb9ImRtY4E0OmaHTc")
+    @Headers("Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MjJhOTk3NzhjZTZjNDc4ZDBlMWJmZDEiLCJpYXQiOjE2NDczOTYwODEsImV4cCI6MTY0NzM5OTY4MX0._0g3DahAGy3T3-HQI3wcLUzTGUN4zMuCZn90eS4maPY")
     @POST("/transactions")
     suspend fun makeTransactionPayment(@Body makeTransaction: MakeTransactionPayment): Response<ResponseTransactionCreated>
 }

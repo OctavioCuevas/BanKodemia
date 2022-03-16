@@ -21,40 +21,40 @@ class TransactionViewModel:ViewModel() {
     val loading = MutableLiveData<Boolean>()
 
     fun makeTransactionPayment(makeTransactionPayment: MakeTransactionPayment){
+        loading.postValue(true)
+        try {
            viewModelScope.launch {
-               loading.postValue(true)
                val respuesta = service.makeTransactionPayment(makeTransactionPayment)
                Log.e("codigo", respuesta.raw().toString())
-               try {
-                    if (respuesta.isSuccessful) {
-                        Log.e("codigo", respuesta.body().toString())
-                        makeTransactionResponse.postValue(respuesta.body())
-                    }else{
-                        val gson = Gson()
-                        val type = object : TypeToken<SingUpErrorResponse>() {}.type
-                        var errorResponse: SingUpErrorResponse? = gson.fromJson(respuesta.errorBody()!!.charStream(), type)
-                        Log.e("Response", errorResponse.toString())
-                        if (errorResponse != null) {
-                            if (errorResponse.statusCode == 401) {//badRequest
-                                error.postValue(errorResponse.message[0].toString())
-                                badRequest.postValue(true)
-                            }else{
-                                if(respuesta.code() == 402){ //Yo are broke
-                                    error.postValue(errorResponse.message[0].toString())
-                                    broken.postValue(true)
-                                }else{
-                                    if(respuesta.code() == 412){// inssuficientFunds
-                                        error.postValue(errorResponse.message[0].toString())
-                                        inssuficientFunds.postValue(true)
-                                    }
-                                }
-                            }
-                        }
-                    }
-                   loading.postValue(false)
-               }catch(e: IOException){
-                   Log.e("Response", e.toString())
+               if (respuesta.isSuccessful) {
+                   Log.e("codigo", respuesta.body().toString())
+                   makeTransactionResponse.postValue(respuesta.body())
+               }else{
+                   val gson = Gson()
+                   val type = object : TypeToken<SingUpErrorResponse>() {}.type
+                   var errorResponse: SingUpErrorResponse? = gson.fromJson(respuesta.errorBody()!!.charStream(), type)
+                   Log.e("Response", errorResponse.toString())
+                   if (errorResponse != null) {
+                       if (errorResponse.statusCode == 401) {//badRequest
+                           error.postValue(errorResponse.message[0].toString())
+                           badRequest.postValue(true)
+                       }else{
+                           if(respuesta.code() == 402){ //Yo are broke
+                               error.postValue(errorResponse.message[0].toString())
+                               broken.postValue(true)
+                           }else{
+                               if(respuesta.code() == 412){// inssuficientFunds
+                                   error.postValue(errorResponse.message[0].toString())
+                                   inssuficientFunds.postValue(true)
+                               }
+                           }
+                       }
+                   }
                }
            }
+            loading.postValue(true)
+       }catch(e: IOException){
+           Log.e("Response", e.toString())
+       }
     }
 }

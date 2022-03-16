@@ -117,12 +117,9 @@ class Transferencia : Fragment() {
         viewModel.loading.observe(viewLifecycleOwner){ loading ->
             Log.e("Pase por aqui",loading.toString())
             if (loading){
-              //  findNavController().navigate(R.id.procesandoTransaccion)
-                binding.contenedorPrincipal.visibility = View.GONE
-                binding.contenedorCarga.visibility = View.VISIBLE
-            }else {
-                binding.contenedorPrincipal.visibility = View.VISIBLE
-                binding.contenedorCarga.visibility = View.GONE
+                findNavController().navigate(R.id.procesandoTransaccion)
+            }else{
+                findNavController().navigate(R.id.transaccionFinalizada)
             }
         }
 
