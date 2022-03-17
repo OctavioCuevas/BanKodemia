@@ -30,5 +30,6 @@
     <string name="espera_un_m">Espera un momento, estamos procesando tu transacción</string>
     <string name="tu_transacc">Tu transacción ha sido finalizada</string>
     <string name="volver_a_inicio">Volver a Inicio</string>
+    <string name="logosendinninfo">logoSendinnInfo</string>
 
 </resources>
