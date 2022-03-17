@@ -198,12 +198,12 @@
             android:textSize="18sp"
             android:gravity="center_horizontal|top"
             android:text="Esta información es necesaria para verificar tu identidad. Nunca la usaremos sin tu consentimiento"
-            app:layout_constraintEnd_toEndOf="@+id/rectangle_6"
+            app:layout_constraintEnd_toEndOf="@+id/btn_password"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/til_birthday" />
 
         <Button
-            android:id="@+id/rectangle_6"
+            android:id="@+id/btn_password"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
