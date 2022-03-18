@@ -6,6 +6,18 @@
     <string name="welcomeText2">Usa el dinero a <font fgcolor='#00CCCC'>TU</font> manera</string><!--green-->
     <string name="createAccount">Crear Cuenta</string>
     <string name="logintxt">Iniciar Sesión</string>
+    <string name="addContacttxtbtn">Agregar Contacto</string>
+
+    <string name="sendmoneytxt">ENVIAR DINERO</string>
+    <string name="addContacttxt">AGREGAR CONTACTO</string>
+    <string name="endAddContacttxt">Tu contacto fue agregado con éxito</string>
+    <string name="backtomaintxtbtn">Volver a Inicio</string>
+    <string name="clabetxtbtn">CLABE</string>
+    <string name="clabetxttv">18 digitos</string>
+    <string name="tarjetatxtbtn">Tarjeta</string>
+    <string name="tarjetatxttv">No. de tarjeta</string>
+    <string name="insttv">Institución</string>
+
     <string name="bk_logo">bk_logo</string>
     <string name="brieflogintxt">Escribe el correo y telefóno con el que te registraste, a través de estos te enviaremos el acceso</string>
     <string name="hintcorreo">Escribe tu correo</string>
