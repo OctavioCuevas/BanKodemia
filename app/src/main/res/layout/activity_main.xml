@@ -3,6 +3,106 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal"
     android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black2"
+    tools:context=".MainActivity">
+
+
+    <ImageView
+        android:id="@+id/imView_titleLogo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="72dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="24dp"
+        android:contentDescription="app name bankodemia with kodemia logo"
+        app:layout_constraintBottom_toTopOf="@+id/tv_welcome1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/bankodemia" />
+
+    <TextView
+        android:id="@+id/tv_welcome1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="@string/welcomeText1"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imView_titleLogo" />
+
+    <TextView
+        android:id="@+id/tv_welcome2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="@string/welcomeText2"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_welcome1" />
+
+    <ImageView
+        android:id="@+id/imView_logo"
+        android:layout_width="193dp"
+        android:layout_height="243dp"
+        android:contentDescription="main welcome logo 3 people arround smartphone"
+        android:scaleType="centerInside"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_welcome2"
+        app:srcCompat="@drawable/mainpageimg" />
+
+    <Button
+        android:id="@+id/btn_createAccount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="24dp"
+        android:fontFamily="@font/poppins_medium"
+        android:text="@string/createAccount"
+        android:textSize="16sp"
+        app:cornerRadius="6dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imView_logo"
+        tools:ignore="TextContrastCheck" />
+
+    <Button
+        android:id="@+id/btn_login"
+        style="@style/Widget.Material3.Button.ElevatedButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="@color/black2"
+        android:fontFamily="@font/poppins_medium"
+        android:text="@string/logintxt"
+        android:textSize="16sp"
+        app:cornerRadius="6dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/btn_createAccount"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/btn_createAccount"
+        app:layout_constraintTop_toBottomOf="@+id/btn_createAccount"
+        app:layout_constraintVertical_bias="0.0"
+        app:strokeColor="@color/teal_200"
+        app:strokeWidth="2dp"
+        tools:ignore="TextContrastCheck" />
     android:layout_height="match_parent">
 
     <!--androidx.fragment.app.FragmentContainerView
