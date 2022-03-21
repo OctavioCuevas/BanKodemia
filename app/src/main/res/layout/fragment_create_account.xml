@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".createAccount">
+
+    <ImageView
+        android:id="@+id/imageView_bk"
+        android:layout_width="70dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="16dp"
+        android:contentDescription="@string/bk_logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/bk" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView_bk">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/btn_backtomain"
+                style="@style/Widget.Material3.Button.TextButton.Icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:fontFamily="@font/poppins_medium"
+                android:text="@string/hintcorreo"
+                android:textAllCaps="true"
+                android:textColor="@color/gray"
+                app:icon="@drawable/ic_baseline_arrow_back_24"
+                app:iconPadding="24dp"
+                app:iconTint="@color/black2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="TextContrastCheck,DuplicateSpeakableTextCheck" />
+
+            <TextView
+                android:id="@+id/tv_briefcreateaccount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="24dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="@string/briefcreateaccounttxt"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@+id/tv_labelmail"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btn_backtomain" />
+
+
+            <TextView
+                android:id="@+id/tv_labelmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/poppins_medium"
+                android:text="@string/hintcorreo"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toTopOf="@+id/til_maillogin"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_briefcreateaccount" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_maillogin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:fontFamily="@font/poppins"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_labelmail">
+
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/tiet_maillogin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins"
+                    android:inputType="textEmailAddress"
+                    tools:ignore="TextContrastCheck,SpeakableTextPresentCheck" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+
+            <TextView
+                android:id="@+id/tv_helplogin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="250dp"
+                android:layout_marginEnd="24dp"
+                android:fontFamily="@font/poppins"
+                android:text="@string/helplogintxt"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/til_maillogin" />
+
+            <TextView
+                android:id="@+id/tv_privacyterms"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="24dp"
+                android:fontFamily="@font/poppins"
+                android:text="@string/privacytermstxt"
+                android:textAlignment="center"
+                android:textColor="@color/purple"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_helplogin"
+                tools:ignore="TextContrastCheck" />
+
+            <Button
+                android:id="@+id/btn_createAccount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="24dp"
+                android:fontFamily="@font/poppins_medium"
+                android:text="@string/logintxt"
+                android:textSize="16sp"
+                app:cornerRadius="6dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_privacyterms"
+                tools:ignore="TextContrastCheck" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
