@@ -30,5 +30,33 @@
 
 
     <string name="errorlimitnumclabe">Verifique que sean 18 dígitos</string>
+    <string name="conoce_c_mo">Conoce <font color="blue"><u>cómo protegemos tus documentos</u></font></string>
+    <string name="documento_m">Documento Migratorio</string>
+    <string name="pasaporte">Pasaporte</string>
+    <string name="seleccionado">Seleccionado el tipo de documento que deseas fotografiar</string>
+    <string name="identidad">IDENTIDAD</string>
+    <string name="ine">INE</string>
+    <string name="dale_permis">Dale permiso a Bankodemia para utilizar la cámara. Asegúrate de tener buena luz y enfocar bien tu documento de frente.</string>
+    <string name="subir_informacion">Subir Información</string>
+    <string name="ahora_vamos">Ahora, vamos a verificar tu identidad para proteger tu cuenta.</string>
+    <string name="deber_s_sub">Deberás subir una fotografía de tu INE o pasaporte vigente y tomarte una selfie. Si eres extranjero necesitarás una fotografía de tu documento migratorio (FM3)</string>
+    <string name="entendido">Entendido</string>
+    <string name="transferencia">TRANSFERENCIA</string>
+    <string name="enviar_a">ENVIAR A</string>
+    <string name="nombre_beneficiario">Cruz Eduardo Reveles Caldera</string>
+    <string name="cuenta_banco">4915 1573 8890 4376 / BANORTE</string>
+    <string name="cantidad">CANTIDAD</string>
+    <string name="spei_sin_co">SPEI sin costo</string>
+    <string name="concepto_de">CONCEPTO DE PAGO</string>
+    <string name="pago_croque">Pago croquetas gatos</string>
+    <string name="hacertransferencia">Hacer Transferencia</string>
+    <string name="concepto_de_pago">Concepto de pago</string>
+    <string name="cantidad_pago">150</string>
+    <string name="confirmacion">CONFIRMACIÓN DE TRANSFERENCIA</string>
+    <string name="est_s_segur">¿Estás segura(o) que quieres realizar esta transacción?</string>
+    <string name="aceptar">Aceptar</string>
+    <string name="espera_un_m">Espera un momento, estamos procesando tu transacción</string>
+    <string name="tu_transacc">Tu transacción ha sido finalizada</string>
+    <string name="volver_a_inicio">Volver a Inicio</string>
 
 </resources>

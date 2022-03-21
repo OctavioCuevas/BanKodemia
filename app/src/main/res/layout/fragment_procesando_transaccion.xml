@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.ProcesandoTransaccion">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/iv_logo_bankodemia"
+            android:layout_width="210dp"
+            android:layout_height="130dp"
+            android:layout_marginTop="250dp"
+            android:src="@drawable/bk"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/espera_un_m"
+            android:layout_width="328dp"
+            android:layout_height="48dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:gravity="center_horizontal|top"
+            android:text="@string/espera_un_m"
+            android:textAppearance="@style/espera_un_m"
+            app:layout_constraintEnd_toEndOf="@+id/iv_logo_bankodemia"
+            app:layout_constraintStart_toStartOf="@+id/iv_logo_bankodemia"
+            app:layout_constraintTop_toBottomOf="@+id/iv_logo_bankodemia" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>
