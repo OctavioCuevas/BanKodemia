@@ -27,4 +27,8 @@
     <string name="briefcreateaccounttxt">Aquí recibirás comprobantes de tus movimientos e información sobre tu cuenta</string>
     <string name="privacyaccepttxt">Al tocar continuar aceptas nuestro</string>
     <string name="privacytermstxt"><u>Aviso de privacidad</u></string>
+
+
+    <string name="errorlimitnumclabe">Verifique que sean 18 dígitos</string>
+
 </resources>

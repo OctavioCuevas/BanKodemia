@@ -106,6 +106,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins"
                     android:inputType="number"
+
                     tools:ignore="TextContrastCheck,SpeakableTextPresentCheck"/>
             </com.google.android.material.textfield.TextInputLayout>
 
