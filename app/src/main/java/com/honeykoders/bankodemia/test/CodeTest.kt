@@ -16,5 +16,4 @@ fun main () {
     email = "honeykoders.com"
     println("$email es un correo válido: ${utils.isEmail(email)}")
     println("$email es un una página válida: ${utils.isWebPage(email)}")
-
 }

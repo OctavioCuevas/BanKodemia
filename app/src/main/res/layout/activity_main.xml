@@ -86,7 +86,6 @@
 
     <Button
         android:id="@+id/btn_login"
-        style="@style/Widget.Material3.Button.ElevatedButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
