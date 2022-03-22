@@ -66,4 +66,15 @@
     <string name="thnks_bankodemia">¡Gracias por usar Bankodemia!</string>
     <string name="No_tarjeta">Nº Tarjeta</string>
     <string name="tarjeta">TARJETA</string>
+    <string name="title_nav_servicios">SERVICIOS</string>
+    <string name="title_nav_inicio">INICIO</string>
+    <string name="title_nav_tarjeta">TARJETA</string>
+    <string name="cuenta_emisora">CUENTA EMISORA</string>
+    <string name="no_cuenta">Número de Cuenta</string>
+    <string name="detalle_transaccion">DETALLE DE TRANSACCIÓN</string>
+    <string name="id_transaccion">ID DE TRANSACCIÓN</string>
+    <string name="concepto">CONCEPTO</string>
+    <string name="fecha_hora">FECHA Y HORA</string>
+    <string name="dinero_disponible">DINERO DISPONIBLE</string>
+
 </resources>
