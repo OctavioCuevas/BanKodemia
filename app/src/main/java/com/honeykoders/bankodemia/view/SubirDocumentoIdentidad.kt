@@ -10,28 +10,29 @@ import android.net.Uri
 import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
+import android.util.Base64
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.activity.viewModels
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
-import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.setFragmentResultListener
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.honeykoders.bankodemia.R
 import com.honeykoders.bankodemia.databinding.FragmentSubirDocumentoIdentidadBinding
 import com.honeykoders.bankodemia.model.SingUpModel
 import com.honeykoders.bankodemia.viewmodel.SingUpViewModel
+import java.io.ByteArrayOutputStream
 import java.io.File
 import java.io.IOException
 import java.text.SimpleDateFormat
 import java.util.*
+import java.util.Base64.getEncoder
+
 
 @Suppress("DEPRECATION")
 
@@ -41,7 +42,9 @@ class SubirDocumentoIdentidad : Fragment() {
     private val binding get() = _binding!!
     lateinit var absolutePathImagen: String
     var archivoFoto: File? = null
-    var imagen: Bitmap? = null
+    var image: Bitmap? = null
+    var imageToBase64: String? = null
+    var docIdent: String? = null
     val viewModel: SingUpViewModel by viewModels()
 
     private val startForResult = registerForActivityResult(
@@ -49,27 +52,48 @@ class SubirDocumentoIdentidad : Fragment() {
     ){
             result: ActivityResult->
         if (result.resultCode == Activity.RESULT_OK){
-            imagen = BitmapFactory.decodeFile(absolutePathImagen)
-            binding.ivDocId.setImageBitmap(imagen)
+            image = BitmapFactory.decodeFile(absolutePathImagen)
+            Log.e("Imagen",image.toString())
+            binding.ivDocId.setImageBitmap(image)
+            imageToBase64 = convertImageToBase64(image!!)
+            Log.e("Imagen",imageToBase64.toString())
             /*archivoFoto?.also { foto ->
                 viewModel.enviarFoto(foto)
             }*/
         }
     }
 
+    fun convertImageToBase64(image: Bitmap): String {
+        val baos = ByteArrayOutputStream()
+        image.compress(Bitmap.CompressFormat.JPEG, 100, baos)
+        val b = baos.toByteArray()
+        val imageEncoded = Base64.encodeToString(b, Base64.NO_WRAP)
+        return imageEncoded;
+    }
+
     private fun singUp(){
-        val singUp = SingUpModel(
-            "root@email.com",
-            "root",
-            "rootest",
-            "2013-04-14T00:40:37.437Z",
-            "hola1234",
-            "+524491234567",
-            "R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
-            "INE",
-            "Ingeniero"
-        )
-        mandarDatos(singUp)
+        /*imagen:"R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" */
+        try {
+            val singUp = imageToBase64?.let {image ->
+                SingUpModel(
+                    "jesusPrueba@email.com",
+                    "Jesus",
+                    "Prueba",
+                    "2013-04-14T00:40:37.437Z",
+                    "hola1234",
+                    "+524491234567",
+                    image,
+                    docIdent.toString(),
+                    "Ingeniero"
+                )
+            }
+            if (singUp != null) {
+                mandarDatos(singUp)
+            }
+        }catch (e: IOException){
+            Log.e("Error",e.toString())
+        }
+
     }
 
     private fun mandarDatos(singUp: SingUpModel) {
@@ -97,7 +121,7 @@ class SubirDocumentoIdentidad : Fragment() {
     ): View? {
         _binding = FragmentSubirDocumentoIdentidadBinding.inflate(inflater, container, false)
         val root: View = binding.root
-        val docIdent = arguments?.getString("docIdent")
+        docIdent = arguments?.getString("docIdent")
         binding.btnAtras.setText(docIdent)
 
         binding.btnTomarFoto.setOnClickListener {
@@ -105,8 +129,8 @@ class SubirDocumentoIdentidad : Fragment() {
         }
 
         binding.btnSubirInformacion.setOnClickListener {
-            //observers()
-            //singUp()
+            observers()
+            singUp()
         }
 
         binding.btnAtras.setOnClickListener {

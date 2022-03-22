@@ -1,4 +1,4 @@
-package com.honeykoders.bankodemia
+package com.honeykoders.bankodemia.view
 
 import android.graphics.Color
 import android.os.Bundle
@@ -9,7 +9,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import kotlinx.android.synthetic.main.fragment_customer_data.*
+import com.honeykoders.bankodemia.R
+
 
 class CustomerDataFragment : Fragment() {
 
@@ -35,6 +36,6 @@ class CustomerDataFragment : Fragment() {
             Spannable.SPAN_EXCLUSIVE_INCLUSIVE
         )
         //val tvInfo: TextView = findViewById(R.id.tv_info)
-        tv_info.text = spannable
+        //tv_info.text = spannable
     }
 }

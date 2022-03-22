@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black2"
-    tools:context=".MainActivity">
-
+    android:background="@color/black"
+    tools:context=".view.MainActivity">
 
     <ImageView
         android:id="@+id/imView_titleLogo"
@@ -103,7 +103,6 @@
         app:strokeColor="@color/teal_200"
         app:strokeWidth="2dp"
         tools:ignore="TextContrastCheck" />
-    android:layout_height="match_parent">
 
     <!--androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainerView"
@@ -114,18 +113,19 @@
         app:defaultNavHost="true"
         app:navGraph="@navigation/nav_graph" /-->
 
-    <androidx.fragment.app.FragmentContainerView
+    <!--androidx.fragment.app.FragmentContainerView
        android:id="@+id/fragmentContainerView"
        android:name="androidx.navigation.fragment.NavHostFragment"
        android:layout_width="match_parent"
        android:layout_height="match_parent"
        android:layout_weight="1"
        app:defaultNavHost="true"
-       app:navGraph="@navigation/nav_graph"/>
+       app:navGraph="@navigation/nav_graph"/-->
+
     <!--androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainerView"
         android:name="com.honeykoders.bankodemia.view.Transferencia"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"/-->
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

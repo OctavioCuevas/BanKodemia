@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/transferencia">
+    app:startDestination="@id/subirDocumentoIdentidad">
     <fragment
         android:id="@+id/verificarDocumentoIdentidad"
         android:name="com.honeykoders.bankodemia.view.VerificarDocumentoIdentidad"
