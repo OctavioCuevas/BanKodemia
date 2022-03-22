@@ -64,5 +64,6 @@
     <string name="info_Ready">¡Listo! Recibimos tu información. Usualmente tardamos unos minutos en verficar, pero en caso de tener algún problema, nos comunicaremos contigo.</string>
     <string name="volver_al_inicio">Volver al inicio</string>
     <string name="thnks_bankodemia">¡Gracias por usar Bankodemia!</string>
-
+    <string name="No_tarjeta">Nº Tarjeta</string>
+    <string name="tarjeta">TARJETA</string>
 </resources>
