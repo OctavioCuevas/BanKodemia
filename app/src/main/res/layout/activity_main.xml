@@ -5,10 +5,9 @@
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black"
     tools:context=".view.MainActivity">
 
-    <ImageView
+    <!--ImageView
         android:id="@+id/imView_titleLogo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -104,7 +103,7 @@
         app:strokeWidth="2dp"
         tools:ignore="TextContrastCheck" />
 
-    <!--androidx.fragment.app.FragmentContainerView
+    <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainerView"
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
@@ -113,14 +112,14 @@
         app:defaultNavHost="true"
         app:navGraph="@navigation/nav_graph" /-->
 
-    <!--androidx.fragment.app.FragmentContainerView
+    <androidx.fragment.app.FragmentContainerView
        android:id="@+id/fragmentContainerView"
        android:name="androidx.navigation.fragment.NavHostFragment"
        android:layout_width="match_parent"
        android:layout_height="match_parent"
        android:layout_weight="1"
        app:defaultNavHost="true"
-       app:navGraph="@navigation/nav_graph"/-->
+       app:navGraph="@navigation/nav_graph"/>
 
     <!--androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainerView"

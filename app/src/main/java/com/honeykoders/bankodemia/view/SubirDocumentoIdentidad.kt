@@ -2,6 +2,7 @@ package com.honeykoders.bankodemia.view
 
 import android.annotation.SuppressLint
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
@@ -15,6 +16,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
@@ -23,6 +25,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.honeykoders.bankodemia.R
+import com.honeykoders.bankodemia.common.mostrarMensajeDeError
 import com.honeykoders.bankodemia.databinding.FragmentSubirDocumentoIdentidadBinding
 import com.honeykoders.bankodemia.model.SingUpModel
 import com.honeykoders.bankodemia.viewmodel.SingUpViewModel
@@ -53,10 +56,10 @@ class SubirDocumentoIdentidad : Fragment() {
             result: ActivityResult->
         if (result.resultCode == Activity.RESULT_OK){
             image = BitmapFactory.decodeFile(absolutePathImagen)
-            Log.e("Imagen",image.toString())
+            Log.e("ImagenP", image.toString())
             binding.ivDocId.setImageBitmap(image)
             imageToBase64 = convertImageToBase64(image!!)
-            Log.e("Imagen",imageToBase64.toString())
+            Log.e("Imagen", imageToBase64.toString())
             /*archivoFoto?.also { foto ->
                 viewModel.enviarFoto(foto)
             }*/
@@ -67,12 +70,13 @@ class SubirDocumentoIdentidad : Fragment() {
         val baos = ByteArrayOutputStream()
         image.compress(Bitmap.CompressFormat.JPEG, 100, baos)
         val b = baos.toByteArray()
-        val imageEncoded = Base64.encodeToString(b, Base64.NO_WRAP)
+        val imageEncoded = Base64.encodeToString(b,0,64, Base64.NO_WRAP)
         return imageEncoded;
     }
 
     private fun singUp(){
         /*imagen:"R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" */
+        Log.e("DocIdent",docIdent.toString())
         try {
             val singUp = imageToBase64?.let {image ->
                 SingUpModel(
@@ -81,9 +85,10 @@ class SubirDocumentoIdentidad : Fragment() {
                     "Prueba",
                     "2013-04-14T00:40:37.437Z",
                     "hola1234",
-                    "+524491234567",
+                    "+524491234589",
                     image,
                     docIdent.toString(),
+                    //"INE",
                     "Ingeniero"
                 )
             }
@@ -106,6 +111,15 @@ class SubirDocumentoIdentidad : Fragment() {
             Log.d("SingUp",singUp.success.toString())
             //shared.saveToken(it.access_token)
             //shared.saveSession(login)
+        }
+        viewModel.error.observe(viewLifecycleOwner){ error ->
+            Log.d("ErrorMessage", error)
+            when(error){
+                "User phone already exists" -> context?.let { mostrarMensajeDeError(it,"Número teléfonico ya registrado, ingrese uno diferente") }
+                "User already exists" -> context?.let { mostrarMensajeDeError(it,"Correo registrado con un usuario existente") }
+                else -> null
+            }
+
         }
 
         viewModel.badRequest.observe(viewLifecycleOwner){ badRequest ->
