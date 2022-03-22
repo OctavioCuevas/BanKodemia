@@ -1,9 +1,7 @@
 package com.honeykoders.bankodemia.view
 
 import android.app.AlertDialog
-import android.content.Context
 import android.os.Bundle
-import android.text.Editable
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -12,14 +10,10 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.Toast
 import androidx.fragment.app.viewModels
-import androidx.navigation.Navigation
-import androidx.navigation.findNavController
-import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.textfield.TextInputEditText
 import com.honeykoders.bankodemia.R
-import com.honeykoders.bankodemia.common.mostrarMensajeDeError
-import com.honeykoders.bankodemia.common.validarCantidad
+import com.honeykoders.bankodemia.common.HoneyKodersUtils
 import com.honeykoders.bankodemia.databinding.FragmentDialogTransferenciaBinding
 import com.honeykoders.bankodemia.databinding.FragmentTransferenciaBinding
 import com.honeykoders.bankodemia.model.MakeTransactionPayment
@@ -30,6 +24,7 @@ class Transferencia : Fragment() {
     private var _binding: FragmentTransferenciaBinding? = null
     private val binding get() = _binding!!
     val viewModel: TransactionViewModel by viewModels()
+    val utils: HoneyKodersUtils = HoneyKodersUtils()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -45,7 +40,7 @@ class Transferencia : Fragment() {
 
         btnTransferencia?.setOnClickListener {
             showDialog()
-            val cantidadEnviada = validarCantidad(tiet_cantidad.text)
+            val cantidadEnviada = utils.numberValidationInt(tiet_cantidad.text)
             tiet_cantidad.setText(cantidadEnviada.toString())
             Toast.makeText(context, cantidadEnviada.toString(), Toast.LENGTH_LONG).show()
         }
@@ -126,19 +121,19 @@ class Transferencia : Fragment() {
         viewModel.badRequest.observe(viewLifecycleOwner){ badRequest ->
             if (badRequest){
                 Log.e("badRequest",badRequest.toString())
-                context?.let { mostrarMensajeDeError(it,"Hubo un error, intente más tarde") }
+                context?.let { utils.showMessage(it,"Hubo un error, intente más tarde") }
             }
         }
         viewModel.broken.observe(viewLifecycleOwner){ broken ->
             if (broken){
                 Log.e("Broken",broken.toString())
-                context?.let { mostrarMensajeDeError(it,"Estas quebrado.") }
+                context?.let { utils.showMessage(it,"Estas quebrado.") }
             }
         }
         viewModel.inssuficientFunds.observe(viewLifecycleOwner){ inssuficientFunds ->
             if (inssuficientFunds){
                 Log.e("inssuficientFunds",inssuficientFunds.toString())
-                context?.let { mostrarMensajeDeError(it,"Fondos insuficientes") }
+                context?.let { utils.showMessage(it,"Fondos insuficientes") }
             }
         }
     }
