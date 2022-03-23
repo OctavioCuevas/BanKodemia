@@ -18,7 +18,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/bk" />
+            app:srcCompat="@drawable/bk"
+            android:contentDescription="@string/bankodemia_logo" />
 
         <ImageView
             android:id="@+id/imageView"
@@ -30,7 +31,8 @@
             app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.408" />
+            app:layout_constraintVertical_bias="0.408"
+            android:contentDescription="@string/transaction_done" />
 
         <TextView
             android:id="@+id/tu_transacc"
@@ -51,7 +53,7 @@
             android:layout_width="297dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="32dp"
-            android:fontFamily="@font/poppins"
+            style="@style/button"
             android:text="@string/volver_a_inicio"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

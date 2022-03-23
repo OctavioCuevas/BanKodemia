@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/subirDocumentoIdentidad">
+    app:startDestination="@id/welcome">
     <fragment
         android:id="@+id/verificarDocumentoIdentidad"
         android:name="com.honeykoders.bankodemia.view.VerificarDocumentoIdentidad"
@@ -12,6 +12,9 @@
         <action
             android:id="@+id/action_verificarDocumentoIdentidad_to_seleccionarDocumentoIdentidad"
             app:destination="@id/seleccionarDocumentoIdentidad" />
+        <action
+            android:id="@+id/action_verificarDocumentoIdentidad_to_phoneFragment"
+            app:destination="@id/phoneFragment" />
     </fragment>
     <fragment
         android:id="@+id/seleccionarDocumentoIdentidad"
@@ -37,6 +40,9 @@
         <action
             android:id="@+id/action_subirDocumentoIdentidad_to_seleccionarDocumentoIdentidad"
             app:destination="@id/seleccionarDocumentoIdentidad" />
+        <action
+            android:id="@+id/action_subirDocumentoIdentidad_to_passwordFragment"
+            app:destination="@id/passwordFragment" />
     </fragment>
     <fragment
         android:id="@+id/transferencia"
@@ -46,6 +52,9 @@
         <action
             android:id="@+id/action_transferencia_to_dialogTransferencia"
             app:destination="@id/dialogTransferencia" />
+        <action
+            android:id="@+id/action_transferencia_to_sendMoney"
+            app:destination="@id/sendMoney" />
     </fragment>
     <fragment
         android:id="@+id/procesandoTransaccion"
@@ -74,5 +83,118 @@
             android:id="@+id/action_dialogTransferencia_to_procesandoTransaccion"
             app:destination="@id/procesandoTransaccion" />
     </dialog>
+    <fragment
+        android:id="@+id/welcome"
+        android:name="com.honeykoders.bankodemia.view.Welcome"
+        android:label="fragment_welcome"
+        tools:layout="@layout/fragment_welcome" >
+        <action
+            android:id="@+id/action_welcome_to_login"
+            app:destination="@id/login" />
+        <action
+            android:id="@+id/action_welcome_to_createAccount"
+            app:destination="@id/createAccount" />
+    </fragment>
+    <fragment
+        android:id="@+id/login"
+        android:name="com.honeykoders.bankodemia.view.Login"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" />
+    <fragment
+        android:id="@+id/createAccount"
+        android:name="com.honeykoders.bankodemia.view.CreateAccount"
+        android:label="fragment_create_account"
+        tools:layout="@layout/fragment_create_account" >
+        <action
+            android:id="@+id/action_createAccount_to_customerDataFragment"
+            app:destination="@id/customerDataFragment" />
+        <action
+            android:id="@+id/action_createAccount_to_welcome"
+            app:destination="@id/welcome" />
+    </fragment>
+    <fragment
+        android:id="@+id/customerDataFragment"
+        android:name="com.honeykoders.bankodemia.view.CustomerDataFragment"
+        android:label="fragment_customer_data"
+        tools:layout="@layout/fragment_customer_data" >
+        <action
+            android:id="@+id/action_customerDataFragment_to_phoneFragment"
+            app:destination="@id/phoneFragment" />
+        <action
+            android:id="@+id/action_customerDataFragment_to_createAccount"
+            app:destination="@id/createAccount" />
+    </fragment>
+    <fragment
+        android:id="@+id/phoneFragment"
+        android:name="com.honeykoders.bankodemia.view.PhoneFragment"
+        android:label="PhoneFragment"
+        tools:layout="@layout/fragment_phone">
+        <action
+            android:id="@+id/action_phoneFragment_to_verificarDocumentoIdentidad"
+            app:destination="@id/verificarDocumentoIdentidad" />
+        <action
+            android:id="@+id/action_phoneFragment_to_customerDataFragment"
+            app:destination="@id/customerDataFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/passwordFragment"
+        android:name="com.honeykoders.bankodemia.PasswordFragment"
+        android:label="PasswordFragment"
+        tools:layout="@layout/fragment_password">
+        <action
+            android:id="@+id/action_passwordFragment_to_subirDocumentoIdentidad"
+            app:destination="@id/subirDocumentoIdentidad" />
+        <action
+            android:id="@+id/action_passwordFragment_to_sendingInfoFragment"
+            app:destination="@id/sendingInfoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/sendingInfoFragment"
+        android:name="com.honeykoders.bankodemia.SendingInfoFragment"
+        android:label="fragment_sending_info"
+        tools:layout="@layout/fragment_sending_info" >
+        <action
+            android:id="@+id/action_sendingInfoFragment_to_ok_infoFragment"
+            app:destination="@id/ok_infoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/ok_infoFragment"
+        android:name="com.honeykoders.bankodemia.ok_infoFragment"
+        android:label="fragment_ok_info"
+        tools:layout="@layout/fragment_ok_info" >
+        <action
+            android:id="@+id/action_ok_infoFragment_to_welcome"
+            app:destination="@id/welcome" />
+    </fragment>
+    <fragment
+        android:id="@+id/sendMoney"
+        android:name="com.honeykoders.bankodemia.view.sendMoney"
+        android:label="sendMoney"
+        tools:layout="@layout/fragment_send_money">
+        <action
+            android:id="@+id/action_sendMoney_to_transferencia"
+            app:destination="@id/transferencia" />
+        <action
+            android:id="@+id/action_sendMoney_to_addNewContact"
+            app:destination="@id/addNewContact" />
+    </fragment>
+    <fragment
+        android:id="@+id/addNewContact"
+        android:name="com.honeykoders.bankodemia.view.addNewContact"
+        android:label="fragment_add_new_contact"
+        tools:layout="@layout/fragment_add_new_contact" >
+        <action
+            android:id="@+id/action_addNewContact_to_endAddContact"
+            app:destination="@id/endAddContact" />
+    </fragment>
+    <fragment
+        android:id="@+id/endAddContact"
+        android:name="com.honeykoders.bankodemia.view.endAddContact"
+        android:label="endAddContact"
+        tools:layout="@layout/fragment_end_add_contact">
+        <action
+            android:id="@+id/action_endAddContact_to_login"
+            app:destination="@id/login" />
+    </fragment>
 
 </navigation>

@@ -18,7 +18,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/bk" />
+            app:srcCompat="@drawable/bk"
+            android:contentDescription="@string/bankodemia_logo" />
 
         <Button
             android:id="@+id/btn_atras"
@@ -38,13 +39,13 @@
             android:id="@+id/tv_enviar_a"
             android:layout_width="wrap_content"
             android:layout_height="21dp"
-            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginStart="16dp"
             android:layout_marginTop="32dp"
             android:gravity="center_horizontal|top"
             android:text="@string/enviar_a"
-            android:textAppearance="@style/enviar_a"
+            android:textAppearance="@style/boldTitle"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btn_atras" />
 
@@ -52,13 +53,13 @@
             android:id="@+id/tv_nombre_beneficiario"
             android:layout_width="wrap_content"
             android:layout_height="21dp"
-            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:gravity="top"
             android:text="@string/nombre_beneficiario"
-            android:textAppearance="@style/nombre_beneficiario"
+            android:textAppearance="@style/boldTitle"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_enviar_a" />
 
@@ -71,7 +72,7 @@
             android:layout_marginStart="16dp"
             android:gravity="top"
             android:text="@string/cuenta_banco"
-            android:textAppearance="@style/cuenta_banco"
+            android:textAppearance="@style/singleTitle"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_nombre_beneficiario" />
 
@@ -85,7 +86,7 @@
             android:layout_marginTop="16dp"
             android:gravity="center_horizontal|top"
             android:text="@string/cantidad"
-            android:textAppearance="@style/cantidad"
+            android:textAppearance="@style/singleTitle"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_cuenta_banco" />
 
@@ -132,7 +133,7 @@
             android:layout_marginTop="16dp"
             android:gravity="center_horizontal|top"
             android:text="@string/concepto_de"
-            android:textAppearance="@style/concepto_de"
+            android:textAppearance="@style/singleTitle"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/spei_sin_co" />
 
@@ -147,7 +148,7 @@
             app:layout_constraintTop_toBottomOf="@+id/concepto_de">
 
             <com.google.android.material.textfield.TextInputEditText
-                style="@style/pago_croque"
+                style="@style/singleTitle"
                 android:id="@+id/tiet_concepto"
                 android:layout_width="match_parent"
                 android:text="@string/pago_croque"
@@ -160,7 +161,7 @@
             android:layout_width="297dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="32dp"
-            android:fontFamily="@font/poppins"
+            style="@style/button"
             android:text="@string/hacertransferencia"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

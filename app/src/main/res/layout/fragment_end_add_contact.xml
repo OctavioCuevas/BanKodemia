@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".endAddContact">
+    tools:context="view.endAddContact">
 
     <ImageView
         android:id="@+id/imageView_bk"
@@ -22,14 +22,14 @@
         android:id="@+id/iv_endContact"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="130dp"
         android:layout_marginEnd="64dp"
+        android:layout_marginStart="64dp"
         android:contentDescription="@null"
         android:src="@drawable/contacts"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView_bk"
+        app:layout_constraintTop_toTopOf="parent"
         tools:ignore="ImageContrastCheck" />
 
     <TextView
@@ -37,28 +37,25 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:fontFamily="@font/poppins_medium"
+        style="@style/boldTitle"
         android:text="@string/endAddContacttxt"
-        android:textColor="@color/black2"
         app:layout_constraintEnd_toEndOf="@+id/iv_endContact"
         app:layout_constraintStart_toStartOf="@+id/iv_endContact"
         app:layout_constraintTop_toBottomOf="@+id/iv_endContact" />
 
     <Button
         android:id="@+id/button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
+        android:layout_width="297dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="32dp"
         android:layout_marginEnd="24dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginStart="24dp"
         android:fontFamily="@font/poppins_medium"
         android:text="@string/backtomaintxtbtn"
-        android:textSize="16sp"
-        app:cornerRadius="6dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="TextContrastCheck"/>
+        tools:ignore="TextContrastCheck" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

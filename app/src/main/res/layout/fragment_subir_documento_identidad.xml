@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.subir_documento_identidad">
+    tools:context=".view.SubirDocumentoIdentidad">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -32,7 +32,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/bk" />
+            app:srcCompat="@drawable/bk"
+            android:contentDescription="@string/bankodemia_logo" />
 
         <ImageView
             android:id="@+id/iv_doc_id"
@@ -45,7 +46,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.454"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_dale_permiso" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_dale_permiso"
+            android:contentDescription="@string/identitydocument" />
 
         <TextView
             android:id="@+id/tv_dale_permiso"
@@ -53,22 +55,21 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="24dp"
             android:layout_marginStart="24dp"
-            android:fontFamily="@font/poppins"
+            style="@style/boldTitle"
             android:text="@string/dale_permis"
-            android:textColor="#161616"
-            android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btn_atras" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_tomar_foto"
+            style="@style/button"
             android:layout_width="wrap_content"
-            android:layout_height="42dp"
+            android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
             android:layout_marginStart="16dp"
-            android:fontFamily="@font/poppins"
-            android:text="Tomar Foto"
+            android:layout_marginTop="8dp"
+            android:text="@string/tomar_foto"
             app:icon="@drawable/ic_baseline_photo_camera_24"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -76,10 +77,10 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_subir_informacion"
+            style="@style/button"
             android:layout_width="297dp"
-            android:layout_height="42dp"
+            android:layout_height="wrap_content"
             android:layout_marginBottom="32dp"
-            android:fontFamily="@font/poppins"
             android:text="@string/subir_informacion"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

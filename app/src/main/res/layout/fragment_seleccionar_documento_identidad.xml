@@ -17,7 +17,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/bk" />
+            app:srcCompat="@drawable/bk"
+            android:contentDescription="@string/bankodemia_logo" />
 
         <Button
             android:id="@+id/btn_atras"
@@ -39,10 +40,8 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="24dp"
             android:layout_marginStart="24dp"
-            android:fontFamily="@font/poppins"
+            style="@style/boldTitle"
             android:text="@string/seleccionado"
-            android:textColor="#161616"
-            android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btn_atras" />
@@ -54,7 +53,7 @@
             android:layout_marginStart="32dp"
             android:layout_marginTop="24dp"
             android:text="@string/ine"
-            style="@style/ine"
+            style="@style/singleTitle"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_dale_permiso" />
 
@@ -76,7 +75,7 @@
             android:layout_marginStart="32dp"
             android:layout_marginTop="32dp"
             android:text="@string/documento_m"
-            android:textColor="#4D4D4D"
+            style="@style/singleTitle"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ine" />
 
@@ -93,7 +92,7 @@
 
         <TextView
             android:id="@+id/pasaporte"
-            style="@style/pasaporte"
+            style="@style/singleTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
@@ -119,13 +118,13 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="24dp"
             android:clickable="true"
-            android:fontFamily="@font/poppins"
             android:gravity="center_horizontal|top"
             android:text="@string/conoce_c_mo"
-            android:textAppearance="@style/conoce_c_mo"
+            style="@style/singleTitle"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            android:focusable="true" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
