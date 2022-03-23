@@ -25,7 +25,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.honeykoders.bankodemia.R
-import com.honeykoders.bankodemia.common.mostrarMensajeDeError
+import com.honeykoders.bankodemia.common.HoneyKodersUtils
 import com.honeykoders.bankodemia.databinding.FragmentSubirDocumentoIdentidadBinding
 import com.honeykoders.bankodemia.model.SingUpModel
 import com.honeykoders.bankodemia.viewmodel.SingUpViewModel
@@ -49,6 +49,7 @@ class SubirDocumentoIdentidad : Fragment() {
     var imageToBase64: String? = null
     var docIdent: String? = null
     val viewModel: SingUpViewModel by viewModels()
+    val utils: HoneyKodersUtils = HoneyKodersUtils()
 
     private val startForResult = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
@@ -115,8 +116,8 @@ class SubirDocumentoIdentidad : Fragment() {
         viewModel.error.observe(viewLifecycleOwner){ error ->
             Log.d("ErrorMessage", error)
             when(error){
-                "User phone already exists" -> context?.let { mostrarMensajeDeError(it,"Número teléfonico ya registrado, ingrese uno diferente") }
-                "User already exists" -> context?.let { mostrarMensajeDeError(it,"Correo registrado con un usuario existente") }
+                "User phone already exists" -> context?.let { utils.showMessage(it,"Número teléfonico ya registrado, ingrese uno diferente") }
+                "User already exists" -> context?.let { utils.showMessage(it,"Correo registrado con un usuario existente") }
                 else -> null
             }
 

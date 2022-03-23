@@ -88,14 +88,14 @@
         android:textAlignment="center"
         android:textColor="@color/purple"
         android:textSize="14sp"
-        app:layout_constraintBottom_toTopOf="@+id/btn_createAccount"
+        app:layout_constraintBottom_toTopOf="@+id/btn_iniciarSesion"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="TextContrastCheck" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_createAccount"
+        android:id="@+id/btn_iniciarSesion"
         style="@style/button"
         android:layout_width="297dp"
         android:layout_height="wrap_content"

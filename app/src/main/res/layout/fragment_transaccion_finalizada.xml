@@ -43,7 +43,7 @@
             android:layout_marginTop="8dp"
             android:gravity="center_horizontal|top"
             android:text="@string/tu_transacc"
-            android:textAppearance="@style/tu_transacc"
+            android:textAppearance="@style/boldTitle"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView" />

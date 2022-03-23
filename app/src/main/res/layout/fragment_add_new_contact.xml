@@ -194,7 +194,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_createAccount"
+        android:id="@+id/btn_iniciarSesion"
         android:layout_width="297dp"
         android:layout_height="48dp"
         android:layout_marginBottom="32dp"
