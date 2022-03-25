@@ -58,5 +58,23 @@
     <string name="espera_un_m">Espera un momento, estamos procesando tu transacción</string>
     <string name="tu_transacc">Tu transacción ha sido finalizada</string>
     <string name="volver_a_inicio">Volver a Inicio</string>
+    <string name="logosendinninfo">logoSendinnInfo</string>
+    <string name="logoheader">logoheader</string>
+    <string name="image_fly">image_Fly</string>
+    <string name="info_Ready">¡Listo! Recibimos tu información. Usualmente tardamos unos minutos en verficar, pero en caso de tener algún problema, nos comunicaremos contigo.</string>
+    <string name="volver_al_inicio">Volver al inicio</string>
+    <string name="thnks_bankodemia">¡Gracias por usar Bankodemia!</string>
+    <string name="No_tarjeta">Nº Tarjeta</string>
+    <string name="tarjeta">TARJETA</string>
+    <string name="title_nav_servicios">SERVICIOS</string>
+    <string name="title_nav_inicio">INICIO</string>
+    <string name="title_nav_tarjeta">TARJETA</string>
+    <string name="cuenta_emisora">CUENTA EMISORA</string>
+    <string name="no_cuenta">Número de Cuenta</string>
+    <string name="detalle_transaccion">DETALLE DE TRANSACCIÓN</string>
+    <string name="id_transaccion">ID DE TRANSACCIÓN</string>
+    <string name="concepto">CONCEPTO</string>
+    <string name="fecha_hora">FECHA Y HORA</string>
+    <string name="dinero_disponible">DINERO DISPONIBLE</string>
 
 </resources>

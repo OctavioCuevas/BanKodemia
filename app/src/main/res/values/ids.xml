@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="textView21" type="id">textView21</item>
+    <item name="textView22" type="id">textView22</item>
+    <item name="cardView5" type="id">cardView5</item>
+    <item name="textView19" type="id">textView19</item>
+    <item name="textView20" type="id">textView20</item>
+    <item name="textView18" type="id">textView18</item>
+    <item name="textView17" type="id">textView17</item>
+    <item name="textView16" type="id">textView16</item>
+    <item name="textView15" type="id">textView15</item>
+    <item name="textView14" type="id">textView14</item>
+    <item name="textView13" type="id">textView13</item>
+    <item name="textView12" type="id">textView12</item>
+    <item name="textView11" type="id">textView11</item>
+    <item name="textView10" type="id">textView10</item>
+    <item name="cardView4" type="id">cardView4</item>
+</resources>
