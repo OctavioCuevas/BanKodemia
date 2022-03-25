@@ -26,7 +26,7 @@
             style="@style/Widget.Material3.Button.TextButton.Icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/poppins"
+            android:fontFamily="@font/poppins2"
             android:text="@string/ingresa_tus_datos"
             android:textColor="#626262"
             android:textSize="14sp"
@@ -150,12 +150,12 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/til_work" />
 
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/til_birthday"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:inputType="date"
             android:layout_marginHorizontal="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -163,6 +163,7 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/tiet_birthday"
+                android:inputType="date"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
@@ -170,7 +171,7 @@
 
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_password"
+            android:id="@+id/btn_continuar"
             style="@style/button"
             android:layout_width="297dp"
             android:layout_height="wrap_content"
@@ -195,9 +196,9 @@
             android:layout_marginTop="8dp"
             android:text="@string/esta_informaci_n_es_necesaria_para_verificar_tu_identidad_nunca_la_usaremos_sin_tu_consentimiento"
             android:textAlignment="center"
-            app:layout_constraintBottom_toTopOf="@+id/btn_password"
-            app:layout_constraintEnd_toEndOf="@+id/btn_password"
-            app:layout_constraintStart_toStartOf="@+id/btn_password"
+            app:layout_constraintBottom_toTopOf="@+id/btn_continuar"
+            app:layout_constraintEnd_toEndOf="@+id/btn_continuar"
+            app:layout_constraintStart_toStartOf="@+id/btn_continuar"
             app:layout_constraintTop_toBottomOf="@+id/til_birthday" />
 
 

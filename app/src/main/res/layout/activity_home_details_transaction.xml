@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeDetailsTransactionActivity">
+    tools:context=".view.HomeDetailsTransactionActivity">
   <ImageView
-      android:id="@+id/imageView"
+      android:id="@+id/iv_user"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginTop="18dp"
@@ -14,7 +14,7 @@
       app:layout_constraintEnd_toStartOf="@+id/guidelineLeft"
       app:layout_constraintHorizontal_bias="0.25"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="@+id/imageView3" />
+      app:layout_constraintTop_toTopOf="@+id/iv_bk_icon" />
 
   <androidx.constraintlayout.widget.Guideline
       android:id="@+id/guidelineCenter"
@@ -38,7 +38,7 @@
       app:layout_constraintGuide_percent="0.6666" />
 
   <ImageView
-      android:id="@+id/imageView2"
+      android:id="@+id/iv_info"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginTop="16dp"
@@ -46,10 +46,10 @@
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintHorizontal_bias="0.75"
       app:layout_constraintStart_toStartOf="@+id/guidelineRight"
-      app:layout_constraintTop_toTopOf="@+id/imageView3" />
+      app:layout_constraintTop_toTopOf="@+id/iv_bk_icon" />
 
   <ImageView
-      android:id="@+id/imageView3"
+      android:id="@+id/iv_bk_icon"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginTop="24dp"
@@ -59,20 +59,20 @@
       app:layout_constraintTop_toTopOf="parent" />
 
   <TextView
-      android:id="@+id/textView2"
+      android:id="@+id/tv_servicios_t"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginStart="24dp"
       android:layout_marginTop="56dp"
-      android:fontFamily="@font/poppins"
+      android:fontFamily="@font/poppins2"
       android:text="@string/detalle_transaccion"
       android:textColor="@color/black2"
       android:textSize="16sp"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+      app:layout_constraintTop_toBottomOf="@+id/iv_bk_icon" />
 
   <TextView
-      android:id="@+id/textView_monto_home"
+      android:id="@+id/tv_cantidad_disponible"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginTop="24dp"
@@ -82,54 +82,54 @@
       android:text="$110.00"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/textView2"
+      app:layout_constraintTop_toBottomOf="@+id/tv_servicios_t"
       tools:text="$110.00" />
 
   <TextView
-      android:id="@+id/textView_concepto_home"
+      android:id="@+id/tv_concepto"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:fontFamily="@font/poppins"
+      android:fontFamily="@font/poppins2"
       android:text="Renta"
       android:textColor="@color/black2"
       android:textSize="14sp"
-      app:layout_constraintEnd_toEndOf="@+id/textView_monto_home"
-      app:layout_constraintStart_toStartOf="@+id/textView_monto_home"
-      app:layout_constraintTop_toBottomOf="@+id/textView_monto_home"
+      app:layout_constraintEnd_toEndOf="@+id/tv_cantidad_disponible"
+      app:layout_constraintStart_toStartOf="@+id/tv_cantidad_disponible"
+      app:layout_constraintTop_toBottomOf="@+id/tv_cantidad_disponible"
       tools:text="Renta Isabel" />
 
   <TextView
-      android:id="@+id/textView24"
+      android:id="@+id/tv_fecha_hora"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginStart="24dp"
       android:layout_marginTop="64dp"
       android:textStyle="bold"
-      android:fontFamily="@font/poppins"
+      android:fontFamily="@font/poppins2"
       android:textColor="@color/black2"
       android:textSize="14sp"
       android:text="@string/fecha_hora"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/textView_concepto_home" />
+      app:layout_constraintTop_toBottomOf="@+id/tv_concepto" />
 
   <TextView
       android:id="@+id/textView_fecha_home"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:fontFamily="@font/poppins"
+      android:fontFamily="@font/poppins2"
       android:textColor="@color/black2"
       android:textSize="14sp"
       android:text="21 de marzo de 2022, 9:00 p.m."
-      app:layout_constraintStart_toStartOf="@+id/textView24"
-      app:layout_constraintTop_toBottomOf="@+id/textView24" />
+      app:layout_constraintStart_toStartOf="@+id/tv_fecha_hora"
+      app:layout_constraintTop_toBottomOf="@+id/tv_fecha_hora" />
 
   <TextView
-      android:id="@+id/textView26"
+      android:id="@+id/tv_id_transaccion"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginTop="16dp"
       android:textStyle="bold"
-      android:fontFamily="@font/poppins"
+      android:fontFamily="@font/poppins2"
       android:textColor="@color/black2"
       android:textSize="14sp"
       android:text="@string/id_transaccion"
@@ -137,15 +137,15 @@
       app:layout_constraintTop_toBottomOf="@+id/textView_fecha_home" />
 
   <TextView
-      android:id="@+id/textView_id_transaccion_home"
+      android:id="@+id/tv_id_transaccion_t"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:fontFamily="@font/poppins"
+      android:fontFamily="@font/poppins2"
       android:textColor="@color/black2"
       android:textSize="14sp"
       android:text="HGB557489948Cd58574"
-      app:layout_constraintStart_toStartOf="@+id/textView26"
-      app:layout_constraintTop_toBottomOf="@+id/textView26" />
+      app:layout_constraintStart_toStartOf="@+id/tv_id_transaccion"
+      app:layout_constraintTop_toBottomOf="@+id/tv_id_transaccion" />
 
   <TextView
       android:id="@+id/textView28"
@@ -153,18 +153,18 @@
       android:layout_height="wrap_content"
       android:layout_marginTop="16dp"
       android:textStyle="bold"
-      android:fontFamily="@font/poppins"
+      android:fontFamily="@font/poppins2"
       android:textColor="@color/black2"
       android:textSize="14sp"
       android:text="@string/concepto"
-      app:layout_constraintStart_toStartOf="@+id/textView_id_transaccion_home"
-      app:layout_constraintTop_toBottomOf="@+id/textView_id_transaccion_home" />
+      app:layout_constraintStart_toStartOf="@+id/tv_id_transaccion_t"
+      app:layout_constraintTop_toBottomOf="@+id/tv_id_transaccion_t" />
 
   <TextView
       android:id="@+id/textView_concepto2_home"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:fontFamily="@font/poppins"
+      android:fontFamily="@font/poppins2"
       android:textColor="@color/black2"
       android:textSize="14sp"
       android:text="Renta Isabel"
@@ -172,12 +172,12 @@
       app:layout_constraintTop_toBottomOf="@+id/textView28" />
 
   <TextView
-      android:id="@+id/textView30"
+      android:id="@+id/tv_cuenta_emisora"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginTop="16dp"
       android:textStyle="bold"
-      android:fontFamily="@font/poppins"
+      android:fontFamily="@font/poppins2"
       android:textColor="@color/black2"
       android:textSize="14sp"
       android:text="@string/cuenta_emisora"
@@ -185,24 +185,24 @@
       app:layout_constraintTop_toBottomOf="@+id/textView_concepto2_home" />
 
   <TextView
-      android:id="@+id/textView31"
+      android:id="@+id/tv_numero_cuenta"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:fontFamily="@font/poppins"
+      android:fontFamily="@font/poppins2"
       android:textColor="@color/black2"
       android:textSize="14sp"
       android:text="@string/no_cuenta"
-      app:layout_constraintStart_toStartOf="@+id/textView30"
-      app:layout_constraintTop_toBottomOf="@+id/textView30" />
+      app:layout_constraintStart_toStartOf="@+id/tv_cuenta_emisora"
+      app:layout_constraintTop_toBottomOf="@+id/tv_cuenta_emisora" />
 
   <TextView
-      android:id="@+id/textView_cuenta_emisora_home"
+      android:id="@+id/tv_numero_cuenta_emisora"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:fontFamily="@font/poppins"
+      android:fontFamily="@font/poppins2"
       android:textColor="@color/black2"
       android:textSize="14sp"
       android:text="**** 5892 87"
-      app:layout_constraintStart_toStartOf="@+id/textView31"
-      app:layout_constraintTop_toBottomOf="@+id/textView31" />
+      app:layout_constraintStart_toStartOf="@+id/tv_numero_cuenta"
+      app:layout_constraintTop_toBottomOf="@+id/tv_numero_cuenta" />
   </androidx.constraintlayout.widget.ConstraintLayout>

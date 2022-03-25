@@ -68,7 +68,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginEnd="16dp"
-                    android:fontFamily="@font/poppins"
+                    android:fontFamily="@font/poppins2"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tv_labelmail">
@@ -78,7 +78,7 @@
                         android:id="@+id/tiet_maillogin"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/poppins"
+                        android:fontFamily="@font/poppins2"
                         android:inputType="textEmailAddress"
                         tools:ignore="TextContrastCheck,SpeakableTextPresentCheck" />
                 </com.google.android.material.textfield.TextInputLayout>
@@ -101,7 +101,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginEnd="16dp"
-                    android:fontFamily="@font/poppins"
+                    android:fontFamily="@font/poppins2"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tv_labelpwd"
@@ -112,7 +112,7 @@
                         android:id="@+id/tiet_pwdlogin"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/poppins"
+                        android:fontFamily="@font/poppins2"
                         android:inputType="textPassword"
                         tools:ignore="TextContrastCheck,SpeakableTextPresentCheck" />
                 </com.google.android.material.textfield.TextInputLayout>
@@ -137,7 +137,7 @@
         android:layout_marginBottom="24dp"
         android:layout_marginEnd="24dp"
         android:layout_marginStart="24dp"
-        android:fontFamily="@font/poppins"
+        android:fontFamily="@font/poppins2"
         android:text="@string/helpmailbk"
         android:textAlignment="center"
         android:textColor="@color/purple"

@@ -15,7 +15,7 @@
             style="@style/Widget.Material3.Button.TextButton.Icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/poppins"
+            android:fontFamily="@font/poppins2"
             android:text="@string/ine"
             android:textColor="#626262"
             android:textSize="14sp"

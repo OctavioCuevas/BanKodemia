@@ -68,7 +68,7 @@
             app:srcCompat="@drawable/mainpageimg" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_iniciarSesion"
+            android:id="@+id/btn_crearCuenta"
             style="@style/button"
             android:layout_width="297dp"
             android:layout_height="wrap_content"
@@ -89,15 +89,15 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:backgroundTint="@color/black2"
-            android:fontFamily="@font/poppins"
+            android:fontFamily="@font/poppins2"
             android:textSize="18sp"
             app:cornerRadius="6sp"
             android:text="@string/logintxt"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/btn_iniciarSesion"
+            app:layout_constraintEnd_toEndOf="@+id/btn_crearCuenta"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/btn_iniciarSesion"
-            app:layout_constraintTop_toBottomOf="@+id/btn_iniciarSesion"
+            app:layout_constraintStart_toStartOf="@+id/btn_crearCuenta"
+            app:layout_constraintTop_toBottomOf="@+id/btn_crearCuenta"
             app:layout_constraintVertical_bias="0.0"
             app:strokeColor="@color/teal_200"
             app:strokeWidth="2dp"

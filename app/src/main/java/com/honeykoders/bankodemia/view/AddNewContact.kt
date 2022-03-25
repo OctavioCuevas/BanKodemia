@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.honeykoders.bankodemia.R
 import com.honeykoders.bankodemia.databinding.FragmentAddNewContactBinding
 
@@ -38,6 +39,13 @@ class addNewContact : Fragment() {
         // Inflate the layout for this fragment
         _binding = FragmentAddNewContactBinding.inflate(inflater, container, false)
         val root: View = binding.root
+        binding.btnBacktomain.setOnClickListener {
+            findNavController().navigate(R.id.sendMoney)
+        }
+        binding.btnAddNewContact.setOnClickListener {
+            //Agregar nuevo contacto
+            //findNavController().navigate(R.id.endAddContact)
+        }
 
         return root
     }

@@ -1,10 +1,10 @@
 package com.honeykoders.bankodemia.test
 
-import com.honeykoders.bankodemia.common.HoneyKodersUtils
+import com.honeykoders.bankodemia.common.Utils
 //Borrar este archivo a la entrega de proyecto
 
 fun main () {
-    val utils: HoneyKodersUtils = HoneyKodersUtils()
+    val utils: Utils = Utils()
     val x = "56.5"
     val y = "6"
     println("$x es entero: ${utils.isIntNumber(x)}")

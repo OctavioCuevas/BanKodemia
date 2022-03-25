@@ -6,7 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.honeykoders.bankodemia.HomeActivity
+import androidx.navigation.fragment.findNavController
+import com.honeykoders.bankodemia.R
 import com.honeykoders.bankodemia.databinding.ActivityHomeBinding
 import com.honeykoders.bankodemia.databinding.FragmentLoginBinding
 
@@ -26,6 +27,9 @@ class Login : Fragment() {
         binding.btnIniciarSesion.setOnClickListener {
             val intent = Intent(activity, HomeActivity::class.java)
             startActivity(intent)
+        }
+        binding.btnBacktomain.setOnClickListener {
+            findNavController().navigate(R.id.welcome)
         }
         return root
     }

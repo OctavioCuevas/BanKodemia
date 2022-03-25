@@ -102,5 +102,35 @@
     <string name="concepto">CONCEPTO</string>
     <string name="fecha_hora">FECHA Y HORA</string>
     <string name="dinero_disponible">DINERO DISPONIBLE</string>
+    <string name="enviar">Enviar</string>
+    <string name="recibir">Recibir</string>
+    <string name="moneyAvailable">$160.00</string>
+    <string name="vigencia">Vigencia</string>
+    <string name="cvv">CVV</string>
+    <string name="telcel_at_t_movistar"><![CDATA[Telcel, AT&T, Movistar]]></string>
+    <string name="internet_tv_tel_fono">Internet/TV/Teléfono</string>
+    <string name="telmex_izzi_totalplay">Telmex, Izzi, TotalPlay</string>
+    <string name="naturgy_y_compa_a_mexicana">Naturgy y Compañía Mexicana</string>
+    <string name="gas">Gas</string>
+    <string name="servicios">SERVICIOS</string>
+    <string name="tarjetas_de_cr_dito">Tarjetas de crédito</string>
+    <string name="tiendas_departamentales">Tiendas departamentales</string>
+    <string name="liverpool_sears_palacio_de_hierro">Liverpool, Sears, Palacio de Hierro</string>
+    <string name="fechaDetalle">21 de marzo de 2022, 9:00 p.m.</string>
+    <string name="cantidadTransaccion">$110.00</string>
+    <string name="Id_transaccion">HGB557489948Cd58574</string>
+    <string name="conceptp">Renta Isabel</string>
+    <string name="concepto_transaccion">Renta</string>
+    <string name="numero_cuenta">**** 5892 87</string>
+    <string name="numero_tarjeta_real">5439 2464 7664 2003</string>
+    <string name="vigencia_real">11/26</string>
+    <string name="CVV_real">125</string>
+    <!--Errores-->
+    <string name="requiredField">El campo es requerido</string>
+    <string name="userphonealreadyexists">Número teléfonico ya registrado, ingrese uno diferente</string>
+    <string name="useralreadyexists">Número teléfonico ya registrado, ingrese uno diferente</string>
+    <string name="broken">Estas quebrado :(</string>
+    <string name="serverError">Hubo un error, intente más tarde</string>
+    <string name="insufficientFunds">Fondos insuficientes</string>
 
 </resources>

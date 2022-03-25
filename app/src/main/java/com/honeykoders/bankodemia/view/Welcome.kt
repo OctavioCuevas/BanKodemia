@@ -26,6 +26,9 @@ class Welcome : Fragment() {
         binding.btnLogin.setOnClickListener {
             findNavController().navigate(R.id.login)
         }
+        binding.btnCrearCuenta.setOnClickListener {
+            findNavController().navigate(R.id.createAccount)
+        }
         return root
     }
 

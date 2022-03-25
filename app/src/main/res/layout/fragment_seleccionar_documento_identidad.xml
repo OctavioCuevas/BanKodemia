@@ -25,7 +25,7 @@
             style="@style/Widget.Material3.Button.TextButton.Icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/poppins"
+            android:fontFamily="@font/poppins2"
             android:text="@string/identidad"
             android:textColor="#626262"
             app:icon="@drawable/ic_baseline_arrow_back"
@@ -69,7 +69,7 @@
             app:layout_constraintTop_toTopOf="@+id/ine" />
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/tv_servicios_t"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
@@ -88,7 +88,7 @@
             app:icon="@drawable/ic_baseline_arrow_forward"
             app:iconTint="#000000"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/textView2" />
+            app:layout_constraintTop_toTopOf="@+id/tv_servicios_t" />
 
         <TextView
             android:id="@+id/pasaporte"
@@ -99,7 +99,7 @@
             android:layout_marginTop="32dp"
             android:text="@string/pasaporte"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView2" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_servicios_t" />
 
         <Button
             android:id="@+id/btn_Pasaporte"

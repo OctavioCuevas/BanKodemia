@@ -93,7 +93,7 @@
                     android:id="@+id/tiet_addCont_acNumb"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
-                    android:fontFamily="@font/poppins"
+                    android:fontFamily="@font/poppins2"
                     android:inputType="number"
 
                     tools:ignore="TextContrastCheck,SpeakableTextPresentCheck" />
@@ -126,7 +126,7 @@
                     android:id="@+id/tiet_addCont_insti"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
-                    android:fontFamily="@font/poppins"
+                    android:fontFamily="@font/poppins2"
                     android:inputType="number"
                     tools:ignore="TextContrastCheck,SpeakableTextPresentCheck" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -157,7 +157,7 @@
                     android:id="@+id/tiet_addCont_name"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
-                    android:fontFamily="@font/poppins"
+                    android:fontFamily="@font/poppins2"
                     android:inputType="number"
                     tools:ignore="TextContrastCheck,SpeakableTextPresentCheck" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -188,15 +188,16 @@
                     android:id="@+id/tiet_addCont_mail"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
-                    android:fontFamily="@font/poppins"
+                    android:fontFamily="@font/poppins2"
                     android:inputType="number"
                     tools:ignore="TextContrastCheck,SpeakableTextPresentCheck" />
             </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_iniciarSesion"
+        android:id="@+id/btn_add_new_contact"
+        style="@style/button"
         android:layout_width="297dp"
-        android:layout_height="48dp"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="32dp"
         android:layout_marginLeft="24dp"
         android:layout_marginRight="24dp"

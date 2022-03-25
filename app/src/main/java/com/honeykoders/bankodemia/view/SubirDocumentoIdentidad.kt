@@ -2,7 +2,6 @@ package com.honeykoders.bankodemia.view
 
 import android.annotation.SuppressLint
 import android.app.Activity
-import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
@@ -16,7 +15,6 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
@@ -25,7 +23,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.honeykoders.bankodemia.R
-import com.honeykoders.bankodemia.common.HoneyKodersUtils
+import com.honeykoders.bankodemia.common.Utils
 import com.honeykoders.bankodemia.databinding.FragmentSubirDocumentoIdentidadBinding
 import com.honeykoders.bankodemia.model.SingUpModel
 import com.honeykoders.bankodemia.viewmodel.SingUpViewModel
@@ -34,7 +32,6 @@ import java.io.File
 import java.io.IOException
 import java.text.SimpleDateFormat
 import java.util.*
-import java.util.Base64.getEncoder
 
 
 @Suppress("DEPRECATION")
@@ -48,8 +45,8 @@ class SubirDocumentoIdentidad : Fragment() {
     var image: Bitmap? = null
     var imageToBase64: String? = null
     var docIdent: String? = null
-    val viewModel: SingUpViewModel by viewModels()
-    val utils: HoneyKodersUtils = HoneyKodersUtils()
+
+    val utils: Utils = Utils()
 
     private val startForResult = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
@@ -75,67 +72,14 @@ class SubirDocumentoIdentidad : Fragment() {
         return imageEncoded;
     }
 
-    private fun singUp(){
-        /*imagen:"R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" */
-        Log.e("DocIdent",docIdent.toString())
-        try {
-            val singUp = imageToBase64?.let {image ->
-                SingUpModel(
-                    "jesusPrueba@email.com",
-                    "Jesus",
-                    "Prueba",
-                    "2013-04-14T00:40:37.437Z",
-                    "hola1234",
-                    "+524491234589",
-                    image,
-                    docIdent.toString(),
-                    //"INE",
-                    "Ingeniero"
-                )
-            }
-            if (singUp != null) {
-                mandarDatos(singUp)
-            }
-        }catch (e: IOException){
-            Log.e("Error",e.toString())
-        }
-
-    }
-
-    private fun mandarDatos(singUp: SingUpModel) {
-        viewModel.singUp(singUp)
-
-    }
-
-    private fun observers() {
-        viewModel.singUpResponse.observe(viewLifecycleOwner){ singUp ->
-            Log.d("SingUp",singUp.success.toString())
-            //shared.saveToken(it.access_token)
-            //shared.saveSession(login)
-        }
-        viewModel.error.observe(viewLifecycleOwner){ error ->
-            Log.d("ErrorMessage", error)
-            when(error){
-                "User phone already exists" -> context?.let { utils.showMessage(it,"Número teléfonico ya registrado, ingrese uno diferente") }
-                "User already exists" -> context?.let { utils.showMessage(it,"Correo registrado con un usuario existente") }
-                else -> null
-            }
-
-        }
-
-        viewModel.badRequest.observe(viewLifecycleOwner){ badRequest ->
-            if (badRequest){
-                Log.e("bad",badRequest.toString())
-            }
-        }
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         _binding = FragmentSubirDocumentoIdentidadBinding.inflate(inflater, container, false)
         val root: View = binding.root
+
         docIdent = arguments?.getString("docIdent")
         binding.btnAtras.setText(docIdent)
 
@@ -144,8 +88,9 @@ class SubirDocumentoIdentidad : Fragment() {
         }
 
         binding.btnSubirInformacion.setOnClickListener {
-            observers()
-            singUp()
+            findNavController().navigate(R.id.passwordFragment)
+            //observers()
+            //singUp()
         }
 
         binding.btnAtras.setOnClickListener {

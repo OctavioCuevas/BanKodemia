@@ -18,13 +18,14 @@
             android:src="@drawable/logo"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="@string/bankodemia_logo" />
         <Button
             android:id="@+id/btn_atras"
             style="@style/Widget.Material3.Button.TextButton.Icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/poppins"
+            android:fontFamily="@font/poppins2"
             android:text="@string/ingresa_tus_datos"
             android:textColor="#626262"
             android:textSize="14sp"
@@ -58,20 +59,42 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_instructions" />
 
+        <com.hbb20.CountryCodePicker
+            android:id="@+id/country_code_picker"
+            android:layout_width="0dp"
+            android:layout_height="46dp"
+            android:layout_marginStart="16dp"
+            android:clickable="true"
+            android:focusable="true"
+            app:ccp_autoDetectLanguage="true"
+            app:ccp_hintExampleNumber="true"
+            app:ccp_showFlag="false"
+            app:ccp_showNameCode="false"
+            app:ccp_defaultNameCode="MX"
+            app:layout_constraintBottom_toBottomOf="@+id/til_number"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/til_number"
+            app:layout_constraintVertical_bias="0.55">
+
+        </com.hbb20.CountryCodePicker>
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/til_number"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
+            android:layout_width="296dp"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="24dp"
             android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="8dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/country_code_picker"
             app:layout_constraintTop_toBottomOf="@+id/tv_number">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/tiet_number"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:inputType="phone" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -86,14 +109,14 @@
             android:layout_marginHorizontal="20dp"
             android:gravity="center_horizontal|top"
             android:text="@string/para_protejer_tu_cuenta_te_enviaremos_un_c_digo_v_a_sms"
-            app:layout_constraintBottom_toTopOf="@+id/btn_password"
+            app:layout_constraintBottom_toTopOf="@+id/btn_continuar"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/til_number"
             app:layout_constraintVertical_bias="1.0" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_password"
+            android:id="@+id/btn_continuar"
             android:layout_width="297dp"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"

@@ -10,10 +10,9 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.Toast
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
 import com.google.android.material.textfield.TextInputEditText
 import com.honeykoders.bankodemia.R
-import com.honeykoders.bankodemia.common.HoneyKodersUtils
+import com.honeykoders.bankodemia.common.Utils
 import com.honeykoders.bankodemia.databinding.FragmentDialogTransferenciaBinding
 import com.honeykoders.bankodemia.databinding.FragmentTransferenciaBinding
 import com.honeykoders.bankodemia.model.MakeTransactionPayment
@@ -24,7 +23,7 @@ class Transferencia : Fragment() {
     private var _binding: FragmentTransferenciaBinding? = null
     private val binding get() = _binding!!
     val viewModel: TransactionViewModel by viewModels()
-    val utils: HoneyKodersUtils = HoneyKodersUtils()
+    val utils: Utils = Utils()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -106,34 +105,34 @@ class Transferencia : Fragment() {
         viewModel.makeTransactionResponse.observe(viewLifecycleOwner){ makeTransaction ->
             Log.e("SingUp",makeTransaction.success.toString())
             if(makeTransaction.success){
-                findNavController().navigate(R.id.transaccionFinalizada)
+               // findNavController().navigate(R.id.transaccionFinalizada)
             }
         }
         viewModel.loading.observe(viewLifecycleOwner){ loading ->
             Log.e("Pase por aqui",loading.toString())
             if (loading){
-                findNavController().navigate(R.id.procesandoTransaccion)
+                //findNavController().navigate(R.id.procesandoTransaccion)
             }else{
-                findNavController().navigate(R.id.transaccionFinalizada)
+               // findNavController().navigate(R.id.transaccionFinalizada)
             }
         }
 
         viewModel.badRequest.observe(viewLifecycleOwner){ badRequest ->
             if (badRequest){
                 Log.e("badRequest",badRequest.toString())
-                context?.let { utils.showMessage(it,"Hubo un error, intente más tarde") }
+                context?.let { utils.showMessage(it,R.string.serverError) }
             }
         }
         viewModel.broken.observe(viewLifecycleOwner){ broken ->
             if (broken){
                 Log.e("Broken",broken.toString())
-                context?.let { utils.showMessage(it,"Estas quebrado.") }
+                context?.let { utils.showMessage(it,R.string.broken) }
             }
         }
         viewModel.inssuficientFunds.observe(viewLifecycleOwner){ inssuficientFunds ->
             if (inssuficientFunds){
                 Log.e("inssuficientFunds",inssuficientFunds.toString())
-                context?.let { utils.showMessage(it,"Fondos insuficientes") }
+                context?.let { utils.showMessage(it,R.string.insufficientFunds) }
             }
         }
     }

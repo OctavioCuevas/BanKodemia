@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="view.endAddContact">
+    tools:context="view.EndAddContact">
 
     <ImageView
         android:id="@+id/imageView_bk"
@@ -44,13 +44,13 @@
         app:layout_constraintTop_toBottomOf="@+id/iv_endContact" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btn_volver_inicio"
+        style="@style/button"
         android:layout_width="297dp"
-        android:layout_height="48dp"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="32dp"
         android:layout_marginEnd="24dp"
         android:layout_marginStart="24dp"
-        android:fontFamily="@font/poppins_medium"
         android:text="@string/backtomaintxtbtn"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
