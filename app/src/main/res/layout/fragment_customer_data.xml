@@ -169,21 +169,6 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-<<<<<<< HEAD
-        <TextView
-            android:id="@+id/tv_info"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginHorizontal="20dp"
-            android:textSize="18sp"
-            android:gravity="center_horizontal|top"
-            android:text="Esta información es necesaria para verificar tu identidad. Nunca la usaremos sin tu consentimiento"
-            app:layout_constraintEnd_toEndOf="@+id/btnContinueCD"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/til_birthday" />
-
         <Button
             android:id="@+id/btnContinueCD"
             android:layout_width="0dp"
@@ -200,25 +185,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_info" />
 
-=======
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_continuar"
-            style="@style/button"
-            android:layout_width="297dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentTop="true"
-            android:layout_margin="20dp"
-            android:layout_marginBottom="32dp"
-            android:text="@string/continuar"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
-
         <TextView
             android:id="@+id/tv_info"
             style="@style/singleTitle"
@@ -228,12 +194,10 @@
             android:layout_marginTop="8dp"
             android:text="@string/esta_informaci_n_es_necesaria_para_verificar_tu_identidad_nunca_la_usaremos_sin_tu_consentimiento"
             android:textAlignment="center"
-            app:layout_constraintBottom_toTopOf="@+id/btn_continuar"
-            app:layout_constraintEnd_toEndOf="@+id/btn_continuar"
-            app:layout_constraintStart_toStartOf="@+id/btn_continuar"
+            app:layout_constraintBottom_toTopOf="@+id/btnContinueCD"
+            app:layout_constraintEnd_toEndOf="@+id/btnContinueCD"
+            app:layout_constraintStart_toStartOf="@+id/btnContinueCD"
             app:layout_constraintTop_toBottomOf="@+id/til_birthday" />
-
->>>>>>> 4b371674d096a8ef49d54a5d9c9dbfdcaec406e2
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -47,10 +47,10 @@ class CustomerDataFragment : Fragment() {
         binding.tietBirthday.setOnClickListener {
             view?.let { it1 -> showDatePickerDialog(it1) }
         }
-        binding.btnContinuar.setOnClickListener {
+        binding.btnContinueCD.setOnClickListener {
             if (!utils.emptyField(tiet_name,til_name) ||
                 !utils.emptyField(tiet_lastname,til_lastname) ||
-                !utils.emptyField(tiet_work,til_work)||
+                !utils.emptyField(tiet_occupation,til_occupation)||
                 !utils.emptyField(tiet_birthday,til_birthday)){
                     findNavController().navigate(R.id.phoneFragment)
             }

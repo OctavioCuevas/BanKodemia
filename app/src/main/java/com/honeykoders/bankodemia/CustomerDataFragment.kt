@@ -11,14 +11,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.fragment.app.setFragmentResult
-import androidx.fragment.app.setFragmentResultListener
-import com.honeykoders.bankodemia.common.HoneyKodersUtils
+import com.honeykoders.bankodemia.common.Utils
 import com.honeykoders.bankodemia.model.Customer
 import kotlinx.android.synthetic.main.fragment_customer_data.*
 
 class CustomerDataFragment : Fragment() {
 
-    val utils = HoneyKodersUtils()
+    val utils = Utils()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

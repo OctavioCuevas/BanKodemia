@@ -60,15 +60,19 @@ class Utils() {
                         false
                     }
                 in "int" ->
-                    if (isIntNumber(tiet.text.toString())
-                    ) {
+                    if (isIntNumber(tiet.text.toString())) {
                         til.isErrorEnabled = false
                     } else {
                         til.error = errorMessage
                         false
                     }
                 in "double" ->
-                    if (isNumber(tiet.text.toString())
+                    if (isNumber(tiet.text.toString())) {
+                        til.isErrorEnabled = false
+                    } else {
+                        til.error = errorMessage
+                        false
+                    }
                 in "phone" ->
                     if (isPhoneNumberValid(tiet.text.toString())
                     ) {
@@ -131,8 +135,9 @@ class Utils() {
     fun matchPassword(
         tietPsw: TextInputEditText,
         tilPsw: TextInputLayout,
-        tietMatchPsw:TextInputEditText,
-        tilMatchPsw: TextInputLayout):Boolean{
+        tietMatchPsw: TextInputEditText,
+        tilMatchPsw: TextInputLayout
+    ): Boolean {
 
         val match = tietPsw.text.toString().equals(tietMatchPsw.text.toString())
         val message = "Las contraseñas no coinciden"
@@ -146,19 +151,19 @@ class Utils() {
         return match
     }
 
-    fun isPhoneNumberValid(number: String):Boolean{
+    fun isPhoneNumberValid(number: String): Boolean {
         if (number.length < 10) {
             return true
-        }else{
+        } else {
             return false
         }
     }
 
-    fun emptyField(tiet: TextInputEditText,til: TextInputLayout):Boolean{
-        if(tiet.text.toString().trim().isEmpty()){
+    fun emptyField(tiet: TextInputEditText, til: TextInputLayout): Boolean {
+        if (tiet.text.toString().trim().isEmpty()) {
             til.error = "Este campo es requerido"
             return true
-        }else{
+        } else {
             til.isErrorEnabled = false
             til.error = ""
             return false
@@ -188,14 +193,15 @@ class Utils() {
         editor.apply()
     }
 
-    fun sharedPref() : SharedPreferences {
+    fun sharedPref(): SharedPreferences {
         return sharedPreferences;
     }
 
     fun showMessage(context: Context, message: String) {
         Toast.makeText(context, message, Toast.LENGTH_LONG).show()
-    fun showMessage(context: Context, message: Int) {
-        Toast.makeText(context, context.getString(message), Toast.LENGTH_LONG).show()
+        fun showMessage(context: Context, message: Int) {
+            Toast.makeText(context, context.getString(message), Toast.LENGTH_LONG).show()
+        }
     }
 }
 
