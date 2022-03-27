@@ -30,7 +30,7 @@
 
 
     <string name="errorlimitnumclabe">Verifique que sean 18 dígitos</string>
-    <string name="conoce_c_mo">Conoce <font color="blue"><u>cómo protegemos tus documentos</u></font></string>
+    <string name="conoce_c_mo">Conoce <font color="purple"><u>cómo protegemos tus documentos</u></font></string>
     <string name="documento_m">Documento Migratorio</string>
     <string name="pasaporte">Pasaporte</string>
     <string name="seleccionado">Seleccionado el tipo de documento que deseas fotografiar</string>
@@ -66,6 +66,32 @@
     <string name="thnks_bankodemia">¡Gracias por usar Bankodemia!</string>
     <string name="No_tarjeta">Nº Tarjeta</string>
     <string name="tarjeta">TARJETA</string>
+    <string name="ingresa_tus_datos">INGRESA TUS DATOS</string>
+    <string name="escr_belos_tal_como_aparecen_en_tu_identificaci_n_oficial_sin_abreviaturas">Escríbelos tal como aparecen en tu identificación oficial sin abreviaturas</string>
+    <string name="esta_informaci_n_es_necesaria_para_verificar_tu_identidad_nunca_la_usaremos_sin_tu_consentimiento">Esta información es necesaria para verificar tu identidad.<font color="purple"> Nunca la usaremos sin tu consentimiento</font></string>
+    <string name="continuar">Continuar</string>
+    <string name="tomar_foto">Tomar Foto</string>
+    <string name="contrase_a">Contraseña</string>
+    <string name="la_usar_s_para_entrar_a_la_app_y_confirmar_tus_transacciones">La usarás para entrar a la app y confirmar tus transacciones</string>
+    <string name="usa_al_menos_6_caracteres_alfanum_ricos_no_consecutivos_ni_repetidos">Usa al menos 6 caracteres alfanuméricos, no consecutivos ni repetidos</string>
+    <string name="correo_de_notificaci_n">Correo de notificación</string>
+    <string name="nombre">Nombre</string>
+    <string name="welcome_image">Welcome Image</string>
+    <string name="app_name_bankodemia_with_kodemia_logo">app name bankodemia with kodemia logo</string>
+    <string name="al_tocar">Al tocar continuar aceptas nuestro</string>
+    <string name="nombre_s">Nombre(s)</string>
+    <string name="apellido_s">Apellido(s)</string>
+    <string name="ocupaci_n">Ocupación</string>
+    <string name="bankodemia_logo">Bankodemia Logo</string>
+    <string name="lo_usar_s_para_iniciar_sesi_n">Lo usarás para iniciar sesión</string>
+    <string name="tu_n_mero_de_celular">Tu número de celular</string>
+    <string name="para_protejer_tu_cuenta_te_enviaremos_un_c_digo_v_a_sms">Para protejer tu cuenta, te enviaremos un código vía SMS</string>
+    <string name="crea_una_contrase_a_segura">Crea una contraseña segura</string>
+    <string name="confirma_tu_contrase_a">Confirma tu contraseña</string>
+    <string name="crear_contrase_a">Crear Contraseña</string>
+    <string name="identitydocument">identityDocument</string>
+    <string name="espera_un_momento_estamos_validando_tus_datos">Espera un momento, estamos validando tus datos</string>
+    <string name="transaction_done">Transaction done</string>
     <string name="title_nav_servicios">SERVICIOS</string>
     <string name="title_nav_inicio">INICIO</string>
     <string name="title_nav_tarjeta">TARJETA</string>
@@ -76,5 +102,35 @@
     <string name="concepto">CONCEPTO</string>
     <string name="fecha_hora">FECHA Y HORA</string>
     <string name="dinero_disponible">DINERO DISPONIBLE</string>
+    <string name="enviar">Enviar</string>
+    <string name="recibir">Recibir</string>
+    <string name="moneyAvailable">$160.00</string>
+    <string name="vigencia">Vigencia</string>
+    <string name="cvv">CVV</string>
+    <string name="telcel_at_t_movistar"><![CDATA[Telcel, AT&T, Movistar]]></string>
+    <string name="internet_tv_tel_fono">Internet/TV/Teléfono</string>
+    <string name="telmex_izzi_totalplay">Telmex, Izzi, TotalPlay</string>
+    <string name="naturgy_y_compa_a_mexicana">Naturgy y Compañía Mexicana</string>
+    <string name="gas">Gas</string>
+    <string name="servicios">SERVICIOS</string>
+    <string name="tarjetas_de_cr_dito">Tarjetas de crédito</string>
+    <string name="tiendas_departamentales">Tiendas departamentales</string>
+    <string name="liverpool_sears_palacio_de_hierro">Liverpool, Sears, Palacio de Hierro</string>
+    <string name="fechaDetalle">21 de marzo de 2022, 9:00 p.m.</string>
+    <string name="cantidadTransaccion">$110.00</string>
+    <string name="Id_transaccion">HGB557489948Cd58574</string>
+    <string name="conceptp">Renta Isabel</string>
+    <string name="concepto_transaccion">Renta</string>
+    <string name="numero_cuenta">**** 5892 87</string>
+    <string name="numero_tarjeta_real">5439 2464 7664 2003</string>
+    <string name="vigencia_real">11/26</string>
+    <string name="CVV_real">125</string>
+    <!--Errores-->
+    <string name="requiredField">El campo es requerido</string>
+    <string name="userphonealreadyexists">Número teléfonico ya registrado, ingrese uno diferente</string>
+    <string name="useralreadyexists">Número teléfonico ya registrado, ingrese uno diferente</string>
+    <string name="broken">Estas quebrado :(</string>
+    <string name="serverError">Hubo un error, intente más tarde</string>
+    <string name="insufficientFunds">Fondos insuficientes</string>
 
 </resources>

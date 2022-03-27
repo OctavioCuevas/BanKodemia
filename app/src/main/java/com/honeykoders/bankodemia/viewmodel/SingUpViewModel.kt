@@ -7,9 +7,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import com.honeykoders.bankodemia.model.ResponseSingUp
-import com.honeykoders.bankodemia.model.SingUpErrorResponse
-import com.honeykoders.bankodemia.model.SingUpModel
+import com.honeykoders.bankodemia.model.*
 import com.honeykoders.bankodemia.network.ServiceNetwork
 import kotlinx.coroutines.launch
 import org.json.JSONObject
@@ -29,13 +27,24 @@ class SingUpViewModel: ViewModel() {
             Log.e("codigo", respuesta.raw().toString())
             if (respuesta.isSuccessful){
                 singUpResponse.postValue(respuesta.body())
-            }else
+                Log.e("Success ",respuesta.body().toString())
+            }else{
                 if(respuesta.code() == 400){
                     val gson = Gson()
                     val type = object : TypeToken<SingUpErrorResponse>() {}.type
                     var errorResponse: SingUpErrorResponse? = gson.fromJson(respuesta.errorBody()!!.charStream(), type)
-                    Log.e("Response",errorResponse.toString())
-                badRequest.postValue(true)
+                    Log.e("Response400",errorResponse.toString())
+                    badRequest.postValue(true)
+                }else{
+                    if(respuesta.code() == 412){
+                        val gson = Gson()
+                        val type = object : TypeToken<PreconditionError>() {}.type
+                        var errorResponse: PreconditionError? = gson.fromJson(respuesta.errorBody()!!.charStream(), type)
+                        Log.e("Response412",errorResponse.toString())
+                        badRequest.postValue(true)
+                        error.postValue(errorResponse?.message)
+                    }
+                }
             }
         }
     }

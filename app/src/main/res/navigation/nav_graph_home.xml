@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_home"
+    app:startDestination="@id/inicioFragment">
+
+    <fragment
+        android:id="@+id/inicioFragment"
+        android:name="com.honeykoders.bankodemia.view.InicioFragment"
+        android:label="fragment_inicio"
+        tools:layout="@layout/fragment_inicio" >
+        <action
+            android:id="@+id/action_inicioFragment_to_sendMoney"
+            app:destination="@id/sendMoney" />
+        <action
+            android:id="@+id/action_inicioFragment_to_serviciosFragment"
+            app:destination="@id/serviciosFragment" />
+        <action
+            android:id="@+id/action_inicioFragment_to_fragment_tarjeta"
+            app:destination="@id/fragment_tarjeta" />
+    </fragment>
+    <fragment
+        android:id="@+id/sendMoney"
+        android:name="com.honeykoders.bankodemia.view.SendMoney"
+        android:label="SendMoney"
+        tools:layout="@layout/fragment_send_money"/>
+    <fragment
+        android:id="@+id/fragment_tarjeta"
+        android:name="com.honeykoders.bankodemia.view.Fragment_tarjeta"
+        android:label="Fragment_tarjeta"
+        tools:layout="@layout/fragment_tarjeta"/>
+    <fragment
+        android:id="@+id/serviciosFragment"
+        android:name="com.honeykoders.bankodemia.view.ServiciosFragment"
+        android:label="ServiciosFragment"
+        tools:layout="@layout/fragment_servicios"/>
+</navigation>

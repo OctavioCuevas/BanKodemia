@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SendingInfoFragment">
+    tools:context=".view.SendingInfoFragment">
 
     <ImageView
         android:id="@+id/image_logo_sendingInfo"
@@ -21,16 +21,17 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="266dp"
+        style="@style/boldTitle"
+        android:layout_width="0dp"
         android:layout_height="45dp"
-        android:layout_marginTop="56dp"
-        android:fontFamily="@font/poppins_bold"
-        android:text="Espera un momento, estamos validando tus datos"
+        android:layout_marginEnd="24dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/espera_un_momento_estamos_validando_tus_datos"
         android:textAlignment="center"
-        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/image_logo_sendingInfo"
-        app:layout_constraintStart_toStartOf="@+id/image_logo_sendingInfo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/image_logo_sendingInfo"
         app:layout_constraintVertical_bias="0.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>

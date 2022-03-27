@@ -7,6 +7,7 @@
         <entry key="..\:/Users/DESARROLLO/AndroidStudioProjects/BanKodemia/app/src/main/res/layout/fragment_create_account.xml" value="0.24791666666666667" />
         <entry key="..\:/Users/DESARROLLO/AndroidStudioProjects/BanKodemia/app/src/main/res/layout/fragment_customer_data.xml" value="0.25" />
         <entry key="..\:/Users/DESARROLLO/AndroidStudioProjects/BanKodemia/app/src/main/res/layout/fragment_login.xml" value="0.24791666666666667" />
+        <entry key="..\:/Users/DESARROLLO/AndroidStudioProjects/BanKodemia/app/src/main/res/layout/fragment_customer_data.xml" value="0.2" />
         <entry key="..\:/Users/DESARROLLO/AndroidStudioProjects/BanKodemia/app/src/main/res/layout/fragment_phone.xml" value="0.2" />
         <entry key="..\:/Users/DarkE/Documents/BanKodemia/app/src/main/res/drawable/addcontact.xml" value="0.127" />
         <entry key="..\:/Users/DarkE/Documents/BanKodemia/app/src/main/res/drawable/ic_baseline_arrow_back_24.xml" value="0.13" />
@@ -24,16 +25,28 @@
         <entry key="app/src/main/res/drawable/fill.xml" value="0.2295" />
         <entry key="app/src/main/res/drawable/punteado.xml" value="0.28110656738281253" />
         <entry key="app/src/main/res/drawable/round_corner.xml" value="0.198" />
+        <entry key="app/src/main/res/layout/activity_home.xml" value="0.18" />
+        <entry key="app/src/main/res/layout/activity_home_details_transaction.xml" value="0.22604166666666667" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.22604166666666667" />
         <entry key="app/src/main/res/layout/activity_verificacion_actividad.xml" value="0.36342592592592593" />
+        <entry key="app/src/main/res/layout/fragment_create_account.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_customer_data.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_dialog_transferencia.xml" value="0.2902542372881356" />
+        <entry key="app/src/main/res/layout/fragment_inicio.xml" value="0.15534420289855072" />
+        <entry key="app/src/main/res/layout/fragment_password.xml" value="0.11730072463768115" />
+        <entry key="app/src/main/res/layout/fragment_phone.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_procesando_transaccion.xml" value="0.22604166666666667" />
-        <entry key="app/src/main/res/layout/fragment_seleccionar_documento_identidad.xml" value="0.22604166666666667" />
+        <entry key="app/src/main/res/layout/fragment_seleccionar_documento_identidad.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_send_money.xml" value="0.15534420289855072" />
         <entry key="app/src/main/res/layout/fragment_subir_documento_identidad.xml" value="0.3356535189481825" />
+        <entry key="app/src/main/res/layout/fragment_tarjeta.xml" value="0.12395833333333334" />
         <entry key="app/src/main/res/layout/fragment_transaccion_finalizada.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_transferencia.xml" value="0.3607228757202469" />
         <entry key="app/src/main/res/layout/fragment_verificacion_identidad.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_verificar_documento_identidad.xml" value="0.43429209391276047" />
+        <entry key="app/src/main/res/layout/fragment_welcome.xml" value="0.1015625" />
+        <entry key="app/src/main/res/layout/item_cardview_home.xml" value="0.18840579710144928" />
+        <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.16947530110677086" />
         <entry key="app/src/main/res/xml/file_paths.xml" value="0.22604166666666667" />
       </map>
     </option>
