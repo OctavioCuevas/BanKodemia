@@ -19,8 +19,10 @@ class DatePickerFragment(val listener:(year:Int,month:Int,day:Int) -> Unit ): Di
         return DatePickerDialog(requireActivity(), R.style.customDatePickerStyle,this,year,month,day)
 
     }
+
     override fun onDateSet(p0: DatePicker?, year: Int, month: Int, day: Int) {
         listener(year,month+1,day)
     }
+
 
 }

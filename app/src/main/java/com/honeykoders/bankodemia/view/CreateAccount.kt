@@ -4,6 +4,7 @@ import android.content.Context
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -20,7 +21,6 @@ class CreateAccount : Fragment() {
     private var _binding: FragmentCreateAccountBinding? = null
     private val binding get() = _binding!!
     private val utils: Utils = Utils()
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -45,7 +45,13 @@ class CreateAccount : Fragment() {
         }
         binding.btnContinuar.setOnClickListener {
             if (!utils.emptyField(tiet_maillogin,til_maillogin)){
-                findNavController().navigate(R.id.customerDataFragment)
+                if(utils.fieldValidation("email",binding.tietMaillogin,binding.tilMaillogin,"Correo invalido")){
+                    context?.let { it1 -> utils.initSharedPreferences(it1) }
+                    utils.updateSharedPreferences("string","email",binding.tietMaillogin.text.toString(),false,0,0.0f)
+                    findNavController().navigate(R.id.customerDataFragment)
+                }else{
+                    context?.let { it -> utils.showMessage(it,R.string.invalidMail) }
+                }
             }else{
                 context?.let { it -> utils.showMessage(it,R.string.requiredField) }
             }

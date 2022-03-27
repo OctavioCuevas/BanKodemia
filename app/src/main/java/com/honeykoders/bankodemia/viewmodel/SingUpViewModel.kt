@@ -11,6 +11,7 @@ import com.honeykoders.bankodemia.model.*
 import com.honeykoders.bankodemia.network.ServiceNetwork
 import kotlinx.coroutines.launch
 import org.json.JSONObject
+import java.io.IOException
 import java.security.AccessController.getContext
 
 
@@ -19,9 +20,11 @@ class SingUpViewModel: ViewModel() {
     val singUpResponse = MutableLiveData<ResponseSingUp>()
     val badRequest = MutableLiveData<Boolean>()
     val error = MutableLiveData<String>()
+    val loading = MutableLiveData<Boolean>()
 
     fun singUp(singUp: SingUpModel){
-        Log.e("error",singUp.toString())
+        loading.postValue(true)
+        try {
         viewModelScope.launch {
             val respuesta = service.singUp(singUp)
             Log.e("codigo", respuesta.raw().toString())
@@ -47,6 +50,9 @@ class SingUpViewModel: ViewModel() {
                 }
             }
         }
+        loading.postValue(true)
+        }catch(e: IOException){
+            Log.e("Response", e.toString())
+        }
     }
-
 }

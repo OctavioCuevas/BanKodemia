@@ -88,9 +88,12 @@ class SubirDocumentoIdentidad : Fragment() {
         }
 
         binding.btnSubirInformacion.setOnClickListener {
-            findNavController().navigate(R.id.passwordFragment)
-            //observers()
-            //singUp()
+            if (utils.validateImageTaken(imageToBase64)){
+                saveData()
+                findNavController().navigate(R.id.passwordFragment)
+            }else{
+                context?.let { it -> utils.showMessage(it,R.string.pictureNotTaken) }
+            }
         }
 
         binding.btnAtras.setOnClickListener {
@@ -98,6 +101,19 @@ class SubirDocumentoIdentidad : Fragment() {
         }
         return root
     }
+
+    private fun saveData() {
+        context?.let { it1 -> utils.initSharedPreferences(it1) }
+        val identityImageType:String
+        when (docIdent){
+            "PASAPORTE" -> identityImageType = "PASSPORT"
+            "DOCUMENTO MIGRATORIO" -> identityImageType = "MIGRATION_FORM"
+            else -> identityImageType = "INE"
+        }
+        utils.updateSharedPreferences("string","identityImageType", identityImageType!!,false,0,0.0f)
+        utils.updateSharedPreferences("string","identityImage", imageToBase64!!,false,0,0.0f)
+    }
+
 
     private fun solicitarPermisos() {
         val REQUEST_CODE_CAMARA = 100

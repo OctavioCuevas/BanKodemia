@@ -12,7 +12,7 @@ import com.google.android.material.textfield.TextInputLayout
 import com.honeykoders.bankodemia.exceptions.VariableTypeNotFoundException
 
 
-class Utils() {
+class HoneyKodersUtils() {
 
     private lateinit var sharedPreferences: SharedPreferences
     private lateinit var editor: SharedPreferences.Editor
@@ -28,15 +28,6 @@ class Utils() {
         } else {
             0
         }
-    }
-
-    fun validateImageTaken(image: String?):Boolean{
-        if (image.isNullOrBlank() || image.isNullOrEmpty()){
-            return false
-        }else{
-            return true
-        }
-
     }
 
     // Valida el campo que se ha ingresado el un campo cualquiera
@@ -56,14 +47,14 @@ class Utils() {
                         til.isErrorEnabled = false
                     } else {
                         til.error = errorMessage
-                        ok = false
+                        false
                     }
                 in "webpage" ->
                     if (isWebPage(tiet.text.toString())) {
                         til.isErrorEnabled = false
                     } else {
                         til.error = errorMessage
-                        ok = false
+                        false
                     }
                 in "int" ->
                     if (isIntNumber(tiet.text.toString())
@@ -71,15 +62,7 @@ class Utils() {
                         til.isErrorEnabled = false
                     } else {
                         til.error = errorMessage
-                        ok = false
-                    }
-                in "phone" ->
-                    if (isPhoneNumberValid(tiet.text.toString())
-                    ) {
-                        til.isErrorEnabled = false
-                    } else {
-                        til.error = errorMessage
-                        ok = false
+                        false
                     }
                 else -> {
                     println("ok")
@@ -132,58 +115,6 @@ class Utils() {
         })
     }
 
-    fun verifyPassword(password:String):String{
-        var message = "Ok"
-        var regex: Regex
-        if(password.length < 6){ //al menos 6 caracteres
-            message = "Contraseña debe tener 6 o más caracteres"
-        }else{ //valida que sean alfanuméricos
-            regex = Regex("[a-zA-Z0-9.? ]*")
-            if(!password.matches(regex)){
-                message = "Contraseña NO debe tener carácteres especiales"
-            }
-        }
-        return message
-    }
-
-
-    fun matchPassword(
-        tietPsw: TextInputEditText,
-        tilPsw: TextInputLayout,
-        tietMatchPsw:TextInputEditText,
-        tilMatchPsw: TextInputLayout):Boolean{
-
-        val match = tietPsw.text.toString().equals(tietMatchPsw.text.toString())
-        val message = "Las contraseñas no coinciden"
-        if (match) {
-            tilPsw.isErrorEnabled = false
-            tilMatchPsw.isErrorEnabled = false
-        } else {
-            tilPsw.error = message
-            tilMatchPsw.error = message
-        }
-        return match
-    }
-
-    fun isPhoneNumberValid(number: String):Boolean{
-        if (number.length < 10) {
-            return false
-        }else{
-            return true
-        }
-    }
-
-    fun emptyField(tiet: TextInputEditText,til: TextInputLayout):Boolean{
-        if(tiet.text.toString().trim().isEmpty()){
-            til.error = "Este campo es requerido"
-            return true
-        }else{
-            til.isErrorEnabled = false
-            til.error = ""
-            return false
-        }
-    }
-
     fun initSharedPreferences(context: Context) {
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context)
         editor = sharedPreferences.edit()
@@ -207,17 +138,8 @@ class Utils() {
         editor.apply()
     }
 
-    fun getSharedPreferencesByName(name: String): String?{
-        val value = sharedPreferences.getString(name,"")
-        return value
-    }
-
-    fun clearSharedPreferences(){
-        editor.clear().apply()
-    }
-
-    fun showMessage(context: Context, message: Int) {
-        Toast.makeText(context, context.getString(message), Toast.LENGTH_LONG).show()
+    fun showMessage(context: Context, message: String) {
+        Toast.makeText(context, message, Toast.LENGTH_LONG).show()
     }
 }
 

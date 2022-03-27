@@ -1,8 +1,10 @@
 package com.honeykoders.bankodemia.view
 
+import android.content.Context
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -29,7 +31,7 @@ class PhoneFragment : Fragment() {
     private var _binding: FragmentPhoneBinding? = null
     private val binding get() = _binding!!
     private val utils: Utils = Utils()
-    private var ccp: CountryCodePicker?=null
+    private var ccp: CountryCodePicker? = null
     private var countryCode:String?=null
     private var phoneNumber: String? = null
 
@@ -39,8 +41,9 @@ class PhoneFragment : Fragment() {
     ): View? {
         _binding = FragmentPhoneBinding.inflate(inflater, container, false)
         val root: View = binding.root
-
+        ccp = binding.countryCodePicker
         countryCode = ccp?.defaultCountryCode
+        Log.d("Default",countryCode.toString())
 
         binding.tietNumber.addTextChangedListener ( object: TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
@@ -56,18 +59,32 @@ class PhoneFragment : Fragment() {
             findNavController().navigate(R.id.customerDataFragment)
         }
 
+
+
         binding.countryCodePicker.setOnCountryChangeListener {
-            countryCode = ccp!!.selectedCountryCode
+            countryCode = ccp?.selectedCountryCode
+            Log.d("selected",countryCode.toString())
         }
 
         binding.btnContinuar.setOnClickListener {
             if (!utils.emptyField(tiet_number,til_number)){
-                phoneNumber = countryCode + binding.tietNumber.text
-                findNavController().navigate(R.id.verificarDocumentoIdentidad)
+                if(utils.fieldValidation("phone",binding.tietNumber,binding.tilNumber,"Teléfono invalido")){
+                    savePhone()
+                    Log.d("Numero",phoneNumber.toString())
+                    findNavController().navigate(R.id.verificarDocumentoIdentidad)
+                }
             }
         }
 
         return root
     }
 
+    private fun savePhone() {
+        phoneNumber = "+" + countryCode + binding.tietNumber.text
+        context?.let { it1 -> utils.initSharedPreferences(it1) }
+        utils.updateSharedPreferences("string","phone", phoneNumber!!,false,0,0.0f)
+    }
+
+
 }
+

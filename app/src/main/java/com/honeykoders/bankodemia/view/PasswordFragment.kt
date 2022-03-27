@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.honeykoders.bankodemia.R
 import com.honeykoders.bankodemia.common.Utils
 import com.honeykoders.bankodemia.databinding.FragmentPasswordBinding
@@ -28,32 +29,66 @@ class PasswordFragment : Fragment() {
     ): View? {
         _binding = FragmentPasswordBinding.inflate(inflater, container, false)
         val root: View = binding.root
+        //getCustomerData()
         binding.btnCrearCuenta.setOnClickListener {
-            observers()
-            singUp()
+            if(utils.matchPassword(binding.tietPassword,
+                    binding.tilPassword,
+                    binding.tietConfirmPassword,
+                    binding.tilConfirmPassword)){
+                        val passVerify = utils.verifyPassword(binding.tietPassword.text.toString())
+                        if (passVerify == "Ok"){
+                            observers()
+                            singUp()
+                            utils.clearSharedPreferences()
+                            //getCustomerData()
+                            //Log.e("Todo listo", "para nuevo cliente")
+                        }else{
+                            Log.e("Error","Algo salio mal")
+                        }
+                }
         }
         return root
     }
+
+    fun getCustomerData():SingUpModel{
+        saveData()
+        context?.let { it1 -> utils.initSharedPreferences(it1) }
+        val email =  utils.getSharedPreferencesByName("email").toString()
+        val name= utils.getSharedPreferencesByName("name").toString()
+        val lastName=  utils.getSharedPreferencesByName("lastName").toString()
+        val birthDate = utils.getSharedPreferencesByName("birthDate").toString()
+        val phone = utils.getSharedPreferencesByName("phone").toString()
+        val password = utils.getSharedPreferencesByName("password").toString()
+        val identityImage = utils.getSharedPreferencesByName("identityImage").toString()
+        val identityImageType = utils.getSharedPreferencesByName("identityImageType").toString()
+        val occupation = utils.getSharedPreferencesByName("occupation").toString()
+
+        val newCostumer = SingUpModel(
+            email,
+            name,
+            lastName,
+            birthDate,
+            password,
+            phone,
+            identityImage,
+            identityImageType,
+            occupation
+        )
+
+       Log.e("valorPass",newCostumer.toString())
+        return newCostumer
+    }
+
+    private fun saveData() {
+        context?.let { it1 -> utils.initSharedPreferences(it1) }
+        utils.updateSharedPreferences("string","password", binding.tietPassword.text.toString(),false,0,0.0f)
+    }
+
+
     private fun singUp(){
-        /*imagen:"R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" */
-        //Log.e("DocIdent",docIdent.toString())
         try {
-            val singUp =
-                SingUpModel(
-                    "jesusPrueba@email.com",
-                    "Jesus",
-                    "Prueba",
-                    "2013-04-14T00:40:37.437Z",
-                    "hola1234",
-                    "+524491234589",
-                    "R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
-                    "INE",
-                    //"INE",
-                    "Ingeniero"
-                )
-            if (singUp != null) {
-                mandarDatos(singUp)
-            }
+            val singUp = getCustomerData()
+            mandarDatos(singUp)
         }catch (e: IOException){
             Log.e("Error",e.toString())
         }
@@ -62,14 +97,12 @@ class PasswordFragment : Fragment() {
 
     private fun mandarDatos(singUp: SingUpModel) {
         viewModel.singUp(singUp)
-
     }
 
     private fun observers() {
         viewModel.singUpResponse.observe(viewLifecycleOwner){ singUp ->
             Log.d("SingUp",singUp.success.toString())
-            //shared.saveToken(it.access_token)
-            //shared.saveSession(login)
+            findNavController().navigate(R.id.ok_infoFragment)
         }
         viewModel.error.observe(viewLifecycleOwner){ error ->
             Log.d("ErrorMessage", error)
@@ -80,13 +113,22 @@ class PasswordFragment : Fragment() {
             }
 
         }
-
         viewModel.badRequest.observe(viewLifecycleOwner){ badRequest ->
             if (badRequest){
                 Log.e("bad",badRequest.toString())
             }
         }
+        viewModel.loading.observe(viewLifecycleOwner){ loading ->
+            Log.e("Pase por aqui",loading.toString())
+            if (loading){
+                binding.contenedorPrincipal.visibility = View.GONE
+                binding.contenedorCarga.visibility = View.VISIBLE
+                //findNavController().navigate(R.id.sendingInfoFragment)
+            }else{
+                binding.contenedorPrincipal.visibility = View.VISIBLE
+                binding.contenedorCarga.visibility = View.GONE
+                //findNavController().navigate(R.id.ok_infoFragment)
+            }
+        }
     }
-
-
 }
