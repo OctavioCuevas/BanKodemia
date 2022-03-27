@@ -30,6 +30,7 @@
         <entry key="app/src/main/res/layout/fragment_customer_data.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_dialog_transferencia.xml" value="0.2902542372881356" />
         <entry key="app/src/main/res/layout/fragment_inicio.xml" value="0.15534420289855072" />
+        <entry key="app/src/main/res/layout/fragment_login.xml" value="0.22" />
         <entry key="app/src/main/res/layout/fragment_ok_info.xml" value="0.11730072463768115" />
         <entry key="app/src/main/res/layout/fragment_password.xml" value="0.11730072463768115" />
         <entry key="app/src/main/res/layout/fragment_phone.xml" value="0.296998420221169" />

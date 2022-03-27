@@ -134,5 +134,6 @@
     <string name="broken">Estas quebrado :(</string>
     <string name="serverError">Hubo un error, intente más tarde</string>
     <string name="insufficientFunds">Fondos insuficientes</string>
+    <string name="invalidCredentials">No se pudo iniciar sesión. Usuario y/o contraseña incorrectas</string>
 
 </resources>

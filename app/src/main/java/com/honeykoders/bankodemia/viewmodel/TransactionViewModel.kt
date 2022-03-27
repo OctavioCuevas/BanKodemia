@@ -31,8 +31,8 @@ class TransactionViewModel:ViewModel() {
                    makeTransactionResponse.postValue(respuesta.body())
                }else{
                    val gson = Gson()
-                   val type = object : TypeToken<SingUpErrorResponse>() {}.type
-                   var errorResponse: SingUpErrorResponse? = gson.fromJson(respuesta.errorBody()!!.charStream(), type)
+                   val type = object : TypeToken<ErrorResponse>() {}.type
+                   var errorResponse: ErrorResponse? = gson.fromJson(respuesta.errorBody()!!.charStream(), type)
                    Log.e("Response", errorResponse.toString())
                    if (errorResponse != null) {
                        if (errorResponse.statusCode == 401) {//badRequest

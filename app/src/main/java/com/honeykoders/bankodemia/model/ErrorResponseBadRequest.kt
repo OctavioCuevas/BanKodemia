@@ -1,4 +1,5 @@
 package com.honeykoders.bankodemia.model
+
 /*
 {
   "statusCode": 400,
@@ -9,8 +10,11 @@ package com.honeykoders.bankodemia.model
   "error": "Bad Request"
 }
 */
-data class SingUpErrorResponse (
-    val statusCode: Int,
-    val message: List<String>,
-    val error: String
-)
+
+class ErrorResponseBadRequest {
+    data class ErrorResponse (
+        val statusCode: Int,
+        val message: List<String>,
+        val error: String
+    )
+}

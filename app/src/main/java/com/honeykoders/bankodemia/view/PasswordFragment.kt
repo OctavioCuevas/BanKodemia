@@ -123,11 +123,10 @@ class PasswordFragment : Fragment() {
             if (loading){
                 binding.contenedorPrincipal.visibility = View.GONE
                 binding.contenedorCarga.visibility = View.VISIBLE
-                //findNavController().navigate(R.id.sendingInfoFragment)
             }else{
                 binding.contenedorPrincipal.visibility = View.VISIBLE
                 binding.contenedorCarga.visibility = View.GONE
-                //findNavController().navigate(R.id.ok_infoFragment)
+
             }
         }
     }

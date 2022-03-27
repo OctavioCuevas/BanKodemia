@@ -10,17 +10,22 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.widget.addTextChangedListener
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.honeykoders.bankodemia.R
 import com.honeykoders.bankodemia.common.Utils
 import com.honeykoders.bankodemia.databinding.FragmentCreateAccountBinding
+import com.honeykoders.bankodemia.model.LoginModel
+import com.honeykoders.bankodemia.viewmodel.UserLoginModel
 import kotlinx.android.synthetic.main.fragment_create_account.*
+import java.io.IOException
 
 class CreateAccount : Fragment() {
 
     private var _binding: FragmentCreateAccountBinding? = null
     private val binding get() = _binding!!
     private val utils: Utils = Utils()
+    val viewModel: UserLoginModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -43,6 +48,7 @@ class CreateAccount : Fragment() {
         binding.btnBacktomain.setOnClickListener {
             findNavController().navigate(R.id.welcome)
         }
+
         binding.btnContinuar.setOnClickListener {
             if (!utils.emptyField(tiet_maillogin,til_maillogin)){
                 if(utils.fieldValidation("email",binding.tietMaillogin,binding.tilMaillogin,"Correo invalido")){
@@ -57,6 +63,28 @@ class CreateAccount : Fragment() {
             }
         }
         return root
+    }
+
+    private fun serchUser(){
+        try {
+            val login = getLoginInfo()
+            sendData(login)
+        }catch (e: IOException){
+            Log.e("Error",e.toString())
+        }
+    }
+
+    private fun sendData(login: LoginModel) {
+        viewModel.loginUser(login)
+    }
+
+    private fun getLoginInfo(): LoginModel{
+        val userLogin = LoginModel(
+            "buscarUsuario@mail.com",
+            "buscar"
+        )
+
+        return userLogin
     }
 
 }

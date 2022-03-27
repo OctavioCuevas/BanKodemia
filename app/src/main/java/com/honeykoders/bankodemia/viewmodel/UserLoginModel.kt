@@ -6,27 +6,27 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import com.honeykoders.bankodemia.model.*
+import com.honeykoders.bankodemia.model.LoginModel
+import com.honeykoders.bankodemia.model.ResponseUserLoggedIn
+import com.honeykoders.bankodemia.model.ErrorResponse
+import com.honeykoders.bankodemia.model.ErrorResponseBadRequest
 import com.honeykoders.bankodemia.network.ServiceNetwork
 import kotlinx.coroutines.launch
-import java.io.IOException
 
-
-class SingUpViewModel: ViewModel() {
+class UserLoginModel:ViewModel() {
     val service = ServiceNetwork()
-    val singUpResponse = MutableLiveData<ResponseSingUp>()
+    val loginResponse = MutableLiveData<ResponseUserLoggedIn>()
     val badRequest = MutableLiveData<Boolean>()
     val error = MutableLiveData<String>()
     val loading = MutableLiveData<Boolean>()
 
-    fun singUp(singUp: SingUpModel){
+    fun loginUser(login: LoginModel){
         loading.postValue(true)
-        try {
         viewModelScope.launch {
-            val respuesta = service.singUp(singUp)
+            val respuesta = service.loginUser(login)
             Log.e("codigo", respuesta.raw().toString())
             if (respuesta.isSuccessful){
-                singUpResponse.postValue(respuesta.body())
+                loginResponse.postValue(respuesta.body())
                 Log.e("Success ",respuesta.body().toString())
             }else{
                 if(respuesta.code() == 400){
@@ -36,19 +36,16 @@ class SingUpViewModel: ViewModel() {
                     Log.e("Response400",errorResponse.toString())
                     badRequest.postValue(true)
                 }else{
-                    if(respuesta.code() == 412){
+                    if(respuesta.code() == 401){
                         val gson = Gson()
-                        val type = object : TypeToken<PreconditionError>() {}.type
-                        var errorResponse: PreconditionError? = gson.fromJson(respuesta.errorBody()!!.charStream(), type)
-                        Log.e("Response412",errorResponse.toString())
+                        val type = object : TypeToken<ErrorResponse>() {}.type
+                        var errorResponse: ErrorResponse? = gson.fromJson(respuesta.errorBody()!!.charStream(), type)
+                        Log.e("Response401",errorResponse.toString())
                         error.postValue(errorResponse?.message)
                     }
                 }
             }
         }
-        loading.postValue(true)
-        }catch(e: IOException){
-            Log.e("Response", e.toString())
-        }
+        loading.postValue(false)
     }
 }
