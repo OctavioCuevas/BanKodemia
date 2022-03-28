@@ -2,9 +2,12 @@ package com.honeykoders.bankodemia.common
 
 import android.content.Context
 import android.content.SharedPreferences
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
 import android.telephony.PhoneNumberUtils
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.widget.Toast
 import androidx.core.util.PatternsCompat
 import androidx.preference.PreferenceManager
@@ -152,11 +155,7 @@ class Utils() {
     }
 
     fun isPhoneNumberValid(number: String): Boolean {
-        if (number.length < 10) {
-            return true
-        } else {
-            return false
-        }
+        return number.length < 10
     }
 
     fun emptyField(tiet: TextInputEditText, til: TextInputLayout): Boolean {
@@ -202,6 +201,26 @@ class Utils() {
         fun showMessage(context: Context, message: Int) {
             Toast.makeText(context, context.getString(message), Toast.LENGTH_LONG).show()
         }
+    }
+
+    fun isOnline(context: Context): Boolean {
+        val connectivityManager =
+            context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val capabilities =
+            connectivityManager.getNetworkCapabilities(connectivityManager.activeNetwork)
+        if (capabilities != null) {
+            if (capabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR)) {
+                Log.i("Internet", "NetworkCapabilities.TRANSPORT_CELLULAR")
+                return true
+            } else if (capabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI)) {
+                Log.i("Internet", "NetworkCapabilities.TRANSPORT_WIFI")
+                return true
+            } else if (capabilities.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET)) {
+                Log.i("Internet", "NetworkCapabilities.TRANSPORT_ETHERNET")
+                return true
+            }
+        }
+        return false
     }
 }
 

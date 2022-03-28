@@ -47,7 +47,7 @@ class CreateAccount : Fragment() {
             if (!utils.emptyField(tiet_maillogin,til_maillogin)){
                 findNavController().navigate(R.id.customerDataFragment)
             }else{
-                context?.let { it -> utils.showMessage(it,R.string.requiredField) }
+                context?.let { it -> utils.showMessage(it,getString(R.string.requiredField)) }
             }
         }
         return root

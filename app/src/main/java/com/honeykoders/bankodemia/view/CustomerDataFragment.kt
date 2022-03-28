@@ -1,26 +1,16 @@
 package com.honeykoders.bankodemia.view
 
-import android.graphics.Color
 import android.os.Bundle
-import android.text.Editable
-import android.text.Spannable
-import android.text.SpannableStringBuilder
-import android.text.TextWatcher
-import android.text.style.ForegroundColorSpan
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.widget.addTextChangedListener
 import androidx.navigation.fragment.findNavController
 import com.honeykoders.bankodemia.R
 import com.honeykoders.bankodemia.common.DatePickerFragment
 import com.honeykoders.bankodemia.common.Utils
-import com.honeykoders.bankodemia.databinding.FragmentCreateAccountBinding
 import com.honeykoders.bankodemia.databinding.FragmentCustomerDataBinding
-import kotlinx.android.synthetic.main.fragment_create_account.*
 import kotlinx.android.synthetic.main.fragment_customer_data.*
-
 
 class CustomerDataFragment : Fragment() {
 
