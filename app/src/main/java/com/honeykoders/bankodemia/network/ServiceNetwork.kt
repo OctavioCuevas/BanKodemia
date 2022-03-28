@@ -28,4 +28,13 @@ class ServiceNetwork {
             response
         }
     }
+
+    suspend fun searchUser(query:String):Response<SearchUsersModel>{
+        return withContext(Dispatchers.IO){
+            val response = retrofit.searchUsers(query)
+            response
+        }
+    }
+
+
 }

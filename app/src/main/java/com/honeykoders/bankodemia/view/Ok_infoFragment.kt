@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.honeykoders.bankodemia.R
 import com.honeykoders.bankodemia.databinding.FragmentOkInfoBinding
-import com.honeykoders.bankodemia.databinding.FragmentPasswordBinding
 
 class ok_infoFragment : Fragment() {
 
@@ -26,6 +25,5 @@ class ok_infoFragment : Fragment() {
         }
         return root
     }
-
 
 }

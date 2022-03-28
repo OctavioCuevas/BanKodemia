@@ -1,10 +1,11 @@
 package com.honeykoders.bankodemia.network
 
+import com.honeykoders.bankodemia.common.Utils
 import com.honeykoders.bankodemia.model.*
 import retrofit2.Response
-import retrofit2.http.Body
-import retrofit2.http.Headers
-import retrofit2.http.POST
+import retrofit2.http.*
+
+val utils: Utils = Utils()
 
 interface ApiService {
     @Headers("Content-Type: application/json ","Accept: application/json")
@@ -12,11 +13,26 @@ interface ApiService {
     @POST("/users")
     suspend fun singUp(@Body singUpModel: SingUpModel): Response<ResponseSingUp>
     //Transactions
-    @Headers("Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MjJhOTk3NzhjZTZjNDc4ZDBlMWJmZDEiLCJpYXQiOjE2NDczOTYwODEsImV4cCI6MTY0NzM5OTY4MX0._0g3DahAGy3T3-HQI3wcLUzTGUN4zMuCZn90eS4maPY")
+    //@Headers("Authorization: Bearer  ")
     @POST("/transactions")
     suspend fun makeTransactionPayment(@Body makeTransaction: MakeTransactionPayment): Response<ResponseTransactionCreated>
     //Login
     @POST("/auth/login")
     suspend fun loginUser(@Body login: LoginModel): Response<ResponseUserLoggedIn>
+    //Search Users
+    @GET("/users/search")
+    suspend fun searchUsers(@Query("query") query: String): Response<SearchUsersModel>
+
+    /*
+    * @GET("data/2.5/onecall")
+    suspend fun getWeatherById(
+        @Query("lat") lat: String,
+        @Query("lon") lon: String,
+        @Query("units") units: String?,
+        @Query("lang") lang: String?,
+        @Query("appid") appid: String): OneCallEntity
+    *
+    *
+    * */
 
 }
