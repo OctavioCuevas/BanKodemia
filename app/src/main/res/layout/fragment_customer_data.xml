@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CustomerDataFragment">
+    tools:context=".view.CustomerDataFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -12,33 +12,27 @@
 
         <ImageView
             android:id="@+id/iv_logo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="70dp"
+            android:layout_height="40dp"
             android:layout_marginTop="26dp"
             android:src="@drawable/logo"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="@string/bankodemia_logo" />
 
-        <ImageView
-            android:id="@+id/iv_back"
+        <Button
+            android:id="@+id/btn_atras"
+            style="@style/Widget.Material3.Button.TextButton.Icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="20dp"
-            android:src="@drawable/ic_back"
+            android:fontFamily="@font/poppins2"
+            android:text="@string/ingresa_tus_datos"
+            android:textColor="#626262"
+            android:textSize="14sp"
+            app:icon="@drawable/ic_baseline_arrow_back"
+            app:iconTint="#626262"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/iv_logo" />
-
-        <TextView
-            android:id="@+id/tv_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="20dp"
-            android:text="INGRESA TUS DATOS"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/iv_back"
             app:layout_constraintTop_toBottomOf="@+id/iv_logo" />
 
         <TextView
@@ -47,21 +41,20 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
             android:layout_marginTop="16dp"
-            android:text="Escríbelos tal como aparecen en tu identificación oficial sin abreviaturas"
-            android:textSize="20sp"
-            android:textStyle="bold"
+            style="@style/boldTitle"
+            android:text="@string/escr_belos_tal_como_aparecen_en_tu_identificaci_n_oficial_sin_abreviaturas"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_title" />
+            app:layout_constraintTop_toBottomOf="@+id/btn_atras" />
 
         <TextView
             android:id="@+id/tv_name"
+            style="@style/singleTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
-            android:layout_marginTop="30dp"
-            android:text="Nombre(s)"
-            android:textSize="16sp"
+            android:layout_marginTop="24dp"
+            android:text="@string/nombre_s"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -90,8 +83,8 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
             android:layout_marginTop="5dp"
-            android:text="Apellido(s)"
-            android:textSize="16sp"
+            android:text="@string/apellido_s"
+            style="@style/singleTitle"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -120,8 +113,8 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
             android:layout_marginTop="5dp"
-            android:text="Ocupación"
-            android:textSize="16sp"
+            android:text="@string/ocupaci_n"
+            style="@style/singleTitle"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -157,12 +150,12 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/til_work" />
 
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/til_birthday"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:inputType="date"
             android:layout_marginHorizontal="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -170,53 +163,43 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/tiet_birthday"
+                android:inputType="date"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <TextView
-            android:id="@+id/tv_"
-            android:layout_width="match_parent"
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_continuar"
+            style="@style/button"
+            android:layout_width="297dp"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="20dp"
-            android:layout_marginTop="16dp"
-            android:text="Escríbelos tal como aparecen en tu identificación oficial sin abreviaturas"
-            android:textSize="20sp"
-            android:textStyle="bold"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:layout_margin="20dp"
+            android:layout_marginBottom="32dp"
+            android:text="@string/continuar"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_title" />
+            app:layout_constraintStart_toStartOf="parent" />
+
 
         <TextView
             android:id="@+id/tv_info"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginHorizontal="20dp"
-            android:textSize="18sp"
-            android:gravity="center_horizontal|top"
-            android:text="Esta información es necesaria para verificar tu identidad. Nunca la usaremos sin tu consentimiento"
-            app:layout_constraintEnd_toEndOf="@+id/btn_password"
-            app:layout_constraintStart_toStartOf="parent"
+            style="@style/singleTitle"
+            android:layout_width="317dp"
+            android:layout_height="63dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/esta_informaci_n_es_necesaria_para_verificar_tu_identidad_nunca_la_usaremos_sin_tu_consentimiento"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toTopOf="@+id/btn_continuar"
+            app:layout_constraintEnd_toEndOf="@+id/btn_continuar"
+            app:layout_constraintStart_toStartOf="@+id/btn_continuar"
             app:layout_constraintTop_toBottomOf="@+id/til_birthday" />
-
-        <Button
-            android:id="@+id/btn_password"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentBottom="true"
-            android:layout_margin="20dp"
-            android:background="@color/teal_200"
-            android:text="Continuar"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_info" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

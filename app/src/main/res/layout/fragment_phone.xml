@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CustomerDataFragment">
+    tools:context=".view.CustomerDataFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -12,33 +12,26 @@
 
         <ImageView
             android:id="@+id/iv_logo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="70dp"
+            android:layout_height="40dp"
             android:layout_marginTop="26dp"
             android:src="@drawable/logo"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
-            android:id="@+id/iv_back"
+            app:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="@string/bankodemia_logo" />
+        <Button
+            android:id="@+id/btn_atras"
+            style="@style/Widget.Material3.Button.TextButton.Icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="20dp"
-            android:src="@drawable/ic_back"
+            android:fontFamily="@font/poppins2"
+            android:text="@string/ingresa_tus_datos"
+            android:textColor="#626262"
+            android:textSize="14sp"
+            app:icon="@drawable/ic_baseline_arrow_back"
+            app:iconTint="#626262"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/iv_logo" />
-
-        <TextView
-            android:id="@+id/tv_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="20dp"
-            android:text="ESCRIBE TU TELÉFONO"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/iv_back"
             app:layout_constraintTop_toBottomOf="@+id/iv_logo" />
 
         <TextView
@@ -47,12 +40,11 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
             android:layout_marginTop="16dp"
-            android:text="Lo usarás para iniciar sesión"
-            android:textSize="20sp"
-            android:textStyle="bold"
+            style="@style/boldTitle"
+            android:text="@string/lo_usar_s_para_iniciar_sesi_n"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_title" />
+            app:layout_constraintTop_toBottomOf="@+id/btn_atras" />
 
         <TextView
             android:id="@+id/tv_number"
@@ -60,58 +52,81 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
             android:layout_marginTop="30dp"
-            android:text="Tu número de celular"
-            android:textSize="16sp"
+            android:text="@string/tu_n_mero_de_celular"
+            style="@style/singleTitle"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_instructions" />
 
+        <com.hbb20.CountryCodePicker
+            android:id="@+id/country_code_picker"
+            android:layout_width="0dp"
+            android:layout_height="46dp"
+            android:layout_marginStart="16dp"
+            android:clickable="true"
+            android:focusable="true"
+            app:ccp_autoDetectLanguage="true"
+            app:ccp_hintExampleNumber="true"
+            app:ccp_showFlag="false"
+            app:ccp_showNameCode="false"
+            app:ccp_defaultNameCode="MX"
+            app:layout_constraintBottom_toBottomOf="@+id/til_number"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/til_number"
+            app:layout_constraintVertical_bias="0.55">
+
+        </com.hbb20.CountryCodePicker>
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/til_number"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
+            android:layout_width="296dp"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="24dp"
             android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="8dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/country_code_picker"
             app:layout_constraintTop_toBottomOf="@+id/tv_number">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/tiet_number"
+                android:maxLength="10"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:inputType="phone" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
             android:id="@+id/tv_info"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
+            style="@style/singleTitle"
+            android:layout_width="328dp"
+            android:layout_height="42dp"
+            android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
+            android:layout_marginBottom="15dp"
             android:layout_marginHorizontal="20dp"
             android:gravity="center_horizontal|top"
-            android:layout_marginBottom="15dp"
-            android:text="Para protejer tu cuenta, te enviaremos un código vía SMS"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toTopOf="@+id/btn_password"
-            app:layout_constraintEnd_toEndOf="@+id/btn_password"
+            android:text="@string/para_protejer_tu_cuenta_te_enviaremos_un_c_digo_v_a_sms"
+            app:layout_constraintBottom_toTopOf="@+id/btn_continuar"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/til_number"
             app:layout_constraintVertical_bias="1.0" />
 
-        <Button
-            android:id="@+id/btn_password"
-            android:layout_width="0dp"
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_continuar"
+            android:layout_width="297dp"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
             android:layout_margin="20dp"
-            android:background="@color/design_default_color_primary_variant"
-            android:text="Continuar"
+            style="@style/button"
+            android:text="@string/continuar"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
