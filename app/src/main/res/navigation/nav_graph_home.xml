@@ -24,7 +24,11 @@
         android:id="@+id/sendMoney"
         android:name="com.honeykoders.bankodemia.view.SendMoney"
         android:label="SendMoney"
-        tools:layout="@layout/fragment_send_money"/>
+        tools:layout="@layout/fragment_send_money">
+        <action
+            android:id="@+id/action_sendMoney_to_transferencia"
+            app:destination="@id/transferencia" />
+    </fragment>
     <fragment
         android:id="@+id/fragment_tarjeta"
         android:name="com.honeykoders.bankodemia.view.Fragment_tarjeta"
@@ -35,4 +39,36 @@
         android:name="com.honeykoders.bankodemia.view.ServiciosFragment"
         android:label="ServiciosFragment"
         tools:layout="@layout/fragment_servicios"/>
+    <fragment
+        android:id="@+id/transferencia"
+        android:name="com.honeykoders.bankodemia.view.Transferencia"
+        android:label="fragment_transferencia"
+        tools:layout="@layout/fragment_transferencia" >
+        <action
+            android:id="@+id/action_transferencia_to_dialogTransferencia"
+            app:destination="@id/dialogTransferencia" />
+    </fragment>
+    <dialog
+        android:id="@+id/dialogTransferencia"
+        android:name="com.honeykoders.bankodemia.view.DialogTransferencia"
+        android:label="fragment_dialog_transferencia"
+        tools:layout="@layout/fragment_dialog_transferencia" >
+        <action
+            android:id="@+id/action_dialogTransferencia_to_procesandoTransaccion"
+            app:destination="@id/procesandoTransaccion" />
+    </dialog>
+    <fragment
+        android:id="@+id/procesandoTransaccion"
+        android:name="com.honeykoders.bankodemia.view.ProcesandoTransaccion"
+        android:label="fragment_procesando_transaccion"
+        tools:layout="@layout/fragment_procesando_transaccion" >
+        <action
+            android:id="@+id/action_procesandoTransaccion_to_transaccionFinalizada"
+            app:destination="@id/transaccionFinalizada" />
+    </fragment>
+    <fragment
+        android:id="@+id/transaccionFinalizada"
+        android:name="com.honeykoders.bankodemia.view.TransaccionFinalizada"
+        android:label="fragment_transaccion_finalizada"
+        tools:layout="@layout/fragment_transaccion_finalizada" />
 </navigation>

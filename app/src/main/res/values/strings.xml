@@ -127,10 +127,13 @@
     <string name="CVV_real">125</string>
     <!--Errores-->
     <string name="requiredField">El campo es requerido</string>
+    <string name="invalidMail">Correo inválido</string>
+    <string name="pictureNotTaken">Se requiere tomar una foto para continuar.</string>
     <string name="userphonealreadyexists">Número teléfonico ya registrado, ingrese uno diferente</string>
-    <string name="useralreadyexists">Número teléfonico ya registrado, ingrese uno diferente</string>
+    <string name="useralreadyexists">Email ya registrado, ingrese uno diferente</string>
     <string name="broken">Estas quebrado :(</string>
     <string name="serverError">Hubo un error, intente más tarde</string>
     <string name="insufficientFunds">Fondos insuficientes</string>
+    <string name="invalidCredentials">No se pudo iniciar sesión. Usuario y/o contraseña incorrectas</string>
 
 </resources>
