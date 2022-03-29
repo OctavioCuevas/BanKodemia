@@ -135,5 +135,7 @@
     <string name="serverError">Hubo un error, intente más tarde</string>
     <string name="insufficientFunds">Fondos insuficientes</string>
     <string name="invalidCredentials">No se pudo iniciar sesión. Usuario y/o contraseña incorrectas</string>
+    <string name="mailIsAlreadyUsed">El correo ya esta registrado, intente con otro</string>
+
 
 </resources>

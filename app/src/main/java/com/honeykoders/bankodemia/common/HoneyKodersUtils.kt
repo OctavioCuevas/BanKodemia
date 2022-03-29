@@ -64,14 +64,6 @@ class HoneyKodersUtils() {
                         til.error = errorMessage
                         false
                     }
-                in "double" ->
-                    if (isNumber(tiet.text.toString())
-                    ) {
-                        til.isErrorEnabled = false
-                    } else {
-                        til.error = errorMessage
-                        false
-                    }
                 else -> {
                     println("ok")
                 }
@@ -133,8 +125,8 @@ class HoneyKodersUtils() {
         name: String,
         str_val: String,
         bol_val: Boolean = false,
-        int_val: Int = 0,
-        float_val: Float = 0.0f
+        int_val: Int,
+        float_val: Float
     ) {
         when (type) {
             "boolean" -> this.editor.putBoolean(name, bol_val)
@@ -144,10 +136,6 @@ class HoneyKodersUtils() {
             else -> throw VariableTypeNotFoundException()
         }
         editor.apply()
-    }
-
-    fun sharedPref() : SharedPreferences {
-        return sharedPreferences;
     }
 
     fun showMessage(context: Context, message: String) {
