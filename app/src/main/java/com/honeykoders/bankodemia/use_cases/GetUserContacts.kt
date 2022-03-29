@@ -11,7 +11,7 @@ import com.honeykoders.bankodemia.databinding.FragmentSendMoneyBinding
 import com.honeykoders.bankodemia.exceptions.EmptyTokenException
 import com.honeykoders.bankodemia.model.contacts.Contacts
 import com.honeykoders.bankodemia.model.contacts.ContactsMain
-import com.honeykoders.bankodemia.view.adapters.ContactsAdapter
+//import com.honeykoders.bankodemia.view.adapters.ContactsAdapter
 import com.honeykoders.bankodemia.viewmodel.SendMoneyVM
 import kotlinx.coroutines.launch
 
@@ -30,14 +30,14 @@ class GetUserContacts {
 
     fun getContacts() {
         this.getContactsData()
-        this.observer(
+       /* this.observer(
             viewModel,
             owner,
             lifecycleScope,
             units,
             resources,
             packageName
-        )
+        )*/
     }
 
     private fun getContactsData() {
@@ -65,11 +65,11 @@ class GetUserContacts {
     }
 
     private fun setRecycler(contacts: List<Contacts>, recyclerView: RecyclerView) {
-        val contactsAdapter = ContactsAdapter(context, contacts)
+        /*val contactsAdapter = ContactsAdapter(context, contacts)
         recyclerView.apply {
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
             adapter = contactsAdapter
-        }
+        }*/
     }
 
 }

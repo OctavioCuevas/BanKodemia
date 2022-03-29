@@ -8,7 +8,7 @@ import com.honeykoders.bankodemia.R
 import com.honeykoders.bankodemia.model.contacts.Contacts
 import com.honeykoders.bankodemia.view.holders.ContactsHolder
 
-class ContactsAdapter(private val context: Context, private val listHours: List<Contacts>) :
+/*class ContactsAdapter(private val context: Context, private val listHours: List<Contacts>) :
     RecyclerView.Adapter<ContactsHolder>()  {
 
     override fun onCreateViewHolder(
@@ -27,3 +27,4 @@ class ContactsAdapter(private val context: Context, private val listHours: List<
     override fun getItemCount(): Int = listHours.size
 
     }
+}*/

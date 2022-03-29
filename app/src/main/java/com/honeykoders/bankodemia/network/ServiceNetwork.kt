@@ -8,7 +8,7 @@ import kotlinx.coroutines.withContext
 import retrofit2.Response
 
 class ServiceNetwork(context: Context){
-    val retrofit = RetrofitInstance.getRetrofit(context).create(ApiService::class.java)
+    val retrofit = RetrofitInstance.getRetrofit().create(ApiService::class.java)
 
     suspend fun singUp (singUp:SingUpModel):Response<ResponseSingUp>{
         return withContext(Dispatchers.IO){
