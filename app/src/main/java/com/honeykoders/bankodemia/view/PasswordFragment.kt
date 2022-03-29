@@ -29,7 +29,9 @@ class PasswordFragment : Fragment() {
     ): View? {
         _binding = FragmentPasswordBinding.inflate(inflater, container, false)
         val root: View = binding.root
-        //getCustomerData()
+
+        context?.let { viewModel.onCreate(context = it) }
+
         binding.btnCrearCuenta.setOnClickListener {
             if(utils.matchPassword(binding.tietPassword,
                     binding.tilPassword,
