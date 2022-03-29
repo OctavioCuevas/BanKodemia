@@ -34,10 +34,10 @@ class Utils() {
         }
     }
 
-    fun validateImageTaken(image: String?):Boolean{
-        if (image.isNullOrBlank() || image.isNullOrEmpty()){
+    fun validateImageTaken(image: String?): Boolean {
+        if (image.isNullOrBlank() || image.isNullOrEmpty()) {
             return false
-        }else{
+        } else {
             return true
         }
 
@@ -142,14 +142,14 @@ class Utils() {
         })
     }
 
-    fun verifyPassword(password:String):String{
+    fun verifyPassword(password: String): String {
         var message = "Ok"
         var regex: Regex
-        if(password.length < 6){ //al menos 6 caracteres
+        if (password.length < 6) { //al menos 6 caracteres
             message = "Contraseña debe tener 6 o más caracteres"
-        }else{ //valida que sean alfanuméricos
+        } else { //valida que sean alfanuméricos
             regex = Regex("[a-zA-Z0-9.? ]*")
-            if(!password.matches(regex)){
+            if (!password.matches(regex)) {
                 message = "Contraseña NO debe tener carácteres especiales"
             }
         }
@@ -243,12 +243,14 @@ class Utils() {
             }
         }
         return false
-    fun getSharedPreferencesByName(name: String): String?{
-        val value = sharedPreferences.getString(name,"")
+    }
+
+    fun getSharedPreferencesByName(name: String): String? {
+        val value = sharedPreferences.getString(name, "")
         return value
     }
 
-    fun clearSharedPreferences(){
+    fun clearSharedPreferences() {
         editor.clear().apply()
     }
 

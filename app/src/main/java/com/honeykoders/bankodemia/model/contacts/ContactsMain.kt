@@ -5,5 +5,5 @@ import java.io.Serializable
 
 data class ContactsMain(
     var success: Boolean? = null,
-    var data: Data? = Data()
+    var data: Data
 ) : Serializable

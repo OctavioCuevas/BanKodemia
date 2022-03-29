@@ -16,8 +16,8 @@ fun main () {
     email = "honeykoders.com"
     println("$email es un correo válido: ${utils.isEmail(email)}")
     println("$email es un una página válida: ${utils.isWebPage(email)}")
-    utils.updateSharedPreferences("string", "email", "correo@hotmail.com")
-    utils.updateSharedPreferences("string", "enviar_correo", "", true)
-    var correo :String? = utils.sharedPref().getString("email", "Empty")
-    var tienePermiso :Boolean? = utils.sharedPref().getBoolean("tiene_permiso", false)
+    //utils.updateSharedPreferences("string", "email", "correo@hotmail.com")
+    //utils.updateSharedPreferences("string", "enviar_correo", "", true)
+    //var correo :String? = utils.sharedPref().getString("email", "Empty")
+    //var tienePermiso :Boolean? = utils.sharedPref().getBoolean("tiene_permiso", false)
 }
