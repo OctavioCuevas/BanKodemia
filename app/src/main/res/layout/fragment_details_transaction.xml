@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".view.DetailsTransaction">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/iv_user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_icono_usuario"
+            app:layout_constraintEnd_toStartOf="@+id/guidelineLeft"
+            app:layout_constraintHorizontal_bias="0.25"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/iv_bk_icon" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineCenter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineLeft"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.3333" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineRight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.6666" />
+
+        <ImageView
+            android:id="@+id/iv_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_icono_info"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.75"
+            app:layout_constraintStart_toStartOf="@+id/guidelineRight"
+            app:layout_constraintTop_toTopOf="@+id/iv_bk_icon" />
+
+        <ImageView
+            android:id="@+id/iv_bk_icon"
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/ic_icono_kodemia"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btn_detalle"
+            style="@style/Widget.Material3.Button.TextButton.Icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins2"
+            android:text="@string/detalle_transaccion"
+            android:textColor="#626262"
+            android:textSize="14sp"
+            app:icon="@drawable/ic_baseline_arrow_back"
+            app:iconTint="#626262"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_bk_icon" />
+
+        <TextView
+            android:id="@+id/tv_cantidad_disponible"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/poppins_semibold"
+            android:textColor="@color/black2"
+            android:textSize="20sp"
+            android:text="@string/cantidadTransaccion"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_detalle"
+            tools:text="$110.00" />
+
+        <TextView
+            android:id="@+id/tv_concepto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/concepto_transaccion"
+            style="@style/singleTitle"
+            app:layout_constraintEnd_toEndOf="@+id/tv_cantidad_disponible"
+            app:layout_constraintStart_toStartOf="@+id/tv_cantidad_disponible"
+            app:layout_constraintTop_toBottomOf="@+id/tv_cantidad_disponible" />
+
+        <TextView
+            android:id="@+id/tv_fecha_hora"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="64dp"
+            style="@style/boldTitle"
+            android:text="@string/fecha_hora"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_concepto" />
+
+        <TextView
+            android:id="@+id/textView_fecha_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/singleTitle"
+            android:text="@string/fechaDetalle"
+            app:layout_constraintStart_toStartOf="@+id/tv_fecha_hora"
+            app:layout_constraintTop_toBottomOf="@+id/tv_fecha_hora" />
+
+        <TextView
+            android:id="@+id/tv_id_transaccion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:textStyle="bold"
+            android:fontFamily="@font/poppins2"
+            android:textColor="@color/black2"
+            android:textSize="14sp"
+            android:text="@string/id_transaccion"
+            app:layout_constraintStart_toStartOf="@+id/textView_fecha_home"
+            app:layout_constraintTop_toBottomOf="@+id/textView_fecha_home" />
+
+        <TextView
+            android:id="@+id/tv_id_transaccion_t"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/singleTitle"
+            android:text="@string/Id_transaccion"
+            app:layout_constraintStart_toStartOf="@+id/tv_id_transaccion"
+            app:layout_constraintTop_toBottomOf="@+id/tv_id_transaccion" />
+
+        <TextView
+            android:id="@+id/textView28"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            style="@style/boldTitle"
+            android:text="@string/concepto"
+            app:layout_constraintStart_toStartOf="@+id/tv_id_transaccion_t"
+            app:layout_constraintTop_toBottomOf="@+id/tv_id_transaccion_t" />
+
+        <TextView
+            android:id="@+id/textView_concepto2_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins2"
+            android:textColor="@color/black2"
+            android:textSize="14sp"
+            android:text="@string/concepto_transaccion"
+            app:layout_constraintStart_toStartOf="@+id/textView28"
+            app:layout_constraintTop_toBottomOf="@+id/textView28" />
+
+        <TextView
+            android:id="@+id/tv_cuenta_emisora"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            style="@style/boldTitle"
+            android:text="@string/cuenta_emisora"
+            app:layout_constraintStart_toStartOf="@+id/textView_concepto2_home"
+            app:layout_constraintTop_toBottomOf="@+id/textView_concepto2_home" />
+
+        <TextView
+            android:id="@+id/tv_numero_cuenta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins2"
+            android:textColor="@color/black2"
+            android:textSize="14sp"
+            android:text="@string/no_cuenta"
+            app:layout_constraintStart_toStartOf="@+id/tv_cuenta_emisora"
+            app:layout_constraintTop_toBottomOf="@+id/tv_cuenta_emisora" />
+
+        <TextView
+            android:id="@+id/tv_numero_cuenta_emisora"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins2"
+            android:textColor="@color/black2"
+            android:textSize="14sp"
+            android:text="@string/numero_cuenta"
+            app:layout_constraintStart_toStartOf="@+id/tv_numero_cuenta"
+            app:layout_constraintTop_toBottomOf="@+id/tv_numero_cuenta" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

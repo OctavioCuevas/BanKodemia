@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,7 +7,6 @@
     tools:context=".view.Transferencia">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/contenedor_Principal"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -19,14 +18,15 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/bk" />
+            app:srcCompat="@drawable/bk"
+            android:contentDescription="@string/bankodemia_logo" />
 
         <Button
             android:id="@+id/btn_atras"
             style="@style/Widget.Material3.Button.TextButton.Icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/poppins"
+            android:fontFamily="@font/poppins2"
             android:text="@string/transferencia"
             android:textColor="#626262"
             app:icon="@drawable/ic_baseline_arrow_back"
@@ -39,13 +39,13 @@
             android:id="@+id/tv_enviar_a"
             android:layout_width="wrap_content"
             android:layout_height="21dp"
-            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginStart="16dp"
             android:layout_marginTop="32dp"
             android:gravity="center_horizontal|top"
             android:text="@string/enviar_a"
-            android:textAppearance="@style/enviar_a"
+            android:textAppearance="@style/boldTitle"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btn_atras" />
 
@@ -53,13 +53,13 @@
             android:id="@+id/tv_nombre_beneficiario"
             android:layout_width="wrap_content"
             android:layout_height="21dp"
-            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:gravity="top"
             android:text="@string/nombre_beneficiario"
-            android:textAppearance="@style/nombre_beneficiario"
+            android:textAppearance="@style/boldTitle"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_enviar_a" />
 
@@ -72,7 +72,7 @@
             android:layout_marginStart="16dp"
             android:gravity="top"
             android:text="@string/cuenta_banco"
-            android:textAppearance="@style/cuenta_banco"
+            android:textAppearance="@style/singleTitle"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_nombre_beneficiario" />
 
@@ -86,7 +86,7 @@
             android:layout_marginTop="16dp"
             android:gravity="center_horizontal|top"
             android:text="@string/cantidad"
-            android:textAppearance="@style/cantidad"
+            android:textAppearance="@style/singleTitle"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_cuenta_banco" />
 
@@ -133,7 +133,7 @@
             android:layout_marginTop="16dp"
             android:gravity="center_horizontal|top"
             android:text="@string/concepto_de"
-            android:textAppearance="@style/concepto_de"
+            android:textAppearance="@style/singleTitle"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/spei_sin_co" />
 
@@ -148,7 +148,7 @@
             app:layout_constraintTop_toBottomOf="@+id/concepto_de">
 
             <com.google.android.material.textfield.TextInputEditText
-                style="@style/pago_croque"
+                style="@style/singleTitle"
                 android:id="@+id/tiet_concepto"
                 android:layout_width="match_parent"
                 android:text="@string/pago_croque"
@@ -161,7 +161,7 @@
             android:layout_width="297dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="32dp"
-            android:fontFamily="@font/poppins"
+            style="@style/button"
             android:text="@string/hacertransferencia"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -169,18 +169,4 @@
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <RelativeLayout
-        android:id="@+id/contenedor_carga"
-        android:visibility="gone"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <fragment android:name="com.honeykoders.bankodemia.view.ProcesandoTransaccion"
-            android:id="@+id/viewer"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-
-            android:layout_centerInParent="true"/>
-    </RelativeLayout>
-
-</RelativeLayout>
+</FrameLayout>

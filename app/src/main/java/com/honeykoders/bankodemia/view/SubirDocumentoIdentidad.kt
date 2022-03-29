@@ -10,28 +10,29 @@ import android.net.Uri
 import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
+import android.util.Base64
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.activity.viewModels
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
-import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.setFragmentResultListener
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.honeykoders.bankodemia.R
+import com.honeykoders.bankodemia.common.Utils
 import com.honeykoders.bankodemia.databinding.FragmentSubirDocumentoIdentidadBinding
 import com.honeykoders.bankodemia.model.SingUpModel
 import com.honeykoders.bankodemia.viewmodel.SingUpViewModel
+import java.io.ByteArrayOutputStream
 import java.io.File
 import java.io.IOException
 import java.text.SimpleDateFormat
 import java.util.*
+
 
 @Suppress("DEPRECATION")
 
@@ -41,63 +42,45 @@ class SubirDocumentoIdentidad : Fragment() {
     private val binding get() = _binding!!
     lateinit var absolutePathImagen: String
     var archivoFoto: File? = null
-    var imagen: Bitmap? = null
-    val viewModel: SingUpViewModel by viewModels()
+    var image: Bitmap? = null
+    var imageToBase64: String? = null
+    var docIdent: String? = null
+
+    val utils: Utils = Utils()
 
     private val startForResult = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
     ){
             result: ActivityResult->
         if (result.resultCode == Activity.RESULT_OK){
-            imagen = BitmapFactory.decodeFile(absolutePathImagen)
-            binding.ivDocId.setImageBitmap(imagen)
+            image = BitmapFactory.decodeFile(absolutePathImagen)
+            Log.e("ImagenP", image.toString())
+            binding.ivDocId.setImageBitmap(image)
+            imageToBase64 = convertImageToBase64(image!!)
+            Log.e("Imagen", imageToBase64.toString())
             /*archivoFoto?.also { foto ->
                 viewModel.enviarFoto(foto)
             }*/
         }
     }
 
-    private fun singUp(){
-        val singUp = SingUpModel(
-            "root@email.com",
-            "root",
-            "rootest",
-            "2013-04-14T00:40:37.437Z",
-            "hola1234",
-            "+524491234567",
-            "R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
-            "INE",
-            "Ingeniero"
-        )
-        mandarDatos(singUp)
-    }
-
-    private fun mandarDatos(singUp: SingUpModel) {
-        viewModel.singUp(singUp)
-
-    }
-
-    private fun observers() {
-        viewModel.singUpResponse.observe(viewLifecycleOwner){ singUp ->
-            Log.d("SingUp",singUp.success.toString())
-            //shared.saveToken(it.access_token)
-            //shared.saveSession(login)
-        }
-
-        viewModel.badRequest.observe(viewLifecycleOwner){ badRequest ->
-            if (badRequest){
-                Log.e("bad",badRequest.toString())
-            }
-        }
+    fun convertImageToBase64(image: Bitmap): String {
+        val baos = ByteArrayOutputStream()
+        image.compress(Bitmap.CompressFormat.JPEG, 100, baos)
+        val b = baos.toByteArray()
+        val imageEncoded = Base64.encodeToString(b,0,64, Base64.NO_WRAP)
+        return imageEncoded;
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         _binding = FragmentSubirDocumentoIdentidadBinding.inflate(inflater, container, false)
         val root: View = binding.root
-        val docIdent = arguments?.getString("docIdent")
+
+        docIdent = arguments?.getString("docIdent")
         binding.btnAtras.setText(docIdent)
 
         binding.btnTomarFoto.setOnClickListener {
@@ -105,8 +88,12 @@ class SubirDocumentoIdentidad : Fragment() {
         }
 
         binding.btnSubirInformacion.setOnClickListener {
-            //observers()
-            //singUp()
+            if (utils.validateImageTaken(imageToBase64)){
+                saveData()
+                findNavController().navigate(R.id.passwordFragment)
+            }else{
+                context?.let { it -> utils.showMessage(it,R.string.pictureNotTaken) }
+            }
         }
 
         binding.btnAtras.setOnClickListener {
@@ -114,6 +101,19 @@ class SubirDocumentoIdentidad : Fragment() {
         }
         return root
     }
+
+    private fun saveData() {
+        context?.let { it1 -> utils.initSharedPreferences(it1) }
+        val identityImageType:String
+        when (docIdent){
+            "PASAPORTE" -> identityImageType = "PASSPORT"
+            "DOCUMENTO MIGRATORIO" -> identityImageType = "MIGRATION_FORM"
+            else -> identityImageType = "INE"
+        }
+        utils.updateSharedPreferences("string","identityImageType", identityImageType!!,false,0,0.0f)
+        utils.updateSharedPreferences("string","identityImage", imageToBase64!!,false,0,0.0f)
+    }
+
 
     private fun solicitarPermisos() {
         val REQUEST_CODE_CAMARA = 100

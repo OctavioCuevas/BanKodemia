@@ -9,9 +9,15 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
+import androidx.fragment.app.setFragmentResult
+import com.honeykoders.bankodemia.common.Utils
+import com.honeykoders.bankodemia.model.Customer
 import kotlinx.android.synthetic.main.fragment_customer_data.*
 
 class CustomerDataFragment : Fragment() {
+
+    val utils = Utils()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,7 +33,8 @@ class CustomerDataFragment : Fragment() {
     }
 
     private fun initComponents() {
-        val spannable = SpannableStringBuilder("Esta información es necesaria para verificar tu identidad. Nunca la usaremos sin tu consentimiento")
+        val spannable =
+            SpannableStringBuilder("Esta información es necesaria para verificar tu identidad. Nunca la usaremos sin tu consentimiento")
         spannable.setSpan(
             ForegroundColorSpan(Color.RED),
             59, // start
@@ -36,5 +43,48 @@ class CustomerDataFragment : Fragment() {
         )
         //val tvInfo: TextView = findViewById(R.id.tv_info)
         tv_info.text = spannable
+
+        btnContinueCD.setOnClickListener {
+            if (validateForm()) {
+                saveData(
+                    tiet_name.text?.trim().toString(),
+                    tiet_lastname.text?.trim().toString(),
+                    tiet_occupation.text?.trim().toString()
+                )
+            }
+        }
+    }
+
+    private fun validateForm(): Boolean {
+        if (utils.fieldValidation("string", tiet_name, til_name, "Nombre requerido")) {
+            if (utils.fieldValidation(
+                    "string",
+                    tiet_lastname,
+                    til_lastname,
+                    "Apellido requerido"
+                )
+            ) {
+                return utils.fieldValidation(
+                    "string",
+                    tiet_occupation,
+                    til_occupation,
+                    "Nombre requerido"
+                )
+            } else {
+                return false
+            }
+        } else {
+            return false
+        }
+    }
+
+    private fun saveData(name: String, lastname: String, occupation: String) {
+        var customer = Customer().apply {
+            this.name = name.lowercase()
+            this.last_name = lastname.lowercase()
+            this.occupation = occupation.lowercase()
+        }.also {
+            setFragmentResult("weon", bundleOf("bundleKey" to "weafome"))
+        }
     }
 }

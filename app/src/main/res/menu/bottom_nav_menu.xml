@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/navigation_inicio"
+        android:id="@+id/inicioFragment"
         android:icon="@drawable/ic_icono_kodemia_nav"
+        android:enabled="true"
         android:title="@string/title_nav_inicio" />
 
     <item
-        android:id="@+id/navigation_tarjeta"
+        android:id="@+id/fragment_tarjeta"
         android:icon="@drawable/ic_icono_tarjeta_nav"
+        android:enabled="true"
         android:title="@string/title_nav_tarjeta" />
 
     <item
-        android:id="@+id/navigation_servicios"
+        android:id="@+id/serviciosFragment"
         android:icon="@drawable/ic_list"
+        android:enabled="true"
         android:title="@string/title_nav_servicios" />
 </menu>

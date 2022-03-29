@@ -15,10 +15,6 @@ class VerificarDocumentoIdentidad : Fragment() {
     private var _binding: FragmentVerificarDocumentoIdentidadBinding? = null
     private val binding get() = _binding!!
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,6 +24,9 @@ class VerificarDocumentoIdentidad : Fragment() {
         val root: View = binding.root
         binding.btnEntendido.setOnClickListener {
             findNavController().navigate(R.id.seleccionarDocumentoIdentidad)
+        }
+        binding.btnAtras.setOnClickListener {
+            findNavController().navigate(R.id.phoneFragment)
         }
         return root
     }
