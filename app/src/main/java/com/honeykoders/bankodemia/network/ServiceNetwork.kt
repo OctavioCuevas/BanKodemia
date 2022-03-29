@@ -1,13 +1,14 @@
 package com.honeykoders.bankodemia.network
 
 import android.content.Context
+import android.util.Log
 import com.honeykoders.bankodemia.model.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import retrofit2.Response
 
-class ServiceNetwork () {
-    val retrofit = RetrofitInstance.getRetrofit().create(ApiService::class.java)
+class ServiceNetwork(context: Context){
+    val retrofit = RetrofitInstance.getRetrofit(context).create(ApiService::class.java)
 
     suspend fun singUp (singUp:SingUpModel):Response<ResponseSingUp>{
         return withContext(Dispatchers.IO){

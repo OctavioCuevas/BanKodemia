@@ -38,8 +38,11 @@ class CreateAccount : Fragment() {
     ): View? {
         _binding = FragmentCreateAccountBinding.inflate(inflater, container, false)
         val root: View = binding.root
+        context?.let { viewModel.onCreate(context = it) }
+        context?.let { viewModelSearchUsers.onCreate(context = it) }
         observersLogin()
         searchUserLogin()
+        observersSearchUsers()
 
         binding.tietMaillogin.addTextChangedListener ( object: TextWatcher{
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
@@ -61,7 +64,7 @@ class CreateAccount : Fragment() {
                 if(utils.fieldValidation("email",binding.tietMaillogin,binding.tilMaillogin,"Correo invalido")){
                     context?.let { it1 -> utils.initSharedPreferences(it1) }
                     utils.updateSharedPreferences("string","email",binding.tietMaillogin.text.toString(),false,0,0.0f)
-                    findNavController().navigate(R.id.customerDataFragment)
+                    searchUserByMail(tiet_maillogin.text.toString())
                 }else{
                     context?.let { it -> utils.showMessage(it,R.string.invalidMail) }
                 }
@@ -70,6 +73,21 @@ class CreateAccount : Fragment() {
             }
         }
         return root
+    }
+
+    private fun observersSearchUsers() {
+        viewModelSearchUsers.searchUsersResponse.observe(viewLifecycleOwner){ user->
+            findNavController().navigate(R.id.customerDataFragment)
+        }
+
+        viewModelSearchUsers.error.observe(viewLifecycleOwner){ user->
+            context?.let { utils.showMessage(it,R.string.mailIsAlreadyUsed) }
+        }
+
+    }
+
+    private fun searchUserByMail(email:String){
+        viewModelSearchUsers.searchUser(email)
     }
 
     private fun searchUserLogin(){
