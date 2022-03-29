@@ -1,4 +1,7 @@
 package com.honeykoders.bankodemia.model
+
+import com.google.gson.annotations.SerializedName
+
 /*
 {
    "success": true,
@@ -8,10 +11,11 @@ package com.honeykoders.bankodemia.model
 }
 * */
 data class SearchUsersModel (
-    val success: String,
-    val data: Users
+    @SerializedName("success" ) var success : Boolean? = null,
+    @SerializedName("data"    ) var data    : DataSearchUser
+
 )
 
-data class Users (
-    val users: List<String>
-    )
+data class DataSearchUser (
+    @SerializedName("users" ) var users : ArrayList<String>
+)

@@ -1,5 +1,6 @@
 package com.honeykoders.bankodemia.viewmodel
 
+import android.content.Context
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -12,13 +13,17 @@ import kotlinx.coroutines.launch
 import java.io.IOException
 
 class TransactionViewModel:ViewModel() {
-    val service = ServiceNetwork()
+    lateinit var service: ServiceNetwork
     val makeTransactionResponse = MutableLiveData<ResponseTransactionCreated>()
     val badRequest = MutableLiveData<Boolean>()
     val broken = MutableLiveData<Boolean>()
     val inssuficientFunds = MutableLiveData<Boolean>()
     val error = MutableLiveData<String>()
     val loading = MutableLiveData<Boolean>()
+
+    fun onCreate(context: Context){
+        service = ServiceNetwork(context)
+    }
 
     fun makeTransactionPayment(makeTransactionPayment: MakeTransactionPayment){
         loading.postValue(true)

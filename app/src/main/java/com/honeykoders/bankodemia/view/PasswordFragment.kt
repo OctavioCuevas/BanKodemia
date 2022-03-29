@@ -29,7 +29,9 @@ class PasswordFragment : Fragment() {
     ): View? {
         _binding = FragmentPasswordBinding.inflate(inflater, container, false)
         val root: View = binding.root
-        //getCustomerData()
+
+        context?.let { viewModel.onCreate(context = it) }
+
         binding.btnCrearCuenta.setOnClickListener {
             if(utils.matchPassword(binding.tietPassword,
                     binding.tilPassword,
@@ -107,8 +109,8 @@ class PasswordFragment : Fragment() {
         viewModel.error.observe(viewLifecycleOwner){ error ->
             Log.d("ErrorMessage", error)
             when(error){
-                "User phone already exists" -> context?.let { utils.showMessage(it,R.string.userphonealreadyexists) }
-                "User already exists" -> context?.let { utils.showMessage(it,R.string.useralreadyexists) }
+                "User phone already exists" -> context?.let { utils.showMessage(it,getString(R.string.userphonealreadyexists)) }
+                "User already exists" -> context?.let { utils.showMessage(it,getString(R.string.useralreadyexists)) }
                 else -> null
             }
 

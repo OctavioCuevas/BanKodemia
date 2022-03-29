@@ -108,7 +108,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
-            android:id="@+id/tv_work"
+            android:id="@+id/tv_occupation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
@@ -121,17 +121,17 @@
             app:layout_constraintTop_toBottomOf="@+id/til_lastname" />
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/til_work"
+            android:id="@+id/til_occupation"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_work">
+            app:layout_constraintTop_toBottomOf="@+id/tv_occupation">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/tiet_work"
+                android:id="@+id/tiet_occupation"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
@@ -148,7 +148,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/til_work" />
+            app:layout_constraintTop_toBottomOf="@+id/til_occupation" />
 
 
         <com.google.android.material.textfield.TextInputLayout
@@ -169,23 +169,21 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_continuar"
-            style="@style/button"
-            android:layout_width="297dp"
+        <Button
+            android:id="@+id/btnContinueCD"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
+            android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
             android:layout_margin="20dp"
-            android:layout_marginBottom="32dp"
-            android:text="@string/continuar"
+            android:background="@color/teal_200"
+            android:text="Continuar"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_info" />
 
         <TextView
             android:id="@+id/tv_info"
@@ -196,11 +194,10 @@
             android:layout_marginTop="8dp"
             android:text="@string/esta_informaci_n_es_necesaria_para_verificar_tu_identidad_nunca_la_usaremos_sin_tu_consentimiento"
             android:textAlignment="center"
-            app:layout_constraintBottom_toTopOf="@+id/btn_continuar"
-            app:layout_constraintEnd_toEndOf="@+id/btn_continuar"
-            app:layout_constraintStart_toStartOf="@+id/btn_continuar"
+            app:layout_constraintBottom_toTopOf="@+id/btnContinueCD"
+            app:layout_constraintEnd_toEndOf="@+id/btnContinueCD"
+            app:layout_constraintStart_toStartOf="@+id/btnContinueCD"
             app:layout_constraintTop_toBottomOf="@+id/til_birthday" />
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -19,14 +19,11 @@ import androidx.navigation.fragment.findNavController
 import com.honeykoders.bankodemia.R
 import com.honeykoders.bankodemia.common.DatePickerFragment
 import com.honeykoders.bankodemia.common.Utils
-import com.honeykoders.bankodemia.databinding.FragmentCreateAccountBinding
 import com.honeykoders.bankodemia.databinding.FragmentCustomerDataBinding
-import kotlinx.android.synthetic.main.fragment_create_account.*
 import kotlinx.android.synthetic.main.fragment_customer_data.*
 import java.text.SimpleDateFormat
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
-
 
 class CustomerDataFragment : Fragment() {
 
@@ -45,20 +42,21 @@ class CustomerDataFragment : Fragment() {
         }
 
         binding.tietBirthday.setOnFocusChangeListener { view, b ->
-            if(binding.tietBirthday.isFocused){
+            if (binding.tietBirthday.isFocused) {
                 showDatePickerDialog(view)
             }
         }
         binding.tietBirthday.setOnClickListener {
             view?.let { it1 -> showDatePickerDialog(it1) }
         }
-        binding.btnContinuar.setOnClickListener {
-            if (!utils.emptyField(tiet_name,til_name) &&
-                !utils.emptyField(tiet_lastname,til_lastname) &&
-                !utils.emptyField(tiet_work,til_work)&&
-                !utils.emptyField(tiet_birthday,til_birthday)){
-                    saveCustomerData()
-                    findNavController().navigate(R.id.phoneFragment)
+        binding.btnContinueCD.setOnClickListener {
+            if (!utils.emptyField(tiet_name, til_name) &&
+                !utils.emptyField(tiet_lastname, til_lastname) &&
+                !utils.emptyField(tiet_occupation, til_occupation) &&
+                !utils.emptyField(tiet_birthday, til_birthday)
+            ) {
+                saveCustomerData()
+                findNavController().navigate(R.id.phoneFragment)
             }
         }
         return root
@@ -66,14 +64,35 @@ class CustomerDataFragment : Fragment() {
 
     private fun saveCustomerData() {
         context?.let { it1 -> utils.initSharedPreferences(it1) }
-        utils.updateSharedPreferences("string","name",binding.tietName.text.toString(),false,0,0.0f)
-        utils.updateSharedPreferences("string","lastName",binding.tietLastname.text.toString(),false,0,0.0f)
-        utils.updateSharedPreferences("string","occupation",binding.tietWork.text.toString(),false,0,0.0f)
+        utils.updateSharedPreferences(
+            "string",
+            "name",
+            binding.tietName.text.toString(),
+            false,
+            0,
+            0.0f
+        )
+        utils.updateSharedPreferences(
+            "string",
+            "lastName",
+            binding.tietLastname.text.toString(),
+            false,
+            0,
+            0.0f
+        )
+        utils.updateSharedPreferences(
+            "string",
+            "occupation",
+            binding.tietOccupation.text.toString(),
+            false,
+            0,
+            0.0f
+        )
     }
 
 
     fun showDatePickerDialog(v: View) {
-        val dialogFecha = DatePickerFragment{year, month, day -> showDate(year, month, day) }
+        val dialogFecha = DatePickerFragment { year, month, day -> showDate(year, month, day) }
         activity?.let { dialogFecha.show(it.getSupportFragmentManager(), "datePicker") }
     }
 
@@ -81,20 +100,20 @@ class CustomerDataFragment : Fragment() {
     private fun showDate(year: Int, month: Int, day: Int) {
         val date = "$day/$month/$year"
         binding.tietBirthday.setText(date)
-        dateFormat(year,month,day)
+        dateFormat(year, month, day)
     }
 
 
-    fun dateFormat(year:Int,month:Int,day:Int){
+    fun dateFormat(year: Int, month: Int, day: Int) {
         var formatDate = ""
-        Log.e("mont",month.toString())
-        if(month<9){
-            formatDate =  "$year-0$month-$day"+"T00:40:37.437Z"
-        }else{
-            formatDate =  "$year-$month-$day"+"T00:40:37.437Z"
+        Log.e("mont", month.toString())
+        if (month < 9) {
+            formatDate = "$year-0$month-$day" + "T00:40:37.437Z"
+        } else {
+            formatDate = "$year-$month-$day" + "T00:40:37.437Z"
         }
-        Log.e("Date1",formatDate.toString())
+        Log.e("Date1", formatDate.toString())
         context?.let { it1 -> utils.initSharedPreferences(it1) }
-        utils.updateSharedPreferences("string","birthDate",formatDate,false,0,0.0f)
+        utils.updateSharedPreferences("string", "birthDate", formatDate, false, 0, 0.0f)
     }
 }

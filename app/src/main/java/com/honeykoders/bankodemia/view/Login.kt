@@ -35,6 +35,7 @@ class Login : Fragment() {
     ): View? {
         _binding = FragmentLoginBinding.inflate(inflater, container, false)
         val root: View = binding.root
+        context?.let { viewModel.onCreate(context = it) }
         observers()
         binding.btnIniciarSesion.setOnClickListener {
             if (!utils.emptyField(binding.tietMaillogin,binding.tilMaillogin) &&
