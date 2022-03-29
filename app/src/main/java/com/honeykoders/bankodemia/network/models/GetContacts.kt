@@ -8,9 +8,9 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import retrofit2.Response
 
-class GetContacts() {
+class GetContacts(context: Context) {
 
-    private val retrofit = RetrofitInstance.getRetrofit().create(ContactService::class.java)
+    private val retrofit = RetrofitInstance.getRetrofit(context).create(ContactService::class.java)
 
     suspend fun getContactsService(): Response<ContactsMain> {
         return withContext(Dispatchers.IO) {

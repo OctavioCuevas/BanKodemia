@@ -7,6 +7,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.honeykoders.bankodemia.R
 
 class ContactsHolder(view: View) : RecyclerView.ViewHolder(view){
-    val tv_contact_name: ImageView = view.findViewById(R.id.tv_contact_name)
+    val tv_contact_name: TextView = view.findViewById(R.id.tv_contact_name)
     val tv_contact_account: TextView = view.findViewById(R.id.tv_contact_account)
 }
