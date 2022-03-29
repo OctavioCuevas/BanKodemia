@@ -212,6 +212,7 @@ class Utils() {
         return value
     }
 
+
     fun clearSharedPreferences(){
         editor.clear().apply()
     }

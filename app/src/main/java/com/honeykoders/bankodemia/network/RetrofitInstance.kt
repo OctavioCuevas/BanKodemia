@@ -25,9 +25,11 @@ object RetrofitInstance {
 
     class AuthInterceptor(context: Context) : Interceptor {
         val utils: Utils = Utils()
+        val context = context
 
         override fun intercept(chain: Interceptor.Chain): Response {
             val requestBuilder = chain.request().newBuilder()
+            utils.initSharedPreferences(context)
 
             requestBuilder.addHeader(
                 "Authorization",
