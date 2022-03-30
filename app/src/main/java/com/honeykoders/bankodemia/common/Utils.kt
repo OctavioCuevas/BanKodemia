@@ -4,7 +4,6 @@ import android.content.Context
 import android.content.SharedPreferences
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
-import android.telephony.PhoneNumberUtils
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
@@ -14,9 +13,11 @@ import androidx.preference.PreferenceManager
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import com.honeykoders.bankodemia.exceptions.VariableTypeNotFoundException
+import java.util.regex.Pattern
+import kotlin.random.Random
 
 
-class Utils() {
+class Utils {
 
     private lateinit var sharedPreferences: SharedPreferences
     private lateinit var editor: SharedPreferences.Editor
@@ -35,12 +36,7 @@ class Utils() {
     }
 
     fun validateImageTaken(image: String?): Boolean {
-        if (image.isNullOrBlank() || image.isNullOrEmpty()) {
-            return false
-        } else {
-            return true
-        }
-
+        return !(image.isNullOrBlank() || image.isNullOrEmpty())
     }
 
     // Valida el campo que se ha ingresado el un campo cualquiera
@@ -50,7 +46,7 @@ class Utils() {
         til: TextInputLayout,
         errorMessage: String
     ): Boolean {
-        var ok = true;
+        var ok = true
         if (tiet.text.toString().isEmpty()) {
             ok = false
         } else {
@@ -74,7 +70,7 @@ class Utils() {
                         til.isErrorEnabled = false
                     } else {
                         til.error = errorMessage
-                        false
+                        ok = false
                     }
                 in "double" ->
                     if (isNumber(tiet.text.toString())) {
@@ -144,7 +140,7 @@ class Utils() {
 
     fun verifyPassword(password: String): String {
         var message = "Ok"
-        var regex: Regex
+        val regex: Regex
         if (password.length < 6) { //al menos 6 caracteres
             message = "Contraseña debe tener 6 o más caracteres"
         } else { //valida que sean alfanuméricos
@@ -156,6 +152,30 @@ class Utils() {
         return message
     }
 
+    fun verifyPassword2(password: String): Boolean {
+        val passwordRegex = Pattern.compile(
+            "^" +
+                    "(?=.*[0-9])" +         //at least 1 digit
+                    "(?=.*[a-z])" +        //at least 1 lower case letter
+                    "(?=.*[A-Z])" +        //at least 1 upper case letter
+                    "(?=.*[@#$%^&+=])" +    //at least 1 special character
+                    "(?=\\S+$)" +           //no white spaces
+                    ".{6,}" +               //at least 4 characters
+        "$"
+        )
+        return passwordRegex.matcher(password).matches()
+    }
+
+    fun verifyPassword3(password: String): Boolean {
+        val passwordRegex = Pattern.compile(
+            "^" +
+                    "(?=[a-zA-Z0-9]+)" +         //at least 1 digit
+                    "(?=\\S+$)" +           //no white spaces
+                    ".{6,}" +               //at least 4 characters
+                    "$"
+        )
+        return passwordRegex.matcher(password).matches()
+    }
 
     fun matchPassword(
         tietPsw: TextInputEditText,
@@ -163,8 +183,7 @@ class Utils() {
         tietMatchPsw: TextInputEditText,
         tilMatchPsw: TextInputLayout
     ): Boolean {
-
-        val match = tietPsw.text.toString().equals(tietMatchPsw.text.toString())
+        val match = tietPsw.text.toString() == tietMatchPsw.text.toString()
         val message = "Las contraseñas no coinciden"
         if (match) {
             tilPsw.isErrorEnabled = false
@@ -181,13 +200,13 @@ class Utils() {
     }
 
     fun emptyField(tiet: TextInputEditText, til: TextInputLayout): Boolean {
-        if (tiet.text.toString().trim().isEmpty()) {
+        return if (tiet.text.toString().trim().isEmpty()) {
             til.error = "Este campo es requerido"
-            return true
+            true
         } else {
             til.isErrorEnabled = false
             til.error = ""
-            return false
+            false
         }
     }
 
@@ -215,14 +234,11 @@ class Utils() {
     }
 
     fun sharedPref(): SharedPreferences {
-        return sharedPreferences;
+        return sharedPreferences
     }
 
     fun showMessage(context: Context, message: String) {
         Toast.makeText(context, message, Toast.LENGTH_LONG).show()
-        fun showMessage(context: Context, message: Int) {
-            Toast.makeText(context, context.getString(message), Toast.LENGTH_LONG).show()
-        }
     }
 
     fun isOnline(context: Context): Boolean {
@@ -246,8 +262,7 @@ class Utils() {
     }
 
     fun getSharedPreferencesByName(name: String): String? {
-        val value = sharedPreferences.getString(name, "")
-        return value
+        return sharedPreferences.getString(name, "")
     }
 
     fun clearSharedPreferences(){
@@ -257,5 +272,16 @@ class Utils() {
     fun showMessage(context: Context, message: Int) {
         Toast.makeText(context, context.getString(message), Toast.LENGTH_LONG).show()
     }
+
+    fun getRandomCard() : String {
+        val banks = listOf("BBVA", "SANTANDER", "BANORTE", "HSBC", "INVEX", "AFIRME")
+        val randomBank = banks.random()
+        val randomValues = List(4) { Random.nextInt(1234, 9876) }
+        var card = ""
+        for(number in randomValues)
+            card += " $number"
+        return card.trim() + " / " + randomBank
+    }
+
 }
 
