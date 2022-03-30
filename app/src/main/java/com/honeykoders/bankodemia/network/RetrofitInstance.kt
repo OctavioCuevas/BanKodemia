@@ -15,7 +15,7 @@ object RetrofitInstance {
         val okHttpClient = OkHttpClient.Builder()
             .readTimeout(60, TimeUnit.SECONDS)
             .connectTimeout(60, TimeUnit.SECONDS)
-            .addInterceptor(AuthInterceptor(context = context))
+            .addInterceptor(AuthInterceptor(context))
             .build()
         return Retrofit.Builder()
             .baseUrl(" https://bankodemia.kodemia.mx")

@@ -120,19 +120,19 @@ class Transferencia : Fragment() {
         viewModel.badRequest.observe(viewLifecycleOwner){ badRequest ->
             if (badRequest){
                 Log.e("badRequest",badRequest.toString())
-                context?.let { utils.showMessage(it,R.string.serverError) }
+                context?.let { utils.showMessage(it,getString(R.string.serverError)) }
             }
         }
         viewModel.broken.observe(viewLifecycleOwner){ broken ->
             if (broken){
                 Log.e("Broken",broken.toString())
-                context?.let { utils.showMessage(it,R.string.broken) }
+                context?.let { utils.showMessage(it,getString(R.string.broken)) }
             }
         }
         viewModel.inssuficientFunds.observe(viewLifecycleOwner){ inssuficientFunds ->
             if (inssuficientFunds){
                 Log.e("inssuficientFunds",inssuficientFunds.toString())
-                context?.let { utils.showMessage(it,R.string.insufficientFunds) }
+                context?.let { utils.showMessage(it,getString(R.string.insufficientFunds)) }
             }
         }
     }

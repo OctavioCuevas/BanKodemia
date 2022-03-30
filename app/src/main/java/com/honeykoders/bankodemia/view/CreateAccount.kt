@@ -69,7 +69,7 @@ class CreateAccount : Fragment() {
                     context?.let { it -> utils.showMessage(it,R.string.invalidMail) }
                 }
             }else{
-                context?.let { it -> utils.showMessage(it,R.string.requiredField) }
+                context?.let { it -> utils.showMessage(it,getString(R.string.requiredField)) }
             }
         }
         return root

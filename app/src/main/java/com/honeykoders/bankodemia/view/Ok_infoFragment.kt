@@ -9,7 +9,7 @@ import androidx.navigation.fragment.findNavController
 import com.honeykoders.bankodemia.R
 import com.honeykoders.bankodemia.databinding.FragmentOkInfoBinding
 
-class ok_infoFragment : Fragment() {
+class Ok_infoFragment : Fragment() {
 
     private var _binding: FragmentOkInfoBinding? = null
     private val binding get() = _binding!!

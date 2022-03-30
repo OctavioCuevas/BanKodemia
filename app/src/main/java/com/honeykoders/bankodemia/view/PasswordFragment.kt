@@ -108,8 +108,8 @@ class PasswordFragment : Fragment() {
         viewModel.error.observe(viewLifecycleOwner){ error ->
             Log.d("ErrorMessage", error)
             when(error){
-                "User phone already exists" -> context?.let { utils.showMessage(it,R.string.userphonealreadyexists) }
-                "User already exists" -> context?.let { utils.showMessage(it,R.string.useralreadyexists) }
+                "User phone already exists" -> context?.let { utils.showMessage(it,getString(R.string.userphonealreadyexists)) }
+                "User already exists" -> context?.let { utils.showMessage(it,getString(R.string.useralreadyexists)) }
                 else -> null
             }
 

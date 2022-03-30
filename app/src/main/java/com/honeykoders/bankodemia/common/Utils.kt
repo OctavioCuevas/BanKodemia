@@ -2,8 +2,12 @@ package com.honeykoders.bankodemia.common
 
 import android.content.Context
 import android.content.SharedPreferences
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
+import android.telephony.PhoneNumberUtils
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.widget.Toast
 import androidx.core.util.PatternsCompat
 import androidx.preference.PreferenceManager
@@ -30,10 +34,10 @@ class Utils() {
         }
     }
 
-    fun validateImageTaken(image: String?):Boolean{
-        if (image.isNullOrBlank() || image.isNullOrEmpty()){
+    fun validateImageTaken(image: String?): Boolean {
+        if (image.isNullOrBlank() || image.isNullOrEmpty()) {
             return false
-        }else{
+        } else {
             return true
         }
 
@@ -66,8 +70,14 @@ class Utils() {
                         ok = false
                     }
                 in "int" ->
-                    if (isIntNumber(tiet.text.toString())
-                    ) {
+                    if (isIntNumber(tiet.text.toString())) {
+                        til.isErrorEnabled = false
+                    } else {
+                        til.error = errorMessage
+                        false
+                    }
+                in "double" ->
+                    if (isNumber(tiet.text.toString())) {
                         til.isErrorEnabled = false
                     } else {
                         til.error = errorMessage
@@ -132,14 +142,14 @@ class Utils() {
         })
     }
 
-    fun verifyPassword(password:String):String{
+    fun verifyPassword(password: String): String {
         var message = "Ok"
         var regex: Regex
-        if(password.length < 6){ //al menos 6 caracteres
+        if (password.length < 6) { //al menos 6 caracteres
             message = "Contraseña debe tener 6 o más caracteres"
-        }else{ //valida que sean alfanuméricos
+        } else { //valida que sean alfanuméricos
             regex = Regex("[a-zA-Z0-9.? ]*")
-            if(!password.matches(regex)){
+            if (!password.matches(regex)) {
                 message = "Contraseña NO debe tener carácteres especiales"
             }
         }
@@ -150,8 +160,9 @@ class Utils() {
     fun matchPassword(
         tietPsw: TextInputEditText,
         tilPsw: TextInputLayout,
-        tietMatchPsw:TextInputEditText,
-        tilMatchPsw: TextInputLayout):Boolean{
+        tietMatchPsw: TextInputEditText,
+        tilMatchPsw: TextInputLayout
+    ): Boolean {
 
         val match = tietPsw.text.toString().equals(tietMatchPsw.text.toString())
         val message = "Las contraseñas no coinciden"
@@ -165,19 +176,15 @@ class Utils() {
         return match
     }
 
-    fun isPhoneNumberValid(number: String):Boolean{
-        if (number.length < 10) {
-            return false
-        }else{
-            return true
-        }
+    fun isPhoneNumberValid(number: String): Boolean {
+        return number.length < 10
     }
 
-    fun emptyField(tiet: TextInputEditText,til: TextInputLayout):Boolean{
-        if(tiet.text.toString().trim().isEmpty()){
+    fun emptyField(tiet: TextInputEditText, til: TextInputLayout): Boolean {
+        if (tiet.text.toString().trim().isEmpty()) {
             til.error = "Este campo es requerido"
             return true
-        }else{
+        } else {
             til.isErrorEnabled = false
             til.error = ""
             return false
@@ -194,8 +201,8 @@ class Utils() {
         name: String,
         str_val: String,
         bol_val: Boolean = false,
-        int_val: Int,
-        float_val: Float
+        int_val: Int = 0,
+        float_val: Float = 0.0f
     ) {
         when (type) {
             "boolean" -> this.editor.putBoolean(name, bol_val)
@@ -207,11 +214,41 @@ class Utils() {
         editor.apply()
     }
 
-    fun getSharedPreferencesByName(name: String): String?{
-        val value = sharedPreferences.getString(name,"")
-        return value
+    fun sharedPref(): SharedPreferences {
+        return sharedPreferences;
     }
 
+    fun showMessage(context: Context, message: String) {
+        Toast.makeText(context, message, Toast.LENGTH_LONG).show()
+        fun showMessage(context: Context, message: Int) {
+            Toast.makeText(context, context.getString(message), Toast.LENGTH_LONG).show()
+        }
+    }
+
+    fun isOnline(context: Context): Boolean {
+        val connectivityManager =
+            context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val capabilities =
+            connectivityManager.getNetworkCapabilities(connectivityManager.activeNetwork)
+        if (capabilities != null) {
+            if (capabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR)) {
+                Log.i("Internet", "NetworkCapabilities.TRANSPORT_CELLULAR")
+                return true
+            } else if (capabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI)) {
+                Log.i("Internet", "NetworkCapabilities.TRANSPORT_WIFI")
+                return true
+            } else if (capabilities.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET)) {
+                Log.i("Internet", "NetworkCapabilities.TRANSPORT_ETHERNET")
+                return true
+            }
+        }
+        return false
+    }
+
+    fun getSharedPreferencesByName(name: String): String? {
+        val value = sharedPreferences.getString(name, "")
+        return value
+    }
 
     fun clearSharedPreferences(){
         editor.clear().apply()
