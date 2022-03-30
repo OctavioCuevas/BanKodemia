@@ -20,4 +20,12 @@ fun main () {
     //utils.updateSharedPreferences("string", "enviar_correo", "", true)
     //var correo :String? = utils.sharedPref().getString("email", "Empty")
     //var tienePermiso :Boolean? = utils.sharedPref().getBoolean("tiene_permiso", false)
+    println(utils.getRandomCard())
+    println(utils.getRandomCard())
+    println(utils.getRandomCard())
+    println(utils.getRandomCard())
+    println(utils.verifyPassword3("mi&con123"))
+    println(utils.verifyPassword3("miCon123"))
+    println(utils.verifyPassword3("miC0n125"))
+    println(utils.verifyPassword3("miC0"))
 }

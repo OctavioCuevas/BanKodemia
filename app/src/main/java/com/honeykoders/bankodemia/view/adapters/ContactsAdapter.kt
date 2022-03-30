@@ -1,33 +1,41 @@
 package com.honeykoders.bankodemia.view.adapters
 
 import android.content.Context
+import android.graphics.Color
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.view.size
+import androidx.fragment.app.FragmentActivity
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import coil.load
 import com.honeykoders.bankodemia.R
+import com.honeykoders.bankodemia.common.Utils
 import com.honeykoders.bankodemia.model.contacts.Contacts
 import com.honeykoders.bankodemia.view.holders.ContactsHolder
-import java.text.SimpleDateFormat
-import java.util.*
 
 class ContactsAdapter(private val context: Context, private val listContacts: List<Contacts>) :
-    RecyclerView.Adapter<ContactsHolder>()  {
+    RecyclerView.Adapter<ContactsHolder>() {
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ) : ContactsHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_contacts,parent,false)
+    ): ContactsHolder {
+        val view =
+            LayoutInflater.from(parent.context).inflate(R.layout.item_contacts, parent, false)
         return ContactsHolder(view)
-        //return ContactsHolder(this)
     }
 
     override fun onBindViewHolder(holder: ContactsHolder, position: Int) {
         val contacts = listContacts.get(position)
-        with(holder){
+        val utils = Utils()
+        with(holder) {
             tv_contact_name.text = contacts.shortName
-            tv_contact_account.text = contacts.shortName
+            tv_contact_account.text = utils.getRandomCard()
+            cv_user_contact.setOnClickListener {
+                Log.e("HKDebug", "id: ${contacts.Id}")
+                holder.cv_user_contact.setBackgroundColor(Color.parseColor("#E5E5E5"))
+            }
         }
     }
 
