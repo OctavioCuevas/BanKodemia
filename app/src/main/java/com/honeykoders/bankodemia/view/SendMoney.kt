@@ -48,13 +48,13 @@ class SendMoney : Fragment() {
         userContacts.getContacts()
 
         binding.btnBacktomain.setOnClickListener {
-            findNavController().navigate(R.id.inicioFragment)
+            //findNavController().navigate(R.id.inicioFragment)
             /*val intent = Intent(activity, ActivityHomeBinding::class.java)
             startActivity(intent)*/
         }
 
         binding.btnAddContact.setOnClickListener {
-            findNavController().navigate(R.id.addNewContact)
+            //findNavController().navigate(R.id.addNewContact)
         }
         return root
     }
