@@ -38,5 +38,18 @@ class ServiceNetwork(context: Context){
         }
     }
 
+    suspend fun getUserProfile(): Response<UserProfileResponse>{
+        return withContext(Dispatchers.IO){
+            val response = retrofit.getUserProfile()
+            response
+        }
+    }
+
+    suspend fun addNewContact(newContact: AddNewContactModel):Response<ContactAdded>{
+        return withContext(Dispatchers.IO){
+            val response = retrofit.addNewContact(newContact)
+            response
+        }
+    }
 
 }

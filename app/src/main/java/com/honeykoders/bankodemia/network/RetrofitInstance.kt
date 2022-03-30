@@ -1,6 +1,7 @@
 package com.honeykoders.bankodemia.network
 
 import android.content.Context
+import android.util.Log
 import com.honeykoders.bankodemia.common.Utils
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
@@ -30,10 +31,12 @@ object RetrofitInstance {
         override fun intercept(chain: Interceptor.Chain): Response {
             val requestBuilder = chain.request().newBuilder()
             utils.initSharedPreferences(context)
+            val token = utils.getSharedPreferencesByName("token").toString()
+            Log.e("Token Service", token)
 
             requestBuilder.addHeader(
                 "Authorization",
-                "Bearer ${utils.getSharedPreferencesByName("token")}"
+                "Bearer $token"
             )
 
             return chain.proceed(requestBuilder.build())
