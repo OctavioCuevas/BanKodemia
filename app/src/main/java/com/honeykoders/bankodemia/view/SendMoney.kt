@@ -8,8 +8,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.BaseTransientBottomBar
 import com.google.android.material.snackbar.Snackbar
+import com.honeykoders.bankodemia.R
 import com.honeykoders.bankodemia.databinding.ActivityHomeBinding
 import com.honeykoders.bankodemia.databinding.FragmentSendMoneyBinding
 import com.honeykoders.bankodemia.exceptions.EmptyTokenException
@@ -34,6 +36,7 @@ class SendMoney : Fragment() {
 
     private fun initComponents() : View {
         val root: View = binding.root
+        binding.progressBarSendMoney.visibility = View.VISIBLE
         viewModel.context = this.requireContext()
 
         viewModel.onCreateVM()

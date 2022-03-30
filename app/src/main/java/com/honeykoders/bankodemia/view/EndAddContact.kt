@@ -22,8 +22,9 @@ class EndAddContact : Fragment() {
         _binding = FragmentEndAddContactBinding.inflate(inflater, container, false)
         val root: View = binding.root
         binding.btnVolverInicio.setOnClickListener {
-            val intent = Intent(activity, ActivityHomeBinding::class.java)
-            startActivity(intent)
+            findNavController().navigate(R.id.inicioFragment)
+            /*val intent = Intent(activity, ActivityHomeBinding::class.java)
+            startActivity(intent)*/
         }
         return root
     }

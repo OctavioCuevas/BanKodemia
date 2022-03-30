@@ -26,11 +26,11 @@
         android:label="SendMoney"
         tools:layout="@layout/fragment_send_money">
         <action
-            android:id="@+id/action_sendMoney_to_transferencia"
-            app:destination="@id/transferencia" />
-        <action
             android:id="@+id/action_sendMoney_to_addNewContact"
             app:destination="@id/addNewContact" />
+        <action
+            android:id="@+id/action_sendMoney_to_transferencia"
+            app:destination="@id/transferencia" />
     </fragment>
     <fragment
         android:id="@+id/fragment_tarjeta"
