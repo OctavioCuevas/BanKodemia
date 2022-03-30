@@ -13,6 +13,9 @@ import com.honeykoders.bankodemia.R
 import com.honeykoders.bankodemia.common.Utils
 import com.honeykoders.bankodemia.databinding.FragmentLoginBinding
 import com.honeykoders.bankodemia.model.LoginModel
+import com.honeykoders.bankodemia.model.SingUpModel
+import com.honeykoders.bankodemia.viewmodel.GetUserProfileViewModel
+import com.honeykoders.bankodemia.viewmodel.SingUpViewModel
 import com.honeykoders.bankodemia.viewmodel.UserLoginModel
 import java.io.IOException
 
@@ -63,6 +66,7 @@ class Login : Fragment() {
                 else -> null
             }
         }
+
     }
 
     private fun login(){

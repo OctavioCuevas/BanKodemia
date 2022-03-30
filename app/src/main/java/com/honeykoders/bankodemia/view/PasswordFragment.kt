@@ -11,7 +11,6 @@ import androidx.navigation.fragment.findNavController
 import com.honeykoders.bankodemia.R
 import com.honeykoders.bankodemia.common.Utils
 import com.honeykoders.bankodemia.databinding.FragmentPasswordBinding
-import com.honeykoders.bankodemia.databinding.FragmentSubirDocumentoIdentidadBinding
 import com.honeykoders.bankodemia.model.SingUpModel
 import com.honeykoders.bankodemia.viewmodel.SingUpViewModel
 import java.io.IOException
@@ -26,7 +25,7 @@ class PasswordFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentPasswordBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
@@ -52,7 +51,7 @@ class PasswordFragment : Fragment() {
         return root
     }
 
-    fun getCustomerData():SingUpModel{
+    private fun getCustomerData():SingUpModel{
         saveData()
         context?.let { it1 -> utils.initSharedPreferences(it1) }
         val email =  utils.getSharedPreferencesByName("email").toString()

@@ -1,6 +1,7 @@
 package com.honeykoders.bankodemia.network
 
 import android.content.Context
+import android.util.Log
 import com.honeykoders.bankodemia.common.Utils
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient

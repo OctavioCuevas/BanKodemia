@@ -269,6 +269,7 @@ class Utils {
         editor.clear().apply()
     }
 
+
     fun showMessage(context: Context, message: Int) {
         Toast.makeText(context, context.getString(message), Toast.LENGTH_LONG).show()
     }
