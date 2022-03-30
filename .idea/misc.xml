@@ -9,6 +9,7 @@
         <entry key="..\:/Users/DESARROLLO/AndroidStudioProjects/BanKodemia/app/src/main/res/layout/fragment_customer_data.xml" value="0.2" />
         <entry key="..\:/Users/DESARROLLO/AndroidStudioProjects/BanKodemia/app/src/main/res/layout/fragment_end_add_contact.xml" value="0.28125" />
         <entry key="..\:/Users/DESARROLLO/AndroidStudioProjects/BanKodemia/app/src/main/res/layout/fragment_login.xml" value="0.24791666666666667" />
+        <entry key="..\:/Users/DESARROLLO/AndroidStudioProjects/BanKodemia/app/src/main/res/layout/fragment_password.xml" value="0.18958333333333333" />
         <entry key="..\:/Users/DESARROLLO/AndroidStudioProjects/BanKodemia/app/src/main/res/layout/fragment_phone.xml" value="0.2" />
         <entry key="..\:/Users/DESARROLLO/AndroidStudioProjects/BanKodemia/app/src/main/res/layout/fragment_send_money.xml" value="0.28125" />
         <entry key="..\:/Users/DESARROLLO/AndroidStudioProjects/BanKodemia/app/src/main/res/layout/item_cardview_home.xml" value="0.33" />
@@ -36,9 +37,6 @@
         <entry key="app/src/main/res/drawable/round_corner.xml" value="0.198" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.22604166666666667" />
         <entry key="app/src/main/res/layout/activity_verificacion_actividad.xml" value="0.36342592592592593" />
-        <entry key="app/src/main/res/layout/fragment_add_new_contact.xml" value="0.33" />
-        <entry key="app/src/main/res/layout/fragment_create_account.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/fragment_customer_data.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_dialog_transferencia.xml" value="0.2902542372881356" />
         <entry key="app/src/main/res/layout/fragment_procesando_transaccion.xml" value="0.22604166666666667" />
         <entry key="app/src/main/res/layout/fragment_seleccionar_documento_identidad.xml" value="0.22604166666666667" />

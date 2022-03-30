@@ -26,7 +26,7 @@ class Utils {
     fun numberValidationInt(value: Editable?): Int {
         return if (value != null) {
             if (value.isNotEmpty()) {
-                value.trim().toString().toInt() ?: 0
+                value.trim().toString().toInt()
             } else {
                 0
             }
@@ -161,20 +161,112 @@ class Utils {
                     "(?=.*[@#$%^&+=])" +    //at least 1 special character
                     "(?=\\S+$)" +           //no white spaces
                     ".{6,}" +               //at least 4 characters
-        "$"
+                    "$"
         )
         return passwordRegex.matcher(password).matches()
     }
 
-    fun verifyPassword3(password: String): Boolean {
-        val passwordRegex = Pattern.compile(
-            "^" +
-                    "(?=[a-zA-Z0-9]+)" +         //at least 1 digit
-                    "(?=\\S+$)" +           //no white spaces
-                    ".{6,}" +               //at least 4 characters
-                    "$"
+    fun verifyPasswordKodemia(password: String): Boolean {
+        return if (password.length >= 6) {
+            if (password.matches("^[a-zA-Z0-9]*$".toRegex())) {
+                if (isRepeated(password)) {
+                    return if (!isConsecutive(password)) {
+                        findInCommonPasswords(password)
+                    } else {
+                        false
+                    }
+                } else {
+                    false
+                }
+            } else
+                false
+        } else {
+            false
+        }
+    }
+
+    fun isConsecutive(string: String): Boolean {
+        if (string.length > 2) {
+            if (isIntNumber(string)) {
+                val numbers: Array<Int> =
+                    string.toCharArray().map { Integer.parseInt(it.toString()) }.toTypedArray()
+                val initialVal = numbers[0]
+                var isUp = false
+                var isDown = false
+                var i = 0
+                if (initialVal in 0..7) {
+                    val finalUpwardsVal = initialVal + string.length - 1
+                    if (finalUpwardsVal <= 9) {
+                        isUp = true
+                        for (n in initialVal..finalUpwardsVal) {
+                            if (numbers[i] != n) {
+                                isUp = false
+                                break
+                            }
+                            i++
+                        }
+                    }
+                }
+                if (isUp) {
+                    return true
+                } else {
+                    if (initialVal in 4..9) {
+                        val finalDownVal = initialVal - string.length + 1
+                        if (finalDownVal >= 0) {
+                            i = 0
+                            isDown = true
+                            for (n in initialVal downTo finalDownVal) {
+                                if (numbers[i] != n) {
+                                    isDown = false
+                                    break
+                                }
+                                i++
+                            }
+                        }
+                    }
+                    return isDown
+                }
+            }
+        }
+        return false
+    }
+
+
+    fun isRepeated(string: String): Boolean {
+        var temp: Char? = null
+        string.toCharArray().map { c ->
+            if (temp != null) {
+                if (temp != c)
+                    return true
+            }
+            temp = c
+        }
+        return false
+    }
+
+    fun findInCommonPasswords(password: String): Boolean {
+        val passwords = listOf(
+            "password",
+            "123123",
+            "contraseña",
+            "12345678",
+            "qwerty",
+            "123456789",
+            "1234567",
+            "dragon",
+            "abc123",
+            "abcabc",
+            "qwertyuiop",
+            "666666",
+            "123321",
+            "superman",
+            "654321",
+            "zxcvbnm",
+            "asdfgh",
+            "batman",
+            "spiderman"
         )
-        return passwordRegex.matcher(password).matches()
+        return passwords.indexOf(password) == -1
     }
 
     fun matchPassword(
@@ -265,7 +357,7 @@ class Utils {
         return sharedPreferences.getString(name, "")
     }
 
-    fun clearSharedPreferences(){
+    fun clearSharedPreferences() {
         editor.clear().apply()
     }
 
@@ -274,12 +366,12 @@ class Utils {
         Toast.makeText(context, context.getString(message), Toast.LENGTH_LONG).show()
     }
 
-    fun getRandomCard() : String {
+    fun getRandomCard(): String {
         val banks = listOf("BBVA", "SANTANDER", "BANORTE", "HSBC", "INVEX", "AFIRME")
         val randomBank = banks.random()
         val randomValues = List(4) { Random.nextInt(1234, 9876) }
         var card = ""
-        for(number in randomValues)
+        for (number in randomValues)
             card += " $number"
         return card.trim() + " / " + randomBank
     }

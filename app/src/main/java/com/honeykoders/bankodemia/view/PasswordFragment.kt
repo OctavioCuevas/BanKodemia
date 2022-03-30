@@ -1,5 +1,6 @@
 package com.honeykoders.bankodemia.view
 
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -14,7 +15,6 @@ import com.honeykoders.bankodemia.databinding.FragmentPasswordBinding
 import com.honeykoders.bankodemia.model.SingUpModel
 import com.honeykoders.bankodemia.viewmodel.SingUpViewModel
 import java.io.IOException
-
 
 class PasswordFragment : Fragment() {
     private var _binding: FragmentPasswordBinding? = null
@@ -32,31 +32,34 @@ class PasswordFragment : Fragment() {
         context?.let { viewModel.onCreate(context = it) }
 
         binding.btnCrearCuenta.setOnClickListener {
-            if(utils.matchPassword(binding.tietPassword,
+            if (utils.matchPassword(
+                    binding.tietPassword,
                     binding.tilPassword,
                     binding.tietConfirmPassword,
-                    binding.tilConfirmPassword)){
-                        val passVerify = utils.verifyPassword(binding.tietPassword.text.toString())
-                        if (passVerify == "Ok"){
-                            observers()
-                            singUp()
-                            utils.clearSharedPreferences()
-                            //getCustomerData()
-                            //Log.e("Todo listo", "para nuevo cliente")
-                        }else{
-                            Log.e("Error","Algo salio mal")
-                        }
+                    binding.tilConfirmPassword
+                )
+            ) {
+                if (utils.verifyPasswordKodemia(binding.tietPassword.text.toString())) {
+                    observers()
+                    singUp()
+                    utils.clearSharedPreferences()
+                    //getCustomerData()
+                    //Log.e("Todo listo", "para nuevo cliente")
+                } else {
+                    binding.tietPassword.setTextColor(Color.RED)
+                    Log.e("Error", "Algo salio mal")
                 }
+            }
         }
         return root
     }
 
-    private fun getCustomerData():SingUpModel{
+    private fun getCustomerData(): SingUpModel {
         saveData()
         context?.let { it1 -> utils.initSharedPreferences(it1) }
-        val email =  utils.getSharedPreferencesByName("email").toString()
-        val name= utils.getSharedPreferencesByName("name").toString()
-        val lastName=  utils.getSharedPreferencesByName("lastName").toString()
+        val email = utils.getSharedPreferencesByName("email").toString()
+        val name = utils.getSharedPreferencesByName("name").toString()
+        val lastName = utils.getSharedPreferencesByName("lastName").toString()
         val birthDate = utils.getSharedPreferencesByName("birthDate").toString()
         val phone = utils.getSharedPreferencesByName("phone").toString()
         val password = utils.getSharedPreferencesByName("password").toString()
@@ -76,22 +79,29 @@ class PasswordFragment : Fragment() {
             occupation
         )
 
-       Log.e("valorPass",newCostumer.toString())
+        Log.e("valorPass", newCostumer.toString())
         return newCostumer
     }
 
     private fun saveData() {
         context?.let { it1 -> utils.initSharedPreferences(it1) }
-        utils.updateSharedPreferences("string","password", binding.tietPassword.text.toString(),false,0,0.0f)
+        utils.updateSharedPreferences(
+            "string",
+            "password",
+            binding.tietPassword.text.toString(),
+            false,
+            0,
+            0.0f
+        )
     }
 
 
-    private fun singUp(){
+    private fun singUp() {
         try {
             val singUp = getCustomerData()
             mandarDatos(singUp)
-        }catch (e: IOException){
-            Log.e("Error",e.toString())
+        } catch (e: IOException) {
+            Log.e("Error", e.toString())
         }
 
     }
@@ -101,30 +111,40 @@ class PasswordFragment : Fragment() {
     }
 
     private fun observers() {
-        viewModel.singUpResponse.observe(viewLifecycleOwner){ singUp ->
-            Log.d("SingUp",singUp.success.toString())
+        viewModel.singUpResponse.observe(viewLifecycleOwner) { singUp ->
+            Log.d("SingUp", singUp.success.toString())
             findNavController().navigate(R.id.ok_infoFragment)
         }
-        viewModel.error.observe(viewLifecycleOwner){ error ->
+        viewModel.error.observe(viewLifecycleOwner) { error ->
             Log.d("ErrorMessage", error)
-            when(error){
-                "User phone already exists" -> context?.let { utils.showMessage(it,getString(R.string.userphonealreadyexists)) }
-                "User already exists" -> context?.let { utils.showMessage(it,getString(R.string.useralreadyexists)) }
+            when (error) {
+                "User phone already exists" -> context?.let {
+                    utils.showMessage(
+                        it,
+                        getString(R.string.userphonealreadyexists)
+                    )
+                }
+                "User already exists" -> context?.let {
+                    utils.showMessage(
+                        it,
+                        getString(R.string.useralreadyexists)
+                    )
+                }
                 else -> null
             }
 
         }
-        viewModel.badRequest.observe(viewLifecycleOwner){ badRequest ->
-            if (badRequest){
-                Log.e("bad",badRequest.toString())
+        viewModel.badRequest.observe(viewLifecycleOwner) { badRequest ->
+            if (badRequest) {
+                Log.e("bad", badRequest.toString())
             }
         }
-        viewModel.loading.observe(viewLifecycleOwner){ loading ->
-            Log.e("Pase por aqui",loading.toString())
-            if (loading){
+        viewModel.loading.observe(viewLifecycleOwner) { loading ->
+            Log.e("Pase por aqui", loading.toString())
+            if (loading) {
                 binding.contenedorPrincipal.visibility = View.GONE
                 binding.contenedorCarga.visibility = View.VISIBLE
-            }else{
+            } else {
                 binding.contenedorPrincipal.visibility = View.VISIBLE
                 binding.contenedorCarga.visibility = View.GONE
 
