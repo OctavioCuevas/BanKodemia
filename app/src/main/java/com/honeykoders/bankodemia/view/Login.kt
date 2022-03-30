@@ -11,14 +11,9 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.honeykoders.bankodemia.R
 import com.honeykoders.bankodemia.common.Utils
-import com.honeykoders.bankodemia.databinding.ActivityHomeBinding
 import com.honeykoders.bankodemia.databinding.FragmentLoginBinding
 import com.honeykoders.bankodemia.model.LoginModel
-import com.honeykoders.bankodemia.model.SingUpModel
-import com.honeykoders.bankodemia.viewmodel.SingUpViewModel
 import com.honeykoders.bankodemia.viewmodel.UserLoginModel
-import kotlinx.android.synthetic.main.fragment_customer_data.*
-import kotlinx.android.synthetic.main.fragment_login.view.*
 import java.io.IOException
 
 
@@ -85,15 +80,13 @@ class Login : Fragment() {
 
     private fun getLoginInfo(): LoginModel {
 
-        val email = binding.tietMaillogin.text.toString()
+        val email = binding.tietMaillogin.text.toString().trim()
         val password = binding.tietPwdlogin.text.toString()
 
-        val userLogin = LoginModel(
+        return LoginModel(
             email,
             password
         )
-
-        return userLogin
     }
 
 

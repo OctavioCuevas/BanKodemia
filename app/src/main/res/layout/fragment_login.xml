@@ -80,6 +80,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppins2"
                         android:inputType="textEmailAddress"
+                        android:text="koder@kodemia.mx"
                         tools:ignore="TextContrastCheck,SpeakableTextPresentCheck" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -107,7 +108,6 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tv_labelpwd"
                     tools:layout_editor_absoluteY="192dp">
-
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/tiet_pwdlogin"
