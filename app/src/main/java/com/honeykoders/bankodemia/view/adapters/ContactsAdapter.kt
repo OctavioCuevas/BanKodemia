@@ -5,9 +5,7 @@ import android.graphics.Color
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.core.view.size
-import androidx.fragment.app.FragmentActivity
-import androidx.navigation.fragment.findNavController
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.honeykoders.bankodemia.R
 import com.honeykoders.bankodemia.common.Utils
@@ -27,14 +25,33 @@ class ContactsAdapter(private val context: Context, private val listContacts: Li
     }
 
     override fun onBindViewHolder(holder: ContactsHolder, position: Int) {
-        val contacts = listContacts.get(position)
         val utils = Utils()
+        val contacts = listContacts.get(position)
         with(holder) {
             tv_contact_name.text = contacts.shortName
             tv_contact_account.text = utils.getRandomCard()
             cv_user_contact.setOnClickListener {
                 Log.e("HKDebug", "id: ${contacts.Id}")
                 holder.cv_user_contact.setBackgroundColor(Color.parseColor("#E5E5E5"))
+                tv_contact_account.text = contacts.shortName
+                context?.let { it1 -> utils.initSharedPreferences(it1) }
+                utils.updateSharedPreferences(
+                    "string",
+                    "contactId",
+                    contacts.Id.toString(),
+                    false,
+                    0,
+                    0.0f
+                )
+                utils.updateSharedPreferences(
+                    "string",
+                    "contactName",
+                    contacts.shortName.toString(),
+                    false,
+                    0,
+                    0.0f
+                )
+                it.findNavController().navigate(R.id.transferencia)
             }
         }
     }

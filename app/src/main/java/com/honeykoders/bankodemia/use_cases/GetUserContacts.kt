@@ -3,6 +3,7 @@ package com.honeykoders.bankodemia.use_cases
 import android.content.Context
 import android.content.res.Resources
 import android.util.Log
+import android.view.View
 import androidx.lifecycle.LifecycleCoroutineScope
 import androidx.lifecycle.LifecycleOwner
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -45,6 +46,7 @@ class GetUserContacts() {
             lifecycleScope.launch {
                 contactsEntity.apply {
                     showContacts(contactsEntity)
+                    binding.progressBarSendMoney.visibility = View.GONE
                 }
             }
         }

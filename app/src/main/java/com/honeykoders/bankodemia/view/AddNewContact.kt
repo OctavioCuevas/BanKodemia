@@ -72,7 +72,7 @@ class AddNewContact : Fragment() {
     private fun observers() {
         viewModel.addNewContactResponse.observe(viewLifecycleOwner){newContact->
             Log.d("Success newContact", newContact.success)
-            findNavController().navigate(R.id.sendMoney)
+            findNavController().navigate(R.id.endAddContact)
         }
 
         viewModel.error.observe(viewLifecycleOwner){error ->
