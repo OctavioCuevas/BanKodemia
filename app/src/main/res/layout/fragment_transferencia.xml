@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,7 +8,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:id="@+id/contenedor_Principal">
 
         <ImageView
             android:id="@+id/iv_bk_image"
@@ -169,4 +170,18 @@
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-</FrameLayout>
+
+    <RelativeLayout
+        android:id="@+id/contenedor_carga"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <fragment android:name="com.honeykoders.bankodemia.view.ProcesandoTransaccion"
+            android:id="@+id/viewer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            android:layout_centerInParent="true"/>
+    </RelativeLayout>
+
+</RelativeLayout>
