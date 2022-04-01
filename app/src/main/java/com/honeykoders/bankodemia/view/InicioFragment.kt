@@ -7,12 +7,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.honeykoders.bankodemia.R
 import com.honeykoders.bankodemia.common.Utils
 import com.honeykoders.bankodemia.databinding.FragmentInicioBinding
+import com.honeykoders.bankodemia.model.Transactions
+import com.honeykoders.bankodemia.view.adapters.TransferAdapter
 import com.honeykoders.bankodemia.viewmodel.GetUserProfileViewModel
+import java.util.*
 
 class InicioFragment : Fragment() {
     private var _binding: FragmentInicioBinding? = null
@@ -45,12 +49,23 @@ class InicioFragment : Fragment() {
             utils.updateSharedPreferences("string","userId",id,false,0,0.0f)
             Log.d("Success profile Get", userProfile.data.user._id)
             binding.tvCantidadDisponible.setText("$$balance.00")
+            setRecycler(userProfile.data.transactions, binding.recyclerViewHome)
+            binding.progressBar.visibility = View.GONE
         }
 
         viewModel.error.observe(viewLifecycleOwner){error ->
             Log.d("ErrorMessageGet", error.toString())
         }
 
+    }
+
+    private fun setRecycler(transactions: List<Transactions>, recyclerView: RecyclerView) {
+        Log.e("size","${transactions.size}")
+        val transferAdapter = context?.let { TransferAdapter(it, transactions) }
+        recyclerView.apply {
+            layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+            adapter = transferAdapter
+        }
     }
 
 }

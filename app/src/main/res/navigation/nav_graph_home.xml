@@ -19,6 +19,9 @@
         <action
             android:id="@+id/action_inicioFragment_to_fragment_tarjeta"
             app:destination="@id/fragment_tarjeta" />
+        <action
+            android:id="@+id/action_inicioFragment_to_detailsTransaction"
+            app:destination="@id/detailsTransaction" />
     </fragment>
     <fragment
         android:id="@+id/sendMoney"
@@ -90,6 +93,15 @@
         tools:layout="@layout/fragment_end_add_contact">
         <action
             android:id="@+id/action_endAddContact_to_inicioFragment"
+            app:destination="@id/inicioFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailsTransaction"
+        android:name="com.honeykoders.bankodemia.view.DetailsTransaction"
+        android:label="fragment_details_transaction"
+        tools:layout="@layout/fragment_details_transaction" >
+        <action
+            android:id="@+id/action_detailsTransaction_to_inicioFragment"
             app:destination="@id/inicioFragment" />
     </fragment>
 </navigation>

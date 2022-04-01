@@ -76,7 +76,7 @@
             app:layout_constraintTop_toBottomOf="@+id/iv_bk_icon" />
 
         <TextView
-            android:id="@+id/tv_cantidad_disponible"
+            android:id="@+id/tv_cantidad"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
@@ -95,9 +95,9 @@
             android:layout_height="wrap_content"
             android:text="@string/concepto_transaccion"
             style="@style/singleTitle"
-            app:layout_constraintEnd_toEndOf="@+id/tv_cantidad_disponible"
-            app:layout_constraintStart_toStartOf="@+id/tv_cantidad_disponible"
-            app:layout_constraintTop_toBottomOf="@+id/tv_cantidad_disponible" />
+            app:layout_constraintEnd_toEndOf="@+id/tv_cantidad"
+            app:layout_constraintStart_toStartOf="@+id/tv_cantidad"
+            app:layout_constraintTop_toBottomOf="@+id/tv_cantidad" />
 
         <TextView
             android:id="@+id/tv_fecha_hora"

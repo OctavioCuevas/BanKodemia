@@ -254,6 +254,14 @@ class Utils() {
         editor.clear().apply()
     }
 
+    fun parseHour(date: String):String{
+        var hour = ""
+        for(i in 11..15 ){
+            hour = hour + date[i].toString()
+        }
+        return hour
+    }
+
 
     fun showMessage(context: Context, message: Int) {
         Toast.makeText(context, context.getString(message), Toast.LENGTH_LONG).show()
