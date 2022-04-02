@@ -14,6 +14,7 @@ import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import com.honeykoders.bankodemia.exceptions.VariableTypeNotFoundException
 import java.util.regex.Pattern
+import kotlin.math.ceil
 import kotlin.random.Random
 
 
@@ -170,8 +171,17 @@ class Utils {
         return if (password.length >= 6) {
             if (password.matches("^[a-zA-Z0-9]*$".toRegex())) {
                 if (isRepeated(password)) {
-                    return if (!isConsecutive(password)) {
-                        findInCommonPasswords(password)
+                    if (!isSequence(password)) {
+                        if (!isConsecutive(password)) {
+                            //por si el requerimiento es que la contraseña "Koder123" sea inválda
+                            return if (!haveConsecutive(password)) {
+                                findInCommonPasswords(password)
+                            } else {
+                                false
+                            }
+                        } else {
+                            false
+                        }
                     } else {
                         false
                     }
@@ -180,6 +190,60 @@ class Utils {
                 }
             } else
                 false
+        } else {
+            false
+        }
+    }
+
+    fun isSequence(string: String): Boolean {
+        val length = string.length / 2
+        var firstPart = string.substring(0, length)
+        var secondPart = string.substring(length + if (string.length.mod(2) == 0) 0 else 1)
+        if (firstPart == secondPart) {
+            return true
+        } else {
+            if (firstPart == secondPart.reversed()) {
+                return true
+            } else {
+                var temp = firstPart
+                while (temp.length > 1) {
+                    if (checkSequence(string, temp)) {
+                        return true
+                    }
+                    temp = temp.substring(0, temp.length - 1)
+                }
+                return false
+            }
+        }
+    }
+
+    private fun checkSequence(string: String, needle: String): Boolean {
+        var formedString = needle
+        while (formedString.length < string.length) {
+            formedString += needle
+        }
+        return formedString == string
+    }
+
+    fun haveConsecutive(string: String): Boolean {
+        val length = string.length
+        val chars: Array<String> =
+            string.toCharArray().map { it.toString() }.toTypedArray()
+        var currentChar = 0
+        while (currentChar < length - 2) {
+            if (checkConsecutive(chars, currentChar)) {
+                return true
+            } else {
+                currentChar++
+            }
+        }
+        return false
+    }
+
+    fun checkConsecutive(chars: Array<String>, current_char: Int): Boolean {
+        val string = chars[current_char] + chars[current_char + 1] + chars[current_char + 2]
+        return if (isIntNumber(string)) {
+            isConsecutive(string)
         } else {
             false
         }
@@ -230,7 +294,6 @@ class Utils {
         }
         return false
     }
-
 
     fun isRepeated(string: String): Boolean {
         var temp: Char? = null
