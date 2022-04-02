@@ -13,15 +13,18 @@ import androidx.recyclerview.widget.RecyclerView
 import com.honeykoders.bankodemia.R
 import com.honeykoders.bankodemia.common.Utils
 import com.honeykoders.bankodemia.databinding.FragmentInicioBinding
+import com.honeykoders.bankodemia.model.MakeTransactionDeposit
 import com.honeykoders.bankodemia.model.Transactions
 import com.honeykoders.bankodemia.view.adapters.TransferAdapter
 import com.honeykoders.bankodemia.viewmodel.GetUserProfileViewModel
+import com.honeykoders.bankodemia.viewmodel.MakeDepositViewModel
 import java.util.*
 
 class InicioFragment : Fragment() {
     private var _binding: FragmentInicioBinding? = null
     private val binding get() = _binding!!
     val viewModel: GetUserProfileViewModel by viewModels()
+    val viewModelDeposit: MakeDepositViewModel by viewModels()
     val utils: Utils = Utils()
 
     override fun onCreateView(
@@ -30,33 +33,65 @@ class InicioFragment : Fragment() {
     ): View? {
         _binding = FragmentInicioBinding.inflate(inflater, container, false)
         val root: View = binding.root
-        context?.let { viewModel.onCreate(context = it) }
+
+        initComponents()
         observers()
         viewModel.getUserProfile()
+
         binding.btnEnviar.setOnClickListener {
             findNavController().navigate(R.id.sendMoney)
         }
-
+        binding.btnRecibir.setOnClickListener {
+            makeDeposit()
+        }
         return root
+    }
+
+    private fun initComponents() {
+        context?.let { viewModel.onCreate(context = it) }
+        context?.let { viewModelDeposit.onCreate(context = it) }
+    }
+
+    private fun makeDeposit() {
+        viewModelDeposit.makeTransactionDeposit(getDepositInformation())
+    }
+
+    private fun getDepositInformation(): MakeTransactionDeposit {
+        val deposit = MakeTransactionDeposit(
+            50,
+            "DEPOSIT",
+            "Depósito Bancario"
+        )
+        return deposit
     }
 
     private fun observers() {
 
-        viewModel.getUserResponse.observe(viewLifecycleOwner){userProfile ->
-            val balance = userProfile.data.balance.toString()
-            val id = userProfile.data.user._id
-            context?.let { it1 -> utils.initSharedPreferences(it1) }
-            utils.updateSharedPreferences("string","userId",id,false,0,0.0f)
+        viewModel.getUserResponse.observe(viewLifecycleOwner){ userProfile ->
             Log.d("Success profile Get", userProfile.data.user._id)
-            binding.tvCantidadDisponible.setText("$$balance.00")
+            setCurrentBalance(userProfile.data.balance.toString())
+            saveUserId(userProfile.data.user._id)
             setRecycler(userProfile.data.transactions, binding.recyclerViewHome)
             binding.progressBar.visibility = View.GONE
         }
 
-        viewModel.error.observe(viewLifecycleOwner){error ->
+        viewModel.error.observe(viewLifecycleOwner){ error ->
             Log.d("ErrorMessageGet", error.toString())
         }
 
+        viewModelDeposit.makeDepositResponse.observe(viewLifecycleOwner){ deposit ->
+            Log.d("Deposit", deposit.toString())
+        }
+
+    }
+
+    private fun saveUserId(id: String) {
+        context?.let { it1 -> utils.initSharedPreferences(it1) }
+        utils.updateSharedPreferences("string","userId",id,false,0,0.0f)
+    }
+
+    private fun setCurrentBalance(balance: String) {
+        binding.tvCantidadDisponible.setText("$$balance.00")
     }
 
     private fun setRecycler(transactions: List<Transactions>, recyclerView: RecyclerView) {
