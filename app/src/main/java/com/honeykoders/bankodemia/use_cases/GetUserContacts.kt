@@ -1,7 +1,6 @@
 package com.honeykoders.bankodemia.use_cases
 
 import android.content.Context
-import android.content.res.Resources
 import android.util.Log
 import android.view.View
 import androidx.lifecycle.LifecycleCoroutineScope
@@ -11,13 +10,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.honeykoders.bankodemia.common.Utils
 import com.honeykoders.bankodemia.databinding.FragmentSendMoneyBinding
 import com.honeykoders.bankodemia.exceptions.EmptyTokenException
-import com.honeykoders.bankodemia.model.contacts.Contacts
-import com.honeykoders.bankodemia.model.contacts.ContactsMain
+import com.honeykoders.bankodemia.ui.model.contacts.Contacts
+import com.honeykoders.bankodemia.ui.model.contacts.ContactsMain
 import com.honeykoders.bankodemia.view.adapters.ContactsAdapter
 //import com.honeykoders.bankodemia.view.adapters.ContactsAdapter
-import com.honeykoders.bankodemia.viewmodel.SendMoneyVM
+import com.honeykoders.bankodemia.ui.viewmodel.SendMoneyVM
 import kotlinx.coroutines.launch
-import java.lang.Exception
 
 class GetUserContacts() {
     val utils = Utils()

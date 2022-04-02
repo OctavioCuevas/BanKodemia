@@ -1,8 +1,8 @@
 package com.honeykoders.bankodemia.network
 
 import android.content.Context
-import android.util.Log
-import com.honeykoders.bankodemia.model.*
+import com.honeykoders.bankodemia.network.services.ApiService
+import com.honeykoders.bankodemia.ui.model.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import retrofit2.Response

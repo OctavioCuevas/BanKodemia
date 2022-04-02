@@ -76,7 +76,7 @@
         tools:layout="@layout/fragment_transaccion_finalizada" />
     <fragment
         android:id="@+id/addNewContact"
-        android:name="com.honeykoders.bankodemia.view.AddNewContact"
+        android:name="com.honeykoders.bankodemia.ui.view.AddNewContact"
         android:label="fragment_add_new_contact"
         tools:layout="@layout/fragment_add_new_contact" >
         <action
