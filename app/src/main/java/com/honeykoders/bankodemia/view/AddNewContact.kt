@@ -140,12 +140,12 @@ class AddNewContact : Fragment() {
         context?.let { it1 -> utils.initSharedPreferences(it1) }
         val userLogedId = utils.getSharedPreferencesByName("userId").toString()
         Log.e("userId",id)
-        Log.e("UserLogged",userLogedId.toString())
+        Log.e("UserLogged",userLogedId)
         if (id.equals(userLogedId)){
             context?.let { utils.showMessage(it,"El correo NO debe ser el mismo con el que se inició sesión, intente con uno diferente") }
         }else{
             utils.updateSharedPreferences("string","userIdContact",id,false,0,0.0f)
-            //addNewContact()
+            addNewContact()
             //Log.e("UserId",id)
         }
     }

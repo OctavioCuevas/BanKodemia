@@ -1,5 +1,6 @@
 package com.honeykoders.bankodemia.view
 
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -81,6 +82,7 @@ class InicioFragment : Fragment() {
 
         viewModelDeposit.makeDepositResponse.observe(viewLifecycleOwner){ deposit ->
             Log.d("Deposit", deposit.toString())
+            context?.let { utils.showMessage(it,"Se ha realizado un abono por: "+deposit.data.transaction.amount) }
         }
 
     }

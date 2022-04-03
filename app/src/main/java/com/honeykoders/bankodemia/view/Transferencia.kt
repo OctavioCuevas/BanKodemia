@@ -91,6 +91,7 @@ class Transferencia : Fragment() {
         val cantidad = binding.tietCantidad.text.toString().toInt()
         val concepto = binding.tietConcepto.text.toString()
         val contactId = utils.getSharedPreferencesByName("contactId").toString()
+        Log.e("ContactIDTransfer",contactId)
         /*val makeTransaction = MakeTransactionPayment(
             10,
             "PAYMENT",

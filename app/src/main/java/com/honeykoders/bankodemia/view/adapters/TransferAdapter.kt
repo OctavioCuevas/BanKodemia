@@ -11,11 +11,8 @@ import com.honeykoders.bankodemia.R
 import com.honeykoders.bankodemia.common.Utils
 import com.honeykoders.bankodemia.model.Transaction
 import com.honeykoders.bankodemia.model.Transactions
-import com.honeykoders.bankodemia.model.contacts.Contacts
-import com.honeykoders.bankodemia.view.holders.ContactsHolder
 import com.honeykoders.bankodemia.view.holders.TransferHolder
-import java.text.SimpleDateFormat
-import java.util.*
+
 
 class TransferAdapter(private val context: Context, private val listTransfer: List<Transactions>):
     RecyclerView.Adapter<TransferHolder>() {

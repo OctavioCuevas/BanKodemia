@@ -37,7 +37,9 @@ class ContactsAdapter(private val context: Context, private val listContacts: Li
             tv_contact_account.text = contacts.shortName
             contactsCardView.setOnClickListener {
                 context?.let { it1 -> utils.initSharedPreferences(it1) }
-                utils.updateSharedPreferences("string","contactId",contacts.Id.toString() ,false,0,0.0f)
+                utils.updateSharedPreferences("string","contactId",
+                    contacts.user?.Id.toString() ,false,0,0.0f)
+                Log.e("ContactID",contacts.user?.Id.toString())
                 utils.updateSharedPreferences("string","contactName",contacts.shortName.toString() ,false,0,0.0f)
                 it.findNavController().navigate(R.id.transferencia)
             }
