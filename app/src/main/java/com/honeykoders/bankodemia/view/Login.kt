@@ -59,6 +59,7 @@ class Login : Fragment() {
             binding.loginProgressBar.visibility = View.GONE
             val intent = Intent(activity, HomeActivity::class.java)
             startActivity(intent)
+            activity?.finish()
         }
         viewModel.error.observe(viewLifecycleOwner){ error ->
             Log.d("ErrorMessage", error)
