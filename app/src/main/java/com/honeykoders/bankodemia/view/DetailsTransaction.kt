@@ -25,9 +25,9 @@ class DetailsTransaction : Fragment() {
         // Inflate the layout for this fragment
         _binding = FragmentDetailsTransactionBinding.inflate(inflater, container, false)
         val root: View = binding.root
-
+        
         context?.let { it1 -> utils.initSharedPreferences(it1) }
-        binding.tvCantidadDisponible.text = utils.getSharedPreferencesByName("amount")
+        binding.tvCantidad.text = utils.getSharedPreferencesByName("amount")
         binding.textViewFechaHome.text = utils.getSharedPreferencesByName("date")
         binding.tvConcepto.text = utils.getSharedPreferencesByName("concept")
         return root

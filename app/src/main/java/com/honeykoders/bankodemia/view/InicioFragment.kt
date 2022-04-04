@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.honeykoders.bankodemia.R
 import com.honeykoders.bankodemia.common.Utils
 import com.honeykoders.bankodemia.databinding.FragmentInicioBinding
+import com.honeykoders.bankodemia.model.MakeTransactionDeposit
 import com.honeykoders.bankodemia.model.Transactions
 import com.honeykoders.bankodemia.view.adapters.TransactionsAdapter
 import com.honeykoders.bankodemia.viewmodel.GetUserProfileViewModel
@@ -28,6 +29,7 @@ class InicioFragment : Fragment() {
     private val binding get() = _binding!!
     //viewModel
     val viewModel: GetUserProfileViewModel by viewModels()
+    val viewModelDeposit: MakeDepositViewModel by viewModels()
     val utils: Utils = Utils()
 
     override fun onCreateView(
@@ -81,7 +83,10 @@ class InicioFragment : Fragment() {
             Log.d("ErrorMessageGet", error.toString())
         }
 
-       // viewModelDeposit.makeDepositR
+        viewModelDeposit.makeDepositResponse.observe(viewLifecycleOwner){ deposit ->
+            Log.d("Deposit", deposit.toString())
+            context?.let { utils.showMessage(it,"Se ha realizado un abono por: "+deposit.data.transaction.amount) }
+        }
     }
 
 
