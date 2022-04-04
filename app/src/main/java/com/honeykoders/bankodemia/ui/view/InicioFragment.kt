@@ -19,6 +19,8 @@ import com.honeykoders.bankodemia.ui.model.MakeTransactionDeposit
 import com.honeykoders.bankodemia.ui.model.Transactions
 import com.honeykoders.bankodemia.view.adapters.TransactionsAdapter
 import com.honeykoders.bankodemia.viewmodel.MakeDepositViewModel
+import java.text.SimpleDateFormat
+import java.util.*
 
 class InicioFragment : Fragment() {
 
@@ -53,6 +55,13 @@ class InicioFragment : Fragment() {
     private fun initComponents() {
         context?.let { viewModel.onCreate(context = it) }
         context?.let { viewModelDeposit.onCreate(context = it) }
+        setCurrentDate()
+    }
+
+    fun setCurrentDate(){
+        val sdf = SimpleDateFormat("dd MMM yyyy")
+        val currentDate = sdf.format(Date())
+        binding.tvDate.text = currentDate.toString()
     }
 
     private fun makeDeposit() {
@@ -75,7 +84,7 @@ class InicioFragment : Fragment() {
             setCurrentBalance(userProfile.data.balance.toString())
             saveUserId(userProfile.data.user._id)
             setRecyclerTransactions(userProfile.data.transactions, binding.recyclerViewHome)
-            //binding.progressBar.visibility = View.GONE
+            binding.progressBar.visibility = View.GONE
         }
         viewModel.error.observe(viewLifecycleOwner){ error ->
             Log.d("ErrorMessageGet", error.toString())

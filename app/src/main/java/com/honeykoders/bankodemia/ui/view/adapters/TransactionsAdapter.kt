@@ -2,6 +2,8 @@ package com.honeykoders.bankodemia.view.adapters
 
 import android.annotation.SuppressLint
 import android.app.Activity
+import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.navigation.findNavController
@@ -28,14 +30,14 @@ class TransactionsAdapter(val activity: Activity, val transacciones:
     override fun onBindViewHolder(holder: TransaccionHolder, position: Int) {
         val transaccion = transacciones.get(position)
         val utils = Utils()
+        activity.let { it1 -> utils.initSharedPreferences(it1) }
+        val idUser = utils.getSharedPreferencesByName("userId")
         with(holder){
             cardView.setOnClickListener {
-                activity.let { it1 -> utils.initSharedPreferences(it1) }
                 utils.updateSharedPreferences("string","amount",transaccion.amount.toString(),false,0,0.0f)
                 utils.updateSharedPreferences("string","date",transaccion.created_at,false,0,0.0f)
                 utils.updateSharedPreferences("string","concept",transaccion.concept,false,0,0.0f)
                 it.findNavController().navigate(R.id.detailsTransaction)
-
             }
             //Dar el concepto
             tv_concepto_movimiento.text = transaccion.concept
@@ -55,10 +57,21 @@ class TransactionsAdapter(val activity: Activity, val transacciones:
 
             //Verificar si es un Activo o un Pasivo
             if(transaccion.isIncome){
-                tv_monto_movimiento.text = "+ $" + transaccion.amount.toString()
+                tv_monto_movimiento.text = "+ $" + transaccion.amount.toString() + ".00"
             }else{
-                tv_monto_movimiento.text = "- $" + transaccion.amount.toString()
-                tv_monto_movimiento.setTextColor(android.graphics.Color.RED)
+                if(!transaccion.destinationUser._id.equals(idUser)){
+                    tv_monto_movimiento.text = "- $" + transaccion.amount.toString()+ ".00"
+                    tv_monto_movimiento.setTextColor(android.graphics.Color.RED)
+                }else{
+                    tv_monto_movimiento.text = "+ $" + transaccion.amount.toString() + ".00"
+                }
+            }
+            //Hace el efecto de Zebra en el recycler
+            if(position % 2 == 0) {
+                holder.itemView.setBackgroundResource(R.color.white);
+            }
+            else {
+                holder.itemView.setBackgroundResource(R.color.bgItemCV);
             }
         }
 
@@ -66,6 +79,5 @@ class TransactionsAdapter(val activity: Activity, val transacciones:
     }
 
     override fun getItemCount(): Int = transacciones.size
-
 
 }

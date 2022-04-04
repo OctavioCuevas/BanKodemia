@@ -130,13 +130,20 @@ class PasswordFragment : Fragment() {
                         getString(R.string.useralreadyexists)
                     )
                 }
+                "phone must be a valid phone number" -> context?.let {
+                    utils.showMessage(
+                        it,
+                        getString(R.string.phoneNumberNotValid)
+                    )
+                }
                 else -> null
             }
-
+            findNavController().navigate(R.id.errorFragment)
         }
         viewModel.badRequest.observe(viewLifecycleOwner) { badRequest ->
             if (badRequest) {
                 Log.e("bad", badRequest.toString())
+                findNavController().navigate(R.id.errorFragment)
             }
         }
         viewModel.loading.observe(viewLifecycleOwner) { loading ->

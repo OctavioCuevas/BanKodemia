@@ -30,39 +30,31 @@ class Transferencia : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentTransferenciaBinding.inflate(inflater, container, false)
+        _binding = FragmentTransferenciaBinding.inflate(inflater,container,false)
         val root: View = binding.root
-        val btnTransferencia: Button = binding.btnTransferencia
-        //val tiet_concepto: TextInputEditText = binding.tietConcepto
-        val tiet_cantidad: TextInputEditText = binding.tietCantidad
-        context?.let { it1 -> utils.initSharedPreferences(it1) }
-        context?.let { viewModel.onCreate(context = it) }
-        val transferTo = utils.getSharedPreferencesByName("contactName")
-        binding.tvNombreBeneficiario.setText(transferTo)
+        initcomponets()
         observers()
 
-        btnTransferencia?.setOnClickListener {
+        binding.btnTransferencia?.setOnClickListener {
             showDialog()
-            val cantidadEnviada = utils.numberValidationInt(tiet_cantidad.text)
-            tiet_cantidad.setText(cantidadEnviada.toString())
-            Toast.makeText(context, cantidadEnviada.toString(), Toast.LENGTH_LONG).show()
+            val cantidadEnviada = utils.numberValidationInt(binding.tietCantidad.text)
+            binding.tietCantidad.setText(cantidadEnviada.toString())
         }
 
         binding.btnAtras.setOnClickListener {
             findNavController().navigate(R.id.sendMoney)
         }
 
-        /*tiet_cantidad.setOnFocusChangeListener { view: View, b: Boolean ->
-            tiet_cantidad.setText("")
-        }*/
-
-        /*tiet_concepto.setOnFocusChangeListener { view: View, b: Boolean ->
-            if (tiet_concepto.text.toString() == getString(R.string.pago_croque)) {
-                tiet_concepto.setText("")
-            }
-        }*/
         return root
 
+    }
+
+    private fun initcomponets() {
+        context?.let { it1 -> utils.initSharedPreferences(it1) }
+        context?.let { viewModel.onCreate(context = it) }
+        val transferTo = utils.getSharedPreferencesByName("contactName")
+        binding.tvNombreBeneficiario.setText(transferTo)
+        binding.tvCuentaBanco.text = utils.getSharedPreferencesByName("accountNumber")
     }
 
     override fun onDestroyView() {
@@ -80,8 +72,6 @@ class Transferencia : Fragment() {
         bindingDialog.apply {
             btnAceptar.setOnClickListener {
                 makeTransaction()
-                //Toast.makeText(context,"Transferencia Realizada",Toast.LENGTH_LONG).show()
-                //findNavController().navigate(R.id.procesandoTransaccion)
                 dialog.dismiss()
             }
         }
@@ -92,18 +82,14 @@ class Transferencia : Fragment() {
         val concepto = binding.tietConcepto.text.toString()
         val contactId = utils.getSharedPreferencesByName("contactId").toString()
         Log.e("ContactIDTransfer",contactId)
-        /*val makeTransaction = MakeTransactionPayment(
-            10,
-            "PAYMENT",
-            "62186df3c460bd3d86a67521",
-            "Pago comida gatos",
-        )*/
+
         val makeTransaction = MakeTransactionPayment(
             cantidad,
             "PAYMENT",
             contactId,
             concepto,
         )
+
         mandarDatos(makeTransaction)
     }
 

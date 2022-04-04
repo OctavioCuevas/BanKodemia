@@ -11,10 +11,8 @@ package com.honeykoders.bankodemia.ui.model
 }
 */
 
-class ErrorResponseBadRequest {
-    data class ErrorResponse (
-        val statusCode: Int,
-        val message: List<String>,
-        val error: String
+data class ErrorResponseBadRequest (
+    val statusCode: Int,
+    val message: List<String>,
+    val error: String
     )
-}

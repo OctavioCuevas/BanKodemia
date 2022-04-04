@@ -351,7 +351,7 @@ class Utils {
     }
 
     fun isPhoneNumberValid(number: String): Boolean {
-        return number.length < 10
+        return number.length == 10
     }
 
     fun emptyField(tiet: TextInputEditText, til: TextInputLayout): Boolean {

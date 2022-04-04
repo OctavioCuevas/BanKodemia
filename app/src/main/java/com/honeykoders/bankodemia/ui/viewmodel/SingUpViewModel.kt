@@ -26,34 +26,35 @@ class SingUpViewModel: ViewModel() {
 
     fun singUp(singUp: SingUpModel){
         loading.postValue(true)
-        try {
         viewModelScope.launch {
-            val respuesta = service.singUp(singUp)
-            Log.e("codigo", respuesta.raw().toString())
-            if (respuesta.isSuccessful){
-                singUpResponse.postValue(respuesta.body())
-                Log.e("Success ",respuesta.body().toString())
-            }else{
-                if(respuesta.code() == 400){
-                    val gson = Gson()
-                    val type = object : TypeToken<ErrorResponseBadRequest>() {}.type
-                    var errorResponse: ErrorResponse? = gson.fromJson(respuesta.errorBody()!!.charStream(), type)
-                    Log.e("Response400",errorResponse.toString())
-                    badRequest.postValue(true)
+            try {
+                val respuesta = service.singUp(singUp)
+                Log.e("codigo", respuesta.raw().toString())
+                if (respuesta.isSuccessful){
+                    singUpResponse.postValue(respuesta.body())
+                    Log.e("Success ",respuesta.body().toString())
                 }else{
-                    if(respuesta.code() == 412){
+                    if(respuesta.code() == 400){
+                        badRequest.postValue(true)
                         val gson = Gson()
-                        val type = object : TypeToken<PreconditionError>() {}.type
-                        var errorResponse: PreconditionError? = gson.fromJson(respuesta.errorBody()!!.charStream(), type)
-                        Log.e("Response412",errorResponse.toString())
-                        error.postValue(errorResponse?.message)
+                        val type = object : TypeToken<ErrorResponseBadRequest>() {}.type
+                        var errorResponse: ErrorResponseBadRequest? = gson.fromJson(respuesta.errorBody()!!.charStream(), type)
+                        Log.e("Response400",errorResponse.toString())
+                        error.postValue(errorResponse?.message?.get(0))
+                    }else{
+                        if(respuesta.code() == 412){
+                            val gson = Gson()
+                            val type = object : TypeToken<PreconditionError>() {}.type
+                            var errorResponse: PreconditionError? = gson.fromJson(respuesta.errorBody()!!.charStream(), type)
+                            Log.e("Response412",errorResponse.toString())
+                            error.postValue(errorResponse?.message)
+                        }
                     }
                 }
+            }catch(e: IOException){
+                Log.e("Response", e.toString())
             }
         }
         loading.postValue(true)
-        }catch(e: IOException){
-            Log.e("Response", e.toString())
-        }
     }
 }

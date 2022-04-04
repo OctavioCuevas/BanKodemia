@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.view.TransaccionFinalizada">
+    tools:context=".ErrorFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -25,14 +25,14 @@
             android:id="@+id/iv_user"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:contentDescription="@string/transaction_done"
             android:src="@drawable/img_transaccion_finalizada"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.408"
-            android:contentDescription="@string/transaction_done" />
+            app:layout_constraintVertical_bias="0.408" />
 
         <TextView
             android:id="@+id/tu_transacc"
@@ -42,7 +42,7 @@
             android:layout_alignParentTop="true"
             android:layout_marginTop="8dp"
             android:gravity="center_horizontal|top"
-            android:text="@string/tu_transacc"
+            android:text="@string/hubo_un_problema_al_realizar_tu_transacci_n"
             android:textAppearance="@style/boldTitle"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -60,4 +60,5 @@
             app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </FrameLayout>

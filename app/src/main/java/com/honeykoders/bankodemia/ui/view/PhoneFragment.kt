@@ -1,6 +1,6 @@
 package com.honeykoders.bankodemia.ui.view
 
-import android.content.Context
+
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -14,19 +14,9 @@ import com.hbb20.CountryCodePicker
 import com.honeykoders.bankodemia.R
 import com.honeykoders.bankodemia.common.Utils
 import com.honeykoders.bankodemia.databinding.FragmentPhoneBinding
-import kotlinx.android.synthetic.main.fragment_create_account.*
 import kotlinx.android.synthetic.main.fragment_phone.*
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [PhoneFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class PhoneFragment : Fragment() {
     private var _binding: FragmentPhoneBinding? = null
     private val binding get() = _binding!!
@@ -62,7 +52,12 @@ class PhoneFragment : Fragment() {
 
 
         binding.countryCodePicker.setOnCountryChangeListener {
-            countryCode = ccp?.selectedCountryCode
+           val validateCountryCode = ccp?.selectedCountryCode
+            if (validateCountryCode.equals("55") || validateCountryCode.equals("52")){
+                countryCode = ccp?.selectedCountryCode
+            }else{
+                countryCode = "52"
+            }
             Log.d("selected",countryCode.toString())
         }
 
