@@ -1,6 +1,7 @@
 package com.honeykoders.bankodemia.network
 
 import android.content.Context
+import com.honeykoders.bankodemia.model.ResponseTransactionCreatedDeposit
 import com.honeykoders.bankodemia.network.services.ApiService
 import com.honeykoders.bankodemia.ui.model.*
 import kotlinx.coroutines.Dispatchers

@@ -12,8 +12,7 @@ import com.honeykoders.bankodemia.databinding.FragmentSendMoneyBinding
 import com.honeykoders.bankodemia.exceptions.EmptyTokenException
 import com.honeykoders.bankodemia.ui.model.contacts.Contacts
 import com.honeykoders.bankodemia.ui.model.contacts.ContactsMain
-import com.honeykoders.bankodemia.view.adapters.ContactsAdapter
-//import com.honeykoders.bankodemia.view.adapters.ContactsAdapter
+import com.honeykoders.bankodemia.ui.view.adapters.ContactsAdapter
 import com.honeykoders.bankodemia.ui.viewmodel.SendMoneyVM
 import kotlinx.coroutines.launch
 

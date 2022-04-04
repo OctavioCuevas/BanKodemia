@@ -9,6 +9,8 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.honeykoders.bankodemia.model.*
 import com.honeykoders.bankodemia.network.ServiceNetwork
+import com.honeykoders.bankodemia.ui.model.ErrorResponse
+import com.honeykoders.bankodemia.ui.model.MakeTransactionDeposit
 import kotlinx.coroutines.launch
 import java.io.IOException
 

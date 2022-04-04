@@ -15,13 +15,10 @@ import com.honeykoders.bankodemia.R
 import com.honeykoders.bankodemia.common.Utils
 import com.honeykoders.bankodemia.databinding.FragmentInicioBinding
 import com.honeykoders.bankodemia.ui.viewmodel.GetUserProfileViewModel
-import com.honeykoders.bankodemia.model.MakeTransactionDeposit
-import com.honeykoders.bankodemia.model.Transactions
+import com.honeykoders.bankodemia.ui.model.MakeTransactionDeposit
+import com.honeykoders.bankodemia.ui.model.Transactions
 import com.honeykoders.bankodemia.view.adapters.TransactionsAdapter
-import com.honeykoders.bankodemia.viewmodel.GetUserProfileViewModel
 import com.honeykoders.bankodemia.viewmodel.MakeDepositViewModel
-import java.util.*
-
 
 class InicioFragment : Fragment() {
 

@@ -28,7 +28,7 @@
                 android:resource="@xml/file_paths"/>
         </provider>
         <activity
-            android:name=".view.MainActivity"
+            android:name=".ui.view.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -36,7 +36,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.HomeActivity" />
+        <activity android:name=".ui.view.HomeActivity" />
 
         <meta-data
             android:name="preloaded_fonts"

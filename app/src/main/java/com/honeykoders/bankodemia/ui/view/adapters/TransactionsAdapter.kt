@@ -2,20 +2,13 @@ package com.honeykoders.bankodemia.view.adapters
 
 import android.annotation.SuppressLint
 import android.app.Activity
-import android.content.Intent
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.navigation.findNavController
-
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.card.MaterialCardView
 import com.honeykoders.bankodemia.R
 import com.honeykoders.bankodemia.common.Utils
-
-import com.honeykoders.bankodemia.model.Transactions
-import com.honeykoders.bankodemia.view.HomeDetailsTransactionActivity
+import com.honeykoders.bankodemia.ui.model.Transactions
 import com.honeykoders.bankodemia.view.holders.TransaccionHolder
 
 class TransactionsAdapter(val activity: Activity, val transacciones:

@@ -1,5 +1,6 @@
 package com.honeykoders.bankodemia.network.services
 
+import com.honeykoders.bankodemia.model.ResponseTransactionCreatedDeposit
 import com.honeykoders.bankodemia.ui.model.*
 import retrofit2.Response
 import retrofit2.http.*

@@ -1,13 +1,15 @@
 package com.honeykoders.bankodemia.ui.view.adapters
 
 import android.content.Context
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.honeykoders.bankodemia.R
 import com.honeykoders.bankodemia.common.Utils
 import com.honeykoders.bankodemia.ui.model.contacts.Contacts
-import com.honeykoders.bankodemia.view.holders.ContactsHolder
+import com.honeykoders.bankodemia.ui.view.holders.ContactsHolder
 
 class ContactsAdapter(private val context: Context,
                       private val listContacts: List<Contacts>) :
@@ -29,7 +31,6 @@ class ContactsAdapter(private val context: Context,
             tv_contact_name.text = contacts.shortName
             tv_contact_account.text = utils.getRandomCard()
             cv_user_contact.setOnClickListener {
-                Log.e("HKDebug", "id: ${contacts.Id}")
                 holder.cv_user_contact.setBackgroundColor(Color.parseColor("#E5E5E5"))
                 tv_contact_account.text = contacts.shortName
                 context?.let { it1 -> utils.initSharedPreferences(it1) }

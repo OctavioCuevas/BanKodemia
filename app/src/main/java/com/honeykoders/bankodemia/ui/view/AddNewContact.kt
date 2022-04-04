@@ -14,10 +14,8 @@ import com.honeykoders.bankodemia.common.Utils
 import com.honeykoders.bankodemia.databinding.FragmentAddNewContactBinding
 import com.honeykoders.bankodemia.ui.model.AddNewContactModel
 import com.honeykoders.bankodemia.ui.viewmodel.AddContactViewModel
-import com.honeykoders.bankodemia.model.AddNewContactModel
-import com.honeykoders.bankodemia.model.SearchUsersModel
-import com.honeykoders.bankodemia.viewmodel.AddContactViewModel
-import com.honeykoders.bankodemia.viewmodel.SearchUsersViewModel
+import com.honeykoders.bankodemia.ui.model.SearchUsersModel
+import com.honeykoders.bankodemia.ui.viewmodel.SearchUsersViewModel
 import kotlinx.android.synthetic.main.fragment_create_account.*
 import java.io.IOException
 
