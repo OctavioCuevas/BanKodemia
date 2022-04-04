@@ -12,7 +12,8 @@ import com.honeykoders.bankodemia.common.Utils
 import com.honeykoders.bankodemia.model.contacts.Contacts
 import com.honeykoders.bankodemia.view.holders.ContactsHolder
 
-class ContactsAdapter(private val context: Context, private val listContacts: List<Contacts>) :
+class ContactsAdapter(private val context: Context,
+                      private val listContacts: List<Contacts>) :
     RecyclerView.Adapter<ContactsHolder>() {
 
     override fun onCreateViewHolder(
