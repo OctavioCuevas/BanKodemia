@@ -8,7 +8,7 @@ import kotlinx.coroutines.withContext
 import retrofit2.Response
 
 class ServiceNetwork(context: Context){
-    val retrofit = RetrofitInstance.getRetrofit().create(ApiService::class.java)
+    val retrofit = RetrofitInstance.getRetrofit(context).create(ApiService::class.java)
 
     suspend fun singUp (singUp:SingUpModel):Response<ResponseSingUp>{
         return withContext(Dispatchers.IO){
@@ -38,5 +38,25 @@ class ServiceNetwork(context: Context){
         }
     }
 
+    suspend fun getUserProfile(): Response<UserProfileResponse>{
+        return withContext(Dispatchers.IO){
+            val response = retrofit.getUserProfile()
+            response
+        }
+    }
+
+    suspend fun addNewContact(newContact: AddNewContactModel):Response<ContactAdded>{
+        return withContext(Dispatchers.IO){
+            val response = retrofit.addNewContact(newContact)
+            response
+        }
+    }
+
+    suspend fun makeTransactionDeposit (makeTransactionDeposit: MakeTransactionDeposit):Response<ResponseTransactionCreatedDeposit>{
+        return withContext(Dispatchers.IO){
+            val response = retrofit.makeTransactionDeposit(makeTransactionDeposit)
+            response
+        }
+    }
 
 }

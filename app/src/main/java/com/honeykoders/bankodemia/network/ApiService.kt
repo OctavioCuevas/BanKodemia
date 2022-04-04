@@ -12,7 +12,6 @@ interface ApiService {
     @POST("/users")
     suspend fun singUp(@Body singUpModel: SingUpModel): Response<ResponseSingUp>
     //Transactions
-    //@Headers("Authorization: Bearer  ")
     @POST("/transactions")
     suspend fun makeTransactionPayment(@Body makeTransaction: MakeTransactionPayment): Response<ResponseTransactionCreated>
     //Login
@@ -21,5 +20,14 @@ interface ApiService {
     //Search Users
     @GET("/users/search")
     suspend fun searchUsers(@Query("query") query: String): Response<SearchUsersModel>
+    //Get User Profile
+    @GET("/users/me/profile")
+    suspend fun getUserProfile(): Response<UserProfileResponse>
+    //GetContacts
+    @POST("/contacts")
+    suspend fun addNewContact(@Body newContact: AddNewContactModel): Response<ContactAdded>
+    //Deposit
+    @POST("/transactions")
+    suspend fun makeTransactionDeposit(@Body makeTransaction: MakeTransactionDeposit): Response<ResponseTransactionCreatedDeposit>
 
 }

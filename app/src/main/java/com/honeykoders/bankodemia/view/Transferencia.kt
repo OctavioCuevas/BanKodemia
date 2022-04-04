@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.Toast
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.google.android.material.textfield.TextInputEditText
 import com.honeykoders.bankodemia.R
 import com.honeykoders.bankodemia.common.Utils
@@ -32,9 +33,12 @@ class Transferencia : Fragment() {
         _binding = FragmentTransferenciaBinding.inflate(inflater, container, false)
         val root: View = binding.root
         val btnTransferencia: Button = binding.btnTransferencia
-        val tiet_concepto: TextInputEditText = binding.tietConcepto
+        //val tiet_concepto: TextInputEditText = binding.tietConcepto
         val tiet_cantidad: TextInputEditText = binding.tietCantidad
-
+        context?.let { it1 -> utils.initSharedPreferences(it1) }
+        context?.let { viewModel.onCreate(context = it) }
+        val transferTo = utils.getSharedPreferencesByName("contactName")
+        binding.tvNombreBeneficiario.setText(transferTo)
         observers()
 
         btnTransferencia?.setOnClickListener {
@@ -44,15 +48,19 @@ class Transferencia : Fragment() {
             Toast.makeText(context, cantidadEnviada.toString(), Toast.LENGTH_LONG).show()
         }
 
+        binding.btnAtras.setOnClickListener {
+            findNavController().navigate(R.id.sendMoney)
+        }
+
         /*tiet_cantidad.setOnFocusChangeListener { view: View, b: Boolean ->
             tiet_cantidad.setText("")
         }*/
 
-        tiet_concepto.setOnFocusChangeListener { view: View, b: Boolean ->
+        /*tiet_concepto.setOnFocusChangeListener { view: View, b: Boolean ->
             if (tiet_concepto.text.toString() == getString(R.string.pago_croque)) {
                 tiet_concepto.setText("")
             }
-        }
+        }*/
         return root
 
     }
@@ -82,6 +90,8 @@ class Transferencia : Fragment() {
     fun makeTransaction(){
         val cantidad = binding.tietCantidad.text.toString().toInt()
         val concepto = binding.tietConcepto.text.toString()
+        val contactId = utils.getSharedPreferencesByName("contactId").toString()
+        Log.e("ContactIDTransfer",contactId)
         /*val makeTransaction = MakeTransactionPayment(
             10,
             "PAYMENT",
@@ -91,7 +101,7 @@ class Transferencia : Fragment() {
         val makeTransaction = MakeTransactionPayment(
             cantidad,
             "PAYMENT",
-            "62186df3c460bd3d86a67521",
+            contactId,
             concepto,
         )
         mandarDatos(makeTransaction)
@@ -105,15 +115,17 @@ class Transferencia : Fragment() {
         viewModel.makeTransactionResponse.observe(viewLifecycleOwner){ makeTransaction ->
             Log.e("SingUp",makeTransaction.success.toString())
             if(makeTransaction.success){
-               // findNavController().navigate(R.id.transaccionFinalizada)
+                findNavController().navigate(R.id.transaccionFinalizada)
             }
         }
         viewModel.loading.observe(viewLifecycleOwner){ loading ->
             Log.e("Pase por aqui",loading.toString())
             if (loading){
-                //findNavController().navigate(R.id.procesandoTransaccion)
+                binding.contenedorPrincipal.visibility = View.GONE
+                binding.contenedorCarga.visibility = View.VISIBLE
             }else{
-               // findNavController().navigate(R.id.transaccionFinalizada)
+                binding.contenedorPrincipal.visibility = View.VISIBLE
+                binding.contenedorCarga.visibility = View.GONE
             }
         }
 

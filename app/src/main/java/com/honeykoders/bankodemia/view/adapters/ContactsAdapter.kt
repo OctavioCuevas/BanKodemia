@@ -1,30 +1,62 @@
 package com.honeykoders.bankodemia.view.adapters
 
 import android.content.Context
+import android.graphics.Color
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.honeykoders.bankodemia.R
+import com.honeykoders.bankodemia.common.Utils
 import com.honeykoders.bankodemia.model.contacts.Contacts
 import com.honeykoders.bankodemia.view.holders.ContactsHolder
 
-/*class ContactsAdapter(private val context: Context, private val listHours: List<Contacts>) :
-    RecyclerView.Adapter<ContactsHolder>()  {
+class ContactsAdapter(private val context: Context,
+                      private val listContacts: List<Contacts>) :
+    RecyclerView.Adapter<ContactsHolder>() {
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ) {
-      //  val view = LayoutInflater.from(parent.context).inflate(R.layout.fragment_send_money.rv_,parent,false)
-       // return ContactsHolder(view)
-        //return ContactsHolder(this)
+    ): ContactsHolder {
+        val view =
+            LayoutInflater.from(parent.context).inflate(R.layout.item_contacts, parent, false)
+        return ContactsHolder(view)
     }
 
     override fun onBindViewHolder(holder: ContactsHolder, position: Int) {
-
+        val utils = Utils()
+        val contacts = listContacts.get(position)
+        with(holder) {
+            tv_contact_name.text = contacts.shortName
+            tv_contact_account.text = utils.getRandomCard()
+            cv_user_contact.setOnClickListener {
+                Log.e("HKDebug", "id: ${contacts.Id}")
+                holder.cv_user_contact.setBackgroundColor(Color.parseColor("#E5E5E5"))
+                tv_contact_account.text = contacts.shortName
+                context?.let { it1 -> utils.initSharedPreferences(it1) }
+                utils.updateSharedPreferences(
+                    "string",
+                    "contactId",
+                    contacts.Id.toString(),
+                    false,
+                    0,
+                    0.0f
+                )
+                utils.updateSharedPreferences(
+                    "string",
+                    "contactName",
+                    contacts.shortName.toString(),
+                    false,
+                    0,
+                    0.0f
+                )
+                it.findNavController().navigate(R.id.transferencia)
+            }
+        }
     }
 
-    override fun getItemCount(): Int = listHours.size
+    override fun getItemCount(): Int = listContacts.size
 
-    }
-}*/
+}

@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/white"
-    tools:context=".view.addNewContact">
+    tools:context=".view.AddNewContact">
 
     <ImageView
         android:id="@+id/imageView_bk"
@@ -45,7 +45,7 @@
                 android:layout_marginTop="24dp"
                 android:fontFamily="@font/poppins_medium"
                 android:text="@string/clabetxtbtn"
-                android:textColor="@color/black"
+                android:textColor="@color/teal_200"
                 android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/btn_backtomain"
@@ -67,131 +67,129 @@
                 tools:ignore="TextContrastCheck,DuplicateSpeakableTextCheck" />
 
 
-            <TextView
-                android:id="@+id/tv_addCont_acNumb"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:layout_marginStart="24dp"
-                style="@style/singleTitle"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btn_clabe"
-                android:text="@string/clabetxttv"/>
+    <TextView
+        android:id="@+id/tv_addCont_acNumb"
+        style="@style/singleTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/clabetxttv"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_clabe" />
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/til_addCont_acNumb"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_addCont_acNumb"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
 
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                app:layout_constraintTop_toBottomOf="@+id/tv_addCont_acNumb"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent">
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_addCont_acNumb">
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/tiet_addCont_acNumb"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:fontFamily="@font/poppins2"
-                    android:inputType="number"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tiet_addCont_acNumb"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins2"
+            android:inputType="number"
 
-                    tools:ignore="TextContrastCheck,SpeakableTextPresentCheck" />
-            </com.google.android.material.textfield.TextInputLayout>
+            tools:ignore="TextContrastCheck,SpeakableTextPresentCheck" />
+    </com.google.android.material.textfield.TextInputLayout>
 
 
-            <TextView
-                android:id="@+id/tv_addCont_insti"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:layout_marginStart="24dp"
-                style="@style/singleTitle"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/til_addCont_acNumb"
-                android:text="@string/insttv"/>
+    <TextView
+        android:id="@+id/tv_addCont_insti"
+        style="@style/singleTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/insttv"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/til_addCont_acNumb" />
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/til_addCont_insti"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_addCont_insti"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
 
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                app:layout_constraintTop_toBottomOf="@+id/tv_addCont_insti"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent">
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_addCont_insti">
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/tiet_addCont_insti"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:fontFamily="@font/poppins2"
-                    android:inputType="number"
-                    tools:ignore="TextContrastCheck,SpeakableTextPresentCheck" />
-            </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tiet_addCont_insti"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins2"
+            tools:ignore="TextContrastCheck,SpeakableTextPresentCheck" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-            <TextView
-                android:id="@+id/tv_addCont_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:layout_marginStart="24dp"
-                style="@style/singleTitle"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/til_addCont_insti"
-                android:text="@string/nombre"/>
+    <TextView
+        android:id="@+id/tv_addCont_name"
+        style="@style/singleTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/nombre"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/til_addCont_insti" />
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/til_addCont_name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_addCont_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
 
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                app:layout_constraintTop_toBottomOf="@+id/tv_addCont_name"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent">
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_addCont_name">
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/tiet_addCont_name"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:fontFamily="@font/poppins2"
-                    android:inputType="number"
-                    tools:ignore="TextContrastCheck,SpeakableTextPresentCheck" />
-            </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tiet_addCont_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins2"
+            tools:ignore="TextContrastCheck,SpeakableTextPresentCheck" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-            <TextView
-                android:id="@+id/tv_addCont_mail"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:layout_marginStart="24dp"
-                android:fontFamily="@font/poppins_medium"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/til_addCont_name"
-                android:text="@string/correo_de_notificaci_n"/>
+    <TextView
+        android:id="@+id/tv_addCont_mail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/poppins_medium"
+        android:text="@string/correo_de_notificaci_n"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/til_addCont_name" />
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/til_addCont_mail"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_addCont_mail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
 
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                app:layout_constraintTop_toBottomOf="@+id/tv_addCont_mail"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent">
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_addCont_mail">
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/tiet_addCont_mail"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:fontFamily="@font/poppins2"
-                    android:inputType="number"
-                    tools:ignore="TextContrastCheck,SpeakableTextPresentCheck" />
-            </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tiet_addCont_mail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins2"
+            android:inputType="textEmailAddress"
+            tools:ignore="TextContrastCheck,SpeakableTextPresentCheck" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_add_new_contact"
@@ -205,10 +203,9 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/til_addCont_mail"
+        app:layout_constraintVertical_bias="0.875"
         tools:ignore="TextContrastCheck" />
-
-
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

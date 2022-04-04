@@ -30,6 +30,7 @@
 
 
     <string name="errorlimitnumclabe">Verifique que sean 18 dígitos</string>
+    <string name="errorlimitnumtarjeta">Verifique que sean 16 dígitos</string>
     <string name="conoce_c_mo">Conoce <font color="purple"><u>cómo protegemos tus documentos</u></font></string>
     <string name="documento_m">Documento Migratorio</string>
     <string name="pasaporte">Pasaporte</string>
@@ -136,6 +137,7 @@
     <string name="insufficientFunds">Fondos insuficientes</string>
     <string name="invalidCredentials">No se pudo iniciar sesión. Usuario y/o contraseña incorrectas</string>
     <string name="mailIsAlreadyUsed">El correo ya esta registrado, intente con otro</string>
+    <string name="_21_marzo_2022">21 marzo 2022</string>
 
 
 </resources>
