@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.Transferencia">
+    tools:context=".ui.view.Transferencia">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -176,7 +176,7 @@
         android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <fragment android:name="com.honeykoders.bankodemia.view.ProcesandoTransaccion"
+        <fragment android:name="com.honeykoders.bankodemia.ui.view.ProcesandoTransaccion"
             android:id="@+id/viewer"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

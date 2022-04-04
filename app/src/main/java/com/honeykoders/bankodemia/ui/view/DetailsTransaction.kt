@@ -25,6 +25,10 @@ class DetailsTransaction : Fragment() {
         // Inflate the layout for this fragment
         _binding = FragmentDetailsTransactionBinding.inflate(inflater, container, false)
         val root: View = binding.root
+
+        binding.btnDetalle.setOnClickListener {
+            findNavController().navigate(R.id.inicioFragment)
+        }
         
         context?.let { it1 -> utils.initSharedPreferences(it1) }
         binding.tvCantidad.text = utils.getSharedPreferencesByName("amount")

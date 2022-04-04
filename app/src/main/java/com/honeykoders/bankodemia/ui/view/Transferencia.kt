@@ -52,6 +52,7 @@ class Transferencia : Fragment() {
             findNavController().navigate(R.id.sendMoney)
         }
 
+
         /*tiet_cantidad.setOnFocusChangeListener { view: View, b: Boolean ->
             tiet_cantidad.setText("")
         }*/

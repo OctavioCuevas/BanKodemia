@@ -1,5 +1,6 @@
 package com.honeykoders.bankodemia.ui.view
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -7,8 +8,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.BaseTransientBottomBar
 import com.google.android.material.snackbar.Snackbar
+import com.honeykoders.bankodemia.R
+import com.honeykoders.bankodemia.databinding.ActivityHomeBinding
 import com.honeykoders.bankodemia.databinding.FragmentSendMoneyBinding
 import com.honeykoders.bankodemia.use_cases.GetUserContacts
 import com.honeykoders.bankodemia.ui.viewmodel.SendMoneyVM
@@ -45,13 +49,11 @@ class SendMoney : Fragment() {
         userContacts.getContacts()
 
         binding.btnBacktomain.setOnClickListener {
-            //findNavController().navigate(R.id.inicioFragment)
-            /*val intent = Intent(activity, ActivityHomeBinding::class.java)
-            startActivity(intent)*/
+            findNavController().navigate(R.id.inicioFragment)
         }
 
         binding.btnAddContact.setOnClickListener {
-            //findNavController().navigate(R.id.addNewContact)
+            findNavController().navigate(R.id.addNewContact)
         }
         return root
     }
