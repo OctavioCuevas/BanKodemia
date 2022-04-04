@@ -6,4 +6,5 @@
     <color name="black2">#161616</color>
     <color name="gray">#7F7F7F</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="bgItemCV">#66E5E5E5</color>
 </resources>

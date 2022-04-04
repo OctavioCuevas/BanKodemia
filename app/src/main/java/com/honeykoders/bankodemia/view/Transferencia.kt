@@ -91,6 +91,7 @@ class Transferencia : Fragment() {
         val cantidad = binding.tietCantidad.text.toString().toInt()
         val concepto = binding.tietConcepto.text.toString()
         val contactId = utils.getSharedPreferencesByName("contactId").toString()
+        Log.e("ContactIDTransfer",contactId)
         /*val makeTransaction = MakeTransactionPayment(
             10,
             "PAYMENT",
@@ -114,15 +115,17 @@ class Transferencia : Fragment() {
         viewModel.makeTransactionResponse.observe(viewLifecycleOwner){ makeTransaction ->
             Log.e("SingUp",makeTransaction.success.toString())
             if(makeTransaction.success){
-               // findNavController().navigate(R.id.transaccionFinalizada)
+                findNavController().navigate(R.id.transaccionFinalizada)
             }
         }
         viewModel.loading.observe(viewLifecycleOwner){ loading ->
             Log.e("Pase por aqui",loading.toString())
             if (loading){
-                //findNavController().navigate(R.id.procesandoTransaccion)
+                binding.contenedorPrincipal.visibility = View.GONE
+                binding.contenedorCarga.visibility = View.VISIBLE
             }else{
-               // findNavController().navigate(R.id.transaccionFinalizada)
+                binding.contenedorPrincipal.visibility = View.VISIBLE
+                binding.contenedorCarga.visibility = View.GONE
             }
         }
 

@@ -23,7 +23,11 @@ interface ApiService {
     //Get User Profile
     @GET("/users/me/profile")
     suspend fun getUserProfile(): Response<UserProfileResponse>
+    //GetContacts
     @POST("/contacts")
     suspend fun addNewContact(@Body newContact: AddNewContactModel): Response<ContactAdded>
+    //Deposit
+    @POST("/transactions")
+    suspend fun makeTransactionDeposit(@Body makeTransaction: MakeTransactionDeposit): Response<ResponseTransactionCreatedDeposit>
 
 }

@@ -17,6 +17,8 @@ import com.honeykoders.bankodemia.databinding.FragmentInicioBinding
 import com.honeykoders.bankodemia.model.Transactions
 import com.honeykoders.bankodemia.view.adapters.TransactionsAdapter
 import com.honeykoders.bankodemia.viewmodel.GetUserProfileViewModel
+import com.honeykoders.bankodemia.viewmodel.MakeDepositViewModel
+import java.util.*
 
 
 class InicioFragment : Fragment() {
@@ -26,7 +28,6 @@ class InicioFragment : Fragment() {
     private val binding get() = _binding!!
     //viewModel
     val viewModel: GetUserProfileViewModel by viewModels()
-
     val utils: Utils = Utils()
 
     override fun onCreateView(
@@ -35,19 +36,40 @@ class InicioFragment : Fragment() {
     ): View? {
         _binding = FragmentInicioBinding.inflate(inflater, container, false)
         val root: View = binding.root
-        context?.let { viewModel.onCreate(context = it) }
+
+        initComponents()
         observers()
         viewModel.getUserProfile()
+
         binding.btnEnviar.setOnClickListener {
             findNavController().navigate(R.id.sendMoney)
         }
-
+        binding.btnRecibir.setOnClickListener {
+            makeDeposit()
+        }
         return root
     }
 
-    //Se inicia SharedPreferences
+    private fun initComponents() {
+        context?.let { viewModel.onCreate(context = it) }
+        context?.let { viewModelDeposit.onCreate(context = it) }
+    }
+
+    private fun makeDeposit() {
+        viewModelDeposit.makeTransactionDeposit(getDepositInformation())
+    }
+
+    private fun getDepositInformation(): MakeTransactionDeposit {
+        val deposit = MakeTransactionDeposit(
+            50,
+            "DEPOSIT",
+            "Depósito Bancario"
+        )
+        return deposit
+    }
 
     private fun observers() {
+
         viewModel.getUserResponse.observe(viewLifecycleOwner){ userProfile ->
             Log.d("Success profile Get", userProfile.data.user._id)
             setCurrentBalance(userProfile.data.balance.toString())
