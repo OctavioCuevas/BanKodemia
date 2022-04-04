@@ -17,6 +17,7 @@
         <entry key="..\:/Users/DarkE/Documents/BanKodemia/app/src/main/res/drawable/ic_baseline_arrow_back_24.xml" value="0.13" />
         <entry key="..\:/Users/DarkE/Documents/BanKodemia/app/src/main/res/font/poppins.xml" value="0.3927083333333333" />
         <entry key="..\:/Users/DarkE/Documents/BanKodemia/app/src/main/res/font/poppins2.xml" value="0.3927083333333333" />
+        <entry key="..\:/Users/DarkE/Documents/BanKodemia/app/src/main/res/layout/activity_home.xml" value="0.1" />
         <entry key="..\:/Users/DarkE/Documents/BanKodemia/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/DarkE/Documents/BanKodemia/app/src/main/res/layout/fragment_add_new_contact.xml" value="0.33" />
         <entry key="..\:/Users/DarkE/Documents/BanKodemia/app/src/main/res/layout/fragment_add_new_contact_tarjeta.xml" value="0.2937152629328773" />
@@ -26,10 +27,11 @@
         <entry key="..\:/Users/DarkE/Documents/BanKodemia/app/src/main/res/layout/fragment_login.xml" value="0.22" />
         <entry key="..\:/Users/DarkE/Documents/BanKodemia/app/src/main/res/layout/fragment_send_money.xml" value="0.1" />
         <entry key="..\:/Users/DarkE/Documents/BanKodemia/app/src/main/res/layout/fragment_transferencia.xml" value="0.20607097050021378" />
-        <entry key="..\:/Users/DarkE/Documents/BanKodemia/app/src/main/res/layout/fragment_welcome.xml" value="0.2937152629328773" />
+        <entry key="..\:/Users/DarkE/Documents/BanKodemia/app/src/main/res/layout/fragment_welcome.xml" value="0.25" />
         <entry key="..\:/Users/DarkE/Documents/BanKodemia/app/src/main/res/layout/item_cardview_home.xml" value="0.2261650277896537" />
         <entry key="..\:/Users/DarkE/Documents/BanKodemia/app/src/main/res/layout/item_contacts.xml" value="0.67" />
         <entry key="..\:/Users/DarkE/Documents/BanKodemia/app/src/main/res/layout/send_money_fragment.xml" value="0.271875" />
+        <entry key="..\:/Users/DarkE/Documents/BanKodemia/app/src/main/res/menu/bottom_nav_menu.xml" value="0.28388200085506626" />
         <entry key="app/src/main/res/drawable/fill.xml" value="0.2295" />
         <entry key="app/src/main/res/drawable/punteado.xml" value="0.28110656738281253" />
         <entry key="app/src/main/res/drawable/round_corner.xml" value="0.198" />
