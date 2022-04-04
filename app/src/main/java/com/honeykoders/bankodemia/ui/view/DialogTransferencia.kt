@@ -9,6 +9,7 @@ import com.honeykoders.bankodemia.R
 import com.honeykoders.bankodemia.databinding.FragmentDialogTransferenciaBinding
 
 
+
 class DialogTransferencia : DialogFragment() {
     private var _binding: FragmentDialogTransferenciaBinding? = null
     private val binding get() = _binding!!

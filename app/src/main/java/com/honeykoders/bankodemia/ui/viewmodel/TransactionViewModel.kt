@@ -57,7 +57,7 @@ class TransactionViewModel:ViewModel() {
                    }
                }
            }
-            loading.postValue(false)
+            loading.postValue(true)
        }catch(e: IOException){
            Log.e("Response", e.toString())
        }

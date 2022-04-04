@@ -52,4 +52,11 @@ class ServiceNetwork(context: Context){
         }
     }
 
+    suspend fun makeTransactionDeposit (makeTransactionDeposit: MakeTransactionDeposit):Response<ResponseTransactionCreatedDeposit>{
+        return withContext(Dispatchers.IO){
+            val response = retrofit.makeTransactionDeposit(makeTransactionDeposit)
+            response
+        }
+    }
+
 }

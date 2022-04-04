@@ -137,6 +137,7 @@
     <string name="insufficientFunds">Fondos insuficientes</string>
     <string name="invalidCredentials">No se pudo iniciar sesión. Usuario y/o contraseña incorrectas</string>
     <string name="mailIsAlreadyUsed">El correo ya esta registrado, intente con otro</string>
+    <string name="_21_marzo_2022">21 marzo 2022</string>
 
 
 </resources>
