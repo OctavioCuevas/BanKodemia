@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/inicioFragment"
-        android:name="com.honeykoders.bankodemia.view.InicioFragment"
+        android:name="com.honeykoders.bankodemia.ui.view.InicioFragment"
         android:label="fragment_inicio"
         tools:layout="@layout/fragment_inicio" >
         <action
@@ -19,29 +19,35 @@
         <action
             android:id="@+id/action_inicioFragment_to_fragment_tarjeta"
             app:destination="@id/fragment_tarjeta" />
+        <action
+            android:id="@+id/action_inicioFragment_to_detailsTransaction"
+            app:destination="@id/detailsTransaction" />
     </fragment>
     <fragment
         android:id="@+id/sendMoney"
-        android:name="com.honeykoders.bankodemia.view.SendMoney"
+        android:name="com.honeykoders.bankodemia.ui.view.SendMoney"
         android:label="SendMoney"
         tools:layout="@layout/fragment_send_money">
+        <action
+            android:id="@+id/action_sendMoney_to_addNewContact"
+            app:destination="@id/addNewContact" />
         <action
             android:id="@+id/action_sendMoney_to_transferencia"
             app:destination="@id/transferencia" />
     </fragment>
     <fragment
         android:id="@+id/fragment_tarjeta"
-        android:name="com.honeykoders.bankodemia.view.Fragment_tarjeta"
+        android:name="com.honeykoders.bankodemia.ui.view.Fragment_tarjeta"
         android:label="Fragment_tarjeta"
         tools:layout="@layout/fragment_tarjeta"/>
     <fragment
         android:id="@+id/serviciosFragment"
-        android:name="com.honeykoders.bankodemia.view.ServiciosFragment"
+        android:name="com.honeykoders.bankodemia.ui.view.ServiciosFragment"
         android:label="ServiciosFragment"
         tools:layout="@layout/fragment_servicios"/>
     <fragment
         android:id="@+id/transferencia"
-        android:name="com.honeykoders.bankodemia.view.Transferencia"
+        android:name="com.honeykoders.bankodemia.ui.view.Transferencia"
         android:label="fragment_transferencia"
         tools:layout="@layout/fragment_transferencia" >
         <action
@@ -50,7 +56,7 @@
     </fragment>
     <dialog
         android:id="@+id/dialogTransferencia"
-        android:name="com.honeykoders.bankodemia.view.DialogTransferencia"
+        android:name="com.honeykoders.bankodemia.ui.view.DialogTransferencia"
         android:label="fragment_dialog_transferencia"
         tools:layout="@layout/fragment_dialog_transferencia" >
         <action
@@ -59,7 +65,7 @@
     </dialog>
     <fragment
         android:id="@+id/procesandoTransaccion"
-        android:name="com.honeykoders.bankodemia.view.ProcesandoTransaccion"
+        android:name="com.honeykoders.bankodemia.ui.view.ProcesandoTransaccion"
         android:label="fragment_procesando_transaccion"
         tools:layout="@layout/fragment_procesando_transaccion" >
         <action
@@ -68,7 +74,37 @@
     </fragment>
     <fragment
         android:id="@+id/transaccionFinalizada"
-        android:name="com.honeykoders.bankodemia.view.TransaccionFinalizada"
+        android:name="com.honeykoders.bankodemia.ui.view.TransaccionFinalizada"
         android:label="fragment_transaccion_finalizada"
         tools:layout="@layout/fragment_transaccion_finalizada" />
+    <fragment
+        android:id="@+id/addNewContact"
+        android:name="com.honeykoders.bankodemia.ui.view.AddNewContact"
+        android:label="fragment_add_new_contact"
+        tools:layout="@layout/fragment_add_new_contact" >
+        <action
+            android:id="@+id/action_addNewContact_to_endAddContact"
+            app:destination="@id/endAddContact" />
+        <action
+            android:id="@+id/action_addNewContact_self"
+            app:destination="@id/addNewContact" />
+    </fragment>
+    <fragment
+        android:id="@+id/endAddContact"
+        android:name="com.honeykoders.bankodemia.ui.view.EndAddContact"
+        android:label="EndAddContact"
+        tools:layout="@layout/fragment_end_add_contact">
+        <action
+            android:id="@+id/action_endAddContact_to_inicioFragment"
+            app:destination="@id/inicioFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailsTransaction"
+        android:name="com.honeykoders.bankodemia.ui.view.DetailsTransaction"
+        android:label="fragment_details_transaction"
+        tools:layout="@layout/fragment_details_transaction" >
+        <action
+            android:id="@+id/action_detailsTransaction_to_inicioFragment"
+            app:destination="@id/inicioFragment" />
+    </fragment>
 </navigation>

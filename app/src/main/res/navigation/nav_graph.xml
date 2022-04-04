@@ -6,7 +6,7 @@
     app:startDestination="@id/welcome">
     <fragment
         android:id="@+id/verificarDocumentoIdentidad"
-        android:name="com.honeykoders.bankodemia.view.VerificarDocumentoIdentidad"
+        android:name="com.honeykoders.bankodemia.ui.view.VerificarDocumentoIdentidad"
         android:label="fragment_verificar_documento_identidad"
         tools:layout="@layout/fragment_verificar_documento_identidad" >
         <action
@@ -18,7 +18,7 @@
     </fragment>
     <fragment
         android:id="@+id/seleccionarDocumentoIdentidad"
-        android:name="com.honeykoders.bankodemia.view.SeleccionarDocumentoIdentidad"
+        android:name="com.honeykoders.bankodemia.ui.view.SeleccionarDocumentoIdentidad"
         android:label="SeleccionarDocumentoIdentidad"
         tools:layout="@layout/fragment_seleccionar_documento_identidad">
         <action
@@ -34,7 +34,7 @@
     </fragment>
     <fragment
         android:id="@+id/subirDocumentoIdentidad"
-        android:name="com.honeykoders.bankodemia.view.SubirDocumentoIdentidad"
+        android:name="com.honeykoders.bankodemia.ui.view.SubirDocumentoIdentidad"
         android:label="SubirDocumentoIdentidad"
         tools:layout="@layout/fragment_subir_documento_identidad">
         <action
@@ -46,7 +46,7 @@
     </fragment>
     <fragment
         android:id="@+id/welcome"
-        android:name="com.honeykoders.bankodemia.view.Welcome"
+        android:name="com.honeykoders.bankodemia.ui.view.Welcome"
         android:label="fragment_welcome"
         tools:layout="@layout/fragment_welcome" >
         <action
@@ -58,12 +58,12 @@
     </fragment>
     <fragment
         android:id="@+id/login"
-        android:name="com.honeykoders.bankodemia.view.Login"
+        android:name="com.honeykoders.bankodemia.ui.view.Login"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" />
     <fragment
         android:id="@+id/createAccount"
-        android:name="com.honeykoders.bankodemia.view.CreateAccount"
+        android:name="com.honeykoders.bankodemia.ui.view.CreateAccount"
         android:label="fragment_create_account"
         tools:layout="@layout/fragment_create_account" >
         <action
@@ -75,7 +75,7 @@
     </fragment>
     <fragment
         android:id="@+id/customerDataFragment"
-        android:name="com.honeykoders.bankodemia.view.CustomerDataFragment"
+        android:name="com.honeykoders.bankodemia.ui.view.CustomerDataFragment"
         android:label="fragment_customer_data"
         tools:layout="@layout/fragment_customer_data" >
         <action
@@ -87,7 +87,7 @@
     </fragment>
     <fragment
         android:id="@+id/phoneFragment"
-        android:name="com.honeykoders.bankodemia.view.PhoneFragment"
+        android:name="com.honeykoders.bankodemia.ui.view.PhoneFragment"
         android:label="PhoneFragment"
         tools:layout="@layout/fragment_phone">
         <action
@@ -99,7 +99,7 @@
     </fragment>
     <fragment
         android:id="@+id/passwordFragment"
-        android:name="com.honeykoders.bankodemia.view.PasswordFragment"
+        android:name="com.honeykoders.bankodemia.ui.view.PasswordFragment"
         android:label="PasswordFragment"
         tools:layout="@layout/fragment_password">
         <action
@@ -111,7 +111,7 @@
     </fragment>
     <fragment
         android:id="@+id/sendingInfoFragment"
-        android:name="com.honeykoders.bankodemia.view.SendingInfoFragment"
+        android:name="com.honeykoders.bankodemia.ui.view.SendingInfoFragment"
         android:label="fragment_sending_info"
         tools:layout="@layout/fragment_sending_info" >
         <action
@@ -120,7 +120,7 @@
     </fragment>
     <fragment
         android:id="@+id/ok_infoFragment"
-        android:name="com.honeykoders.bankodemia.view.ok_infoFragment"
+        android:name="com.honeykoders.bankodemia.ui.view.Ok_infoFragment"
         android:label="fragment_ok_info"
         tools:layout="@layout/fragment_ok_info" >
         <action
