@@ -171,31 +171,35 @@ class Utils {
         return passwordRegex.matcher(password).matches()
     }
 
-    fun verifyPasswordKodemia(password: String): Boolean {
+    fun verifyPasswordKodemia(password: String): String {
         return if (password.length >= 6) {
             if (password.matches("^[a-zA-Z0-9]*$".toRegex())) {
                 if (isRepeated(password)) {
                     if (!isSequence(password)) {
                         if (!isConsecutive(password)) {
                             //por si el requerimiento es que la contraseña "Koder123" sea inválda
-                            return if (!haveConsecutive(password)) {
-                                findInCommonPasswords(password)
+                            if (!haveConsecutive(password)) {
+                                if (findInCommonPasswords(password)) {
+                                    "ok"
+                                } else {
+                                    "La contraseña está en la lista de contraseñas muy comunes"
+                                }
                             } else {
-                                false
+                                "La contraseña no puede tener números consecutivos"
                             }
                         } else {
-                            false
+                            "La contraseña no puede ser números consecutivos"
                         }
                     } else {
-                        false
+                        "La contraseña no puede ser una secuencia"
                     }
                 } else {
-                    false
+                    "La contraseña no puede ser una secuencia"
                 }
             } else
-                false
+                "La contraseña solo puede ser alfanúmerica"
         } else {
-            false
+            "La contraseña debe tener 6 o más caracteres"
         }
     }
 

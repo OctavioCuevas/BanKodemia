@@ -9,9 +9,13 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fillViewport="true">
+        android:fillViewport="true"
+        >
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
         <ImageView
             android:id="@+id/iv_logo"
             android:layout_width="70dp"
@@ -40,74 +44,105 @@
         <TextView
             android:id="@+id/tv_instructions"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="16dp"
+            style="@style/boldTitle"
+            android:text="@string/escr_belos_tal_como_aparecen_en_tu_identificaci_n_oficial_sin_abreviaturas"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_atras" />
 
-            <ImageView
-                android:id="@+id/iv_logo"
-                android:layout_width="70dp"
-                android:layout_height="40dp"
-                android:layout_marginTop="26dp"
-                android:contentDescription="@string/bankodemia_logo"
-                android:src="@drawable/logo"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/tv_name"
+            style="@style/singleTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="24dp"
+            android:text="@string/nombre_s"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_instructions" />
 
-            <Button
-                android:id="@+id/btn_atras"
-                style="@style/Widget.Material3.Button.TextButton.Icon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins2"
-                android:text="@string/ingresa_tus_datos"
-                android:textColor="#626262"
-                android:textSize="14sp"
-                app:icon="@drawable/ic_baseline_arrow_back"
-                app:iconTint="#626262"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/iv_logo" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_name"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_name">
 
-            <TextView
-                android:id="@+id/tv_instructions"
-                style="@style/boldTitle"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tiet_name"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="16dp"
-                android:text="@string/escr_belos_tal_como_aparecen_en_tu_identificaci_n_oficial_sin_abreviaturas"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btn_atras" />
+                android:layout_height="wrap_content" />
 
-            <TextView
-                android:id="@+id/tv_name"
-                style="@style/singleTitle"
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/tv_lastname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="5dp"
+            android:text="@string/apellido_s"
+            style="@style/singleTitle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/til_name" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_lastname"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_lastname">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tiet_lastname"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="24dp"
-                android:text="@string/nombre_s"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_instructions" />
+                android:layout_height="wrap_content" />
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/til_name"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/tv_occupation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="5dp"
+            android:text="@string/ocupaci_n"
+            style="@style/singleTitle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/til_lastname" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_occupation"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_occupation">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tiet_occupation"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="20dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_name">
+                android:layout_height="wrap_content" />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/tiet_name"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-            </com.google.android.material.textfield.TextInputLayout>
         <TextView
             android:id="@+id/tv_birthday"
             android:layout_width="match_parent"
@@ -121,33 +156,25 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/til_occupation" />
 
-            <TextView
-                android:id="@+id/tv_lastname"
-                style="@style/singleTitle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="5dp"
-                android:text="@string/apellido_s"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/til_name" />
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/til_lastname"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="20dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_lastname">
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_birthday"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_birthday">
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/tiet_lastname"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tiet_birthday"
+                android:inputType="date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
         <Button
             android:id="@+id/btnContinueCD"
             style="@style/button"
@@ -162,101 +189,22 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_info" />
 
-            </com.google.android.material.textfield.TextInputLayout>
+        <TextView
+            android:id="@+id/tv_info"
+            style="@style/singleTitle"
+            android:layout_width="317dp"
+            android:layout_height="63dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/esta_informaci_n_es_necesaria_para_verificar_tu_identidad_nunca_la_usaremos_sin_tu_consentimiento"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toTopOf="@+id/btnContinueCD"
+            app:layout_constraintEnd_toEndOf="@+id/btnContinueCD"
+            app:layout_constraintStart_toStartOf="@+id/btnContinueCD"
+            app:layout_constraintTop_toBottomOf="@+id/til_birthday" />
 
-            <TextView
-                android:id="@+id/tv_occupation"
-                style="@style/singleTitle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="5dp"
-                android:text="@string/ocupaci_n"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/til_lastname" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/til_occupation"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="20dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_occupation">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/tiet_occupation"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <TextView
-                android:id="@+id/tv_birthday"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="5dp"
-                android:text="Fecha de nacimiento"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/til_occupation" />
-
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/til_birthday"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="20dp"
-                app:layout_constraintBottom_toTopOf="@+id/tv_info"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_birthday"
-                app:layout_constraintVertical_bias="0.0">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/tiet_birthday"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="date" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <TextView
-                android:id="@+id/tv_info"
-                style="@style/singleTitle"
-                android:layout_width="317dp"
-                android:layout_height="63dp"
-                android:text="@string/esta_informaci_n_es_necesaria_para_verificar_tu_identidad_nunca_la_usaremos_sin_tu_consentimiento"
-                android:textAlignment="center"
-                app:layout_constraintBottom_toTopOf="@+id/btnContinueCD"
-                app:layout_constraintEnd_toEndOf="@+id/btnContinueCD"
-                app:layout_constraintStart_toStartOf="@+id/btnContinueCD" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnContinueCD"
-                android:layout_width="297dp"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentBottom="true"
-                android:layout_margin="20dp"
-                android:background="@color/teal_200"
-                android:text="Continuar"
-                style="@style/button"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
-
 
 </FrameLayout>

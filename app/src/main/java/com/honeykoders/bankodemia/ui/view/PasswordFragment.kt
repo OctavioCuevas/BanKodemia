@@ -39,15 +39,17 @@ class PasswordFragment : Fragment() {
                     binding.tilConfirmPassword
                 )
             ) {
-                if (utils.verifyPasswordKodemia(binding.tietPassword.text.toString())) {
+                val response = utils.verifyPasswordKodemia(binding.tietPassword.text.toString())
+                if (response == "ok") {
                     observers()
                     singUp()
                     utils.clearSharedPreferences()
-                    //getCustomerData()
-                    //Log.e("Todo listo", "para nuevo cliente")
+                    binding.tietPassword.setTextColor(Color.BLACK)
                 } else {
                     binding.tietPassword.setTextColor(Color.RED)
-                    Log.e("Error", "Algo salio mal")
+                    context?.let {
+                        utils.showMessage(it, response)
+                    }
                 }
             }
         }
