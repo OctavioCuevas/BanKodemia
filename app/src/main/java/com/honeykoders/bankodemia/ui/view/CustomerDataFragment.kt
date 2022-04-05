@@ -108,11 +108,11 @@ class CustomerDataFragment : Fragment() {
         var formatDate = ""
         Log.e("mont", month.toString())
         if (month < 9) {
-            formatDate = "$year-0$month-$day" + "T00:40:37.437Z"
+            formatDate = "$year-0$month-0$day"
         } else {
-            formatDate = "$year-$month-$day" + "T00:40:37.437Z"
+            formatDate = "$year-$month-$day"
         }
-        Log.e("Date1", formatDate.toString())
+        Log.e("Date1", formatDate)
         context?.let { it1 -> utils.initSharedPreferences(it1) }
         utils.updateSharedPreferences("string", "birthDate", formatDate, false, 0, 0.0f)
     }

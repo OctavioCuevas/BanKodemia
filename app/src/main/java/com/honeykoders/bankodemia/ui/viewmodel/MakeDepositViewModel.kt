@@ -42,15 +42,15 @@ class MakeDepositViewModel: ViewModel() {
                     var errorResponse: ErrorResponse? = gson.fromJson(respuesta.errorBody()!!.charStream(), type)
                     Log.e("Response", errorResponse.toString())
                     if (errorResponse != null) {
-                        if (errorResponse.statusCode == 401) {//badRequest
+                        if (errorResponse.statusCode == 401) {
                             error.postValue(errorResponse.message[0].toString())
                             badRequest.postValue(true)
                         }else{
-                            if(respuesta.code() == 402){ //Yo are broke
+                            if(respuesta.code() == 402){
                                 error.postValue(errorResponse.message[0].toString())
                                 broken.postValue(true)
                             }else{
-                                if(respuesta.code() == 412){// inssuficientFunds
+                                if(respuesta.code() == 412){
                                     error.postValue(errorResponse.message[0].toString())
                                     inssuficientFunds.postValue(true)
                                 }

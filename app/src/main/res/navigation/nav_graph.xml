@@ -117,6 +117,9 @@
         <action
             android:id="@+id/action_sendingInfoFragment_to_ok_infoFragment"
             app:destination="@id/ok_infoFragment" />
+        <action
+            android:id="@+id/action_sendingInfoFragment_to_errorFragment"
+            app:destination="@id/errorFragment" />
     </fragment>
     <fragment
         android:id="@+id/ok_infoFragment"
@@ -125,6 +128,15 @@
         tools:layout="@layout/fragment_ok_info" >
         <action
             android:id="@+id/action_ok_infoFragment_to_welcome"
+            app:destination="@id/welcome" />
+    </fragment>
+    <fragment
+        android:id="@+id/errorFragment"
+        android:name="com.honeykoders.bankodemia.ui.view.ErrorFragment"
+        android:label="ErrorFragment"
+        tools:layout="@layout/fragment_error">
+        <action
+            android:id="@+id/action_errorFragment_to_welcome"
             app:destination="@id/welcome" />
     </fragment>
 

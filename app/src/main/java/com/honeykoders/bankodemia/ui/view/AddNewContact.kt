@@ -62,10 +62,10 @@ class AddNewContact : Fragment() {
                 !utils.emptyField(binding.tietAddContInsti,binding.tilAddContInsti) &&
                 !utils.emptyField(binding.tietAddContName,binding.tilAddContName)&&
                 !utils.emptyField(binding.tietAddContMail,binding.tilAddContMail) &&
-                !validarDigitosT()){
+                !validarDigitosT() &&
+                utils.fieldValidation("email",binding.tietAddContMail,binding.tilAddContMail,"Correo invalido")){
                 Log.e("Listo","Para agregar contactos")
                 searchUserByMail(binding.tietAddContMail.text.toString())
-                //addNewContact()
             }
         }
 
@@ -90,15 +90,10 @@ class AddNewContact : Fragment() {
         viewModelSearchUsers.searchUsersResponse.observe(viewLifecycleOwner){ user->
             Log.e("User:", user.toString())
             validateUser(user)
-            /*val size = user.data.users.size
-            Log.e("User:", size.toString())*/
-            //saveUserId(user.data.users[0]._id)
-            //addNewContact
-            //findNavController().navigate(R.id.customerDataFragment)
         }
 
         viewModelSearchUsers.error.observe(viewLifecycleOwner){ user->
-           // context?.let { utils.showMessage(it,R.string.mailIsAlreadyUsed) }
+            context?.let { utils.showMessage(it,R.string.mailIsAlreadyUsed) }
         }
     }
 
@@ -118,22 +113,6 @@ class AddNewContact : Fragment() {
                 context?.let { utils.showMessage(it,"El correo debe coincidir con el usuario registrado, verifique que sea correcto") }
             }
         }
-
-       /* if (size != null) {
-            if (!size.equals(1)){
-                context?.let { utils.showMessage(it,"El correo debe coincidir con el usuario registrado, verifique que sea correcto") }
-            }else{
-                if (email != null) {
-                    if (email.equals(binding.tietAddContMail.text.toString())){
-                        saveUserId(user.data.users[0]._id)
-                    }else{
-                        context?.let { utils.showMessage(it,"El correo debe coincidir con el usuario registrado, verifique que sea correcto") }
-                    }
-                }else{
-                    context?.let { utils.showMessage(it,"El correo debe coincidir con el usuario registrado, verifique que sea correcto") }
-                }
-            }
-        }*/
     }
 
     private fun saveUserId(id: String) {
@@ -146,7 +125,6 @@ class AddNewContact : Fragment() {
         }else{
             utils.updateSharedPreferences("string","userIdContact",id,false,0,0.0f)
             addNewContact()
-            //Log.e("UserId",id)
         }
     }
 

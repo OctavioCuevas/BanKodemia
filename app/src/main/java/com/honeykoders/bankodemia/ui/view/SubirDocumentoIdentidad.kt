@@ -22,6 +22,7 @@ import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.honeykoders.bankodemia.R
+import com.honeykoders.bankodemia.common.IdentityDocument
 import com.honeykoders.bankodemia.common.Utils
 import com.honeykoders.bankodemia.databinding.FragmentSubirDocumentoIdentidadBinding
 import java.io.ByteArrayOutputStream
@@ -103,9 +104,9 @@ class SubirDocumentoIdentidad : Fragment() {
         context?.let { it1 -> utils.initSharedPreferences(it1) }
         val identityImageType:String
         when (docIdent){
-            "PASAPORTE" -> identityImageType = "PASSPORT"
-            "DOCUMENTO MIGRATORIO" -> identityImageType = "MIGRATION_FORM"
-            else -> identityImageType = "INE"
+            "PASAPORTE" -> identityImageType = IdentityDocument.PASSPORT.toString()
+            "DOCUMENTO MIGRATORIO" -> identityImageType = IdentityDocument.MIGRATION_FORM.toString()
+            else -> identityImageType = IdentityDocument.INE.toString()
         }
         utils.updateSharedPreferences("string","identityImageType", identityImageType!!,false,0,0.0f)
         utils.updateSharedPreferences("string","identityImage", imageToBase64!!,false,0,0.0f)

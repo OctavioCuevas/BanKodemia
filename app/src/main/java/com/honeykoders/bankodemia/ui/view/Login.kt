@@ -67,7 +67,6 @@ class Login : Fragment() {
 
     }
 
-
     private fun login(){
         try {
             val login = getLoginInfo()

@@ -32,12 +32,11 @@ class ContactsAdapter(private val context: Context,
             tv_contact_account.text = utils.getRandomCard()
             cv_user_contact.setOnClickListener {
                 holder.cv_user_contact.setBackgroundColor(Color.parseColor("#E5E5E5"))
-                tv_contact_account.text = contacts.shortName
                 context?.let { it1 -> utils.initSharedPreferences(it1) }
                 utils.updateSharedPreferences(
                     "string",
                     "contactId",
-                    contacts.Id.toString(),
+                    contacts.user?.Id.toString(),
                     false,
                     0,
                     0.0f
@@ -46,6 +45,14 @@ class ContactsAdapter(private val context: Context,
                     "string",
                     "contactName",
                     contacts.shortName.toString(),
+                    false,
+                    0,
+                    0.0f
+                )
+                utils.updateSharedPreferences(
+                    "string",
+                    "accountNumber",
+                    tv_contact_account.text.toString(),
                     false,
                     0,
                     0.0f
