@@ -1,6 +1,7 @@
 package com.honeykoders.bankodemia.ui.view
 
 import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -44,6 +45,14 @@ class InicioFragment : Fragment() {
         observers()
         viewModel.getUserProfile()
 
+        binding.ivUser.setOnClickListener {
+            val intent = Intent(activity, MainActivity::class.java)
+            startActivity(intent)
+            activity?.finish()
+            context?.let { utils.showMessage(it,"Se ha cerrado sesión con exito") }
+            Log.e("Imagen","Click en imagen")
+        }
+
         binding.btnEnviar.setOnClickListener {
             findNavController().navigate(R.id.sendMoney)
         }
@@ -63,6 +72,7 @@ class InicioFragment : Fragment() {
         val sdf = SimpleDateFormat("dd MMM yyyy")
         val currentDate = sdf.format(Date())
         binding.tvDate.text = currentDate.toString()
+        Log.e("fecha", Date().toString())
     }
 
     private fun makeDeposit() {

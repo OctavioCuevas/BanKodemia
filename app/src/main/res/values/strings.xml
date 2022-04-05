@@ -105,7 +105,7 @@
     <string name="dinero_disponible">DINERO DISPONIBLE</string>
     <string name="enviar">Enviar</string>
     <string name="recibir">Recibir</string>
-    <string name="moneyAvailable">$160.00</string>
+    <string name="moneyAvailable">$0.00</string>
     <string name="vigencia">Vigencia</string>
     <string name="cvv">CVV</string>
     <string name="telcel_at_t_movistar"><![CDATA[Telcel, AT&T, Movistar]]></string>
@@ -143,6 +143,9 @@
     <string name="error_name">El campo nombre es requerido</string>
     <string name="error_lastname">El campo apellido es requerido</string>
     <string name="error_occupation">El campo ocupación es requerido</string>
+    <string name="fecha_de_nacimiento">Fecha de nacimiento</string>
+    <string name="plan_m_vil">Plan móvil</string>
+    <string name="recarga_de_celular">Recarga de celular</string>
 
 
 </resources>

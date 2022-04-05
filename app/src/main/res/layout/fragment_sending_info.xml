@@ -6,6 +6,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.view.SendingInfoFragment">
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
     <ImageView
         android:id="@+id/image_logo_sendingInfo"
@@ -34,4 +41,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/image_logo_sendingInfo"
         app:layout_constraintVertical_bias="0.0" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

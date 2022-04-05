@@ -38,6 +38,7 @@ class DetailsTransaction : Fragment() {
         Log.e("DebugHK", "Date: $date hour: $hour")
         binding.textViewFechaHome.text = utils.translateDate(utils.formatTimeStamp(utils.stringToDate("$date $hour"),1)!!                           )
         binding.tvConcepto.text = utils.getSharedPreferencesByName("concept")
+        binding.textViewConcepto2Home.text = utils.getSharedPreferencesByName("concept")
 
         binding.btnDetalle.setOnClickListener {
             findNavController().navigate(R.id.inicioFragment)

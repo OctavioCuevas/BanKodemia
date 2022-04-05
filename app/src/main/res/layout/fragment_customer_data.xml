@@ -12,6 +12,33 @@
         android:fillViewport="true">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+        <ImageView
+            android:id="@+id/iv_logo"
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="8dp"
+            android:contentDescription="@string/bankodemia_logo"
+            android:src="@drawable/bk"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btn_atras"
+            style="@style/Widget.Material3.Button.TextButton.Icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins2"
+            android:text="@string/ingresa_tus_datos"
+            android:textColor="#626262"
+            android:textSize="14sp"
+            app:icon="@drawable/ic_baseline_arrow_back"
+            app:iconTint="#626262"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_logo" />
+
+        <TextView
+            android:id="@+id/tv_instructions"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -81,6 +108,18 @@
                     android:layout_height="wrap_content" />
 
             </com.google.android.material.textfield.TextInputLayout>
+        <TextView
+            android:id="@+id/tv_birthday"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="5dp"
+            android:text="@string/fecha_de_nacimiento"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/til_occupation" />
 
             <TextView
                 android:id="@+id/tv_lastname"
@@ -109,6 +148,19 @@
                     android:id="@+id/tiet_lastname"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/btnContinueCD"
+            style="@style/button"
+            android:layout_width="297dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentTop="true"
+            android:layout_margin="20dp"
+            android:text="@string/continuar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_info" />
 
             </com.google.android.material.textfield.TextInputLayout>
 

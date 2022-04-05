@@ -5,21 +5,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.view.CustomerDataFragment">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <ImageView
             android:id="@+id/iv_logo"
             android:layout_width="70dp"
             android:layout_height="40dp"
-            android:layout_marginTop="26dp"
-            android:src="@drawable/logo"
+            android:layout_marginTop="8dp"
+            android:contentDescription="@string/bankodemia_logo"
+            android:src="@drawable/bk"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:contentDescription="@string/bankodemia_logo" />
+            app:layout_constraintTop_toTopOf="parent" />
         <Button
             android:id="@+id/btn_atras"
             style="@style/Widget.Material3.Button.TextButton.Icon"
@@ -62,15 +66,15 @@
         <com.hbb20.CountryCodePicker
             android:id="@+id/country_code_picker"
             android:layout_width="0dp"
-            android:layout_height="46dp"
+            android:layout_height="48dp"
             android:layout_marginStart="16dp"
             android:clickable="true"
             android:focusable="true"
             app:ccp_autoDetectLanguage="true"
+            app:ccp_defaultNameCode="MX"
             app:ccp_hintExampleNumber="true"
             app:ccp_showFlag="false"
             app:ccp_showNameCode="false"
-            app:ccp_defaultNameCode="MX"
             app:layout_constraintBottom_toBottomOf="@+id/til_number"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/til_number"
@@ -81,10 +85,11 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/til_number"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="296dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="24dp"
             android:layout_marginHorizontal="20dp"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/country_code_picker"
@@ -92,10 +97,11 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/tiet_number"
-                android:maxLength="10"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="phone" />
+                android:inputType="phone"
+                android:maxLength="10"
+                tools:ignore="SpeakableTextPresentCheck" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -132,5 +138,5 @@
             app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
+    </ScrollView>
 </FrameLayout>

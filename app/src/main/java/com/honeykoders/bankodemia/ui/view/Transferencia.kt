@@ -119,18 +119,21 @@ class Transferencia : Fragment() {
             if (badRequest){
                 Log.e("badRequest",badRequest.toString())
                 context?.let { utils.showMessage(it,getString(R.string.serverError)) }
+                findNavController().navigate(R.id.transaccionFinalizada)
             }
         }
         viewModel.broken.observe(viewLifecycleOwner){ broken ->
             if (broken){
                 Log.e("Broken",broken.toString())
                 context?.let { utils.showMessage(it,getString(R.string.broken)) }
+                findNavController().navigate(R.id.transaccionFinalizada)
             }
         }
         viewModel.inssuficientFunds.observe(viewLifecycleOwner){ inssuficientFunds ->
             if (inssuficientFunds){
                 Log.e("inssuficientFunds",inssuficientFunds.toString())
                 context?.let { utils.showMessage(it,getString(R.string.insufficientFunds)) }
+                findNavController().navigate(R.id.transaccionFinalizada)
             }
         }
     }

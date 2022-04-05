@@ -4,12 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/black2"
     tools:context=".ui.view.Welcome">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/black2">
+        android:layout_height="wrap_content">
 
         <ImageView
             android:id="@+id/imView_titleLogo"
@@ -86,12 +90,13 @@
             style="@style/Widget.Material3.Button.ElevatedButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginBottom="32dp"
             android:backgroundTint="@color/black2"
             android:fontFamily="@font/poppins2"
             android:text="@string/logintxt"
             android:textSize="18sp"
             app:cornerRadius="6sp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/btn_crearCuenta"
             app:layout_constraintStart_toStartOf="@+id/btn_crearCuenta"
             app:layout_constraintTop_toBottomOf="@+id/btn_crearCuenta"
@@ -100,5 +105,5 @@
             tools:ignore="TextContrastCheck" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
+    </ScrollView>
 </FrameLayout>

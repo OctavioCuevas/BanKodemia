@@ -85,9 +85,6 @@
         <action
             android:id="@+id/action_addNewContact_to_endAddContact"
             app:destination="@id/endAddContact" />
-        <action
-            android:id="@+id/action_addNewContact_self"
-            app:destination="@id/addNewContact" />
     </fragment>
     <fragment
         android:id="@+id/endAddContact"
