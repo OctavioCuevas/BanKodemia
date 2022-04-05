@@ -75,7 +75,6 @@ class TransactionsAdapter(val activity: Activity, val transacciones:
             }
         }
 
-
     }
 
     override fun getItemCount(): Int = transacciones.size

@@ -4,11 +4,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="view.SeleccionarDocumentoIdentidad">
+    tools:context="ui.view.SeleccionarDocumentoIdentidad">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
         <ImageView
             android:id="@+id/iv_bk_image"
             android:layout_width="70dp"
@@ -127,4 +131,5 @@
             android:focusable="true" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 </FrameLayout>

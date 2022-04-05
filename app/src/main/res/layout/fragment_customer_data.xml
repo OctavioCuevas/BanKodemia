@@ -14,12 +14,12 @@
             android:id="@+id/iv_logo"
             android:layout_width="70dp"
             android:layout_height="40dp"
-            android:layout_marginTop="26dp"
-            android:src="@drawable/logo"
+            android:layout_marginTop="8dp"
+            android:contentDescription="@string/bankodemia_logo"
+            android:src="@drawable/bk"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:contentDescription="@string/bankodemia_logo" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/btn_atras"
@@ -143,7 +143,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
             android:layout_marginTop="5dp"
-            android:text="Fecha de nacimiento"
+            android:text="@string/fecha_de_nacimiento"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -177,7 +177,7 @@
             android:layout_alignParentBottom="true"
             android:layout_alignParentTop="true"
             android:layout_margin="20dp"
-            android:text="Continuar"
+            android:text="@string/continuar"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

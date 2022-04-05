@@ -43,6 +43,10 @@ class InicioFragment : Fragment() {
         observers()
         viewModel.getUserProfile()
 
+        binding.ivUser.setOnClickListener {
+            Log.e("Imagen","Click en imagen")
+        }
+
         binding.btnEnviar.setOnClickListener {
             findNavController().navigate(R.id.sendMoney)
         }

@@ -30,6 +30,7 @@ class DetailsTransaction : Fragment() {
         binding.tvCantidad.text = "$" + utils.getSharedPreferencesByName("amount") +".00"
         binding.textViewFechaHome.text = utils.getSharedPreferencesByName("date")
         binding.tvConcepto.text = utils.getSharedPreferencesByName("concept")
+        binding.textViewConcepto2Home.text = utils.getSharedPreferencesByName("concept")
 
         binding.btnDetalle.setOnClickListener {
             findNavController().navigate(R.id.inicioFragment)

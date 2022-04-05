@@ -4,11 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.VerificarDocumentoIdentidad">
+    tools:context=".ui.view.VerificarDocumentoIdentidad">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <ImageView
             android:id="@+id/iv_bk_image"
@@ -75,4 +79,5 @@
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 </FrameLayout>

@@ -5,184 +5,209 @@
     android:id="@+id/tv_vigencia_t"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="view.Fragment_tarjeta">
+    tools:context="ui.view.Fragment_tarjeta">
 
-    <ImageView
-        android:id="@+id/iv_user"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:src="@drawable/ic_icono_usuario"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/iv_bk_icon" />
-
-    <ImageView
-        android:id="@+id/iv_info"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:src="@drawable/ic_icono_info"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/iv_bk_icon" />
-
-    <ImageView
-        android:id="@+id/iv_bk_icon"
-        android:layout_width="70dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="8dp"
-        android:src="@drawable/bk"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/tv_servicios_t"
-        style="@style/boldTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="32dp"
-        android:text="@string/tarjeta"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_bk_icon" />
-
-    <TextView
-        android:id="@+id/tv_numero_tarjeta_t"
-        style="@style/singleTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="48dp"
-        android:text="@string/No_tarjeta"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/materialCardView" />
-
-    <TextView
-        android:id="@+id/tv_numero_tarjeta"
-        style="@style/singleTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="@+id/tv_numero_tarjeta_t"
-        app:layout_constraintTop_toBottomOf="@+id/tv_numero_tarjeta_t"
-        android:text="@string/numero_tarjeta_real" />
-
-    <TextView
-        android:id="@+id/textView7"
-        style="@style/singleTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="16dp"
-        android:text="@string/vigencia"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_numero_tarjeta" />
-
-    <TextView
-        android:id="@+id/tv_vigencia"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/poppins2"
-        android:textColor="@color/black2"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="@+id/textView7"
-        app:layout_constraintTop_toBottomOf="@+id/textView7"
-        android:text="@string/vigencia_real" />
-
-    <TextView
-        android:id="@+id/tv_cvv_t"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/cvv"
-        style="@style/singleTitle"
-        app:layout_constraintEnd_toStartOf="@+id/guidelineRight"
-        app:layout_constraintTop_toTopOf="@+id/textView7" />
-
-    <TextView
-        android:id="@+id/tv_cvv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        style="@style/singleTitle"
-        app:layout_constraintStart_toStartOf="@+id/tv_cvv_t"
-        app:layout_constraintTop_toBottomOf="@+id/tv_cvv_t"
-        android:text="@string/CVV_real" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guidelineCenter"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.5" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guidelineLeft"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.3333" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guidelineRight"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.6666" />
-
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/materialCardView"
-        android:layout_width="150dp"
-        android:layout_height="275dp"
-        android:layout_marginTop="48dp"
-        app:cardCornerRadius="10dp"
-        app:cardElevation="6dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_servicios_t">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/white">
+            android:layout_height="wrap_content">
 
             <ImageView
-                android:id="@+id/iv_fondo_rayas"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/fondo_tarjeta"
-                app:layout_constraintBottom_toTopOf="@+id/guidelineCardView"
+                android:id="@+id/iv_user"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:minHeight="48dp"
+                android:minWidth="48dp"
+                android:src="@drawable/ic_icono_usuario"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/iv_bk_icon"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <ImageView
+                android:id="@+id/iv_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:minHeight="48dp"
+                android:minWidth="48dp"
+                android:src="@drawable/ic_icono_info"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/iv_bk_icon"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <ImageView
+                android:id="@+id/iv_bk_icon"
+                android:layout_width="70dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/bk"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <ImageView
-                android:id="@+id/iv_master_card"
-                android:layout_width="42dp"
-                android:layout_height="31.5dp"
-                android:layout_marginBottom="8dp"
-                android:layout_marginEnd="8dp"
-                android:src="@drawable/icono_tipo_tarjeta_pro"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" />
-
-            <ImageView
-                android:id="@+id/iv_bk_icon_completo"
-                android:layout_width="120dp"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_icono_kodemia_completo"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/guidelineCardView"
-                app:layout_constraintVertical_bias="0.35" />
-
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/guidelineCardView"
+            <TextView
+                android:id="@+id/tv_servicios_t"
+                style="@style/boldTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                app:layout_constraintGuide_percent="0.4" />
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="32dp"
+                android:text="@string/tarjeta"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/iv_bk_icon" />
 
+            <TextView
+                android:id="@+id/tv_numero_tarjeta_t"
+                style="@style/singleTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="48dp"
+                android:text="@string/No_tarjeta"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/materialCardView" />
+
+            <TextView
+                android:id="@+id/tv_numero_tarjeta"
+                style="@style/singleTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/numero_tarjeta_real"
+                app:layout_constraintStart_toStartOf="@+id/tv_numero_tarjeta_t"
+                app:layout_constraintTop_toBottomOf="@+id/tv_numero_tarjeta_t" />
+
+            <TextView
+                android:id="@+id/textView7"
+                style="@style/singleTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/vigencia"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_numero_tarjeta" />
+
+            <TextView
+                android:id="@+id/tv_vigencia"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/poppins2"
+                android:text="@string/vigencia_real"
+                android:textColor="@color/black2"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/textView7"
+                app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+            <TextView
+                android:id="@+id/tv_cvv_t"
+                style="@style/singleTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/cvv"
+                app:layout_constraintEnd_toStartOf="@+id/guidelineRight"
+                app:layout_constraintTop_toTopOf="@+id/textView7" />
+
+            <TextView
+                android:id="@+id/tv_cvv"
+                style="@style/singleTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:text="@string/CVV_real"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/tv_cvv_t"
+                app:layout_constraintTop_toBottomOf="@+id/tv_cvv_t" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guidelineCenter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.5" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guidelineLeft"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.3333" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guidelineRight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.6666" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/materialCardView"
+                android:layout_width="150dp"
+                android:layout_height="275dp"
+                android:layout_marginTop="48dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="6dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_servicios_t">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/white">
+
+                    <ImageView
+                        android:id="@+id/iv_fondo_rayas"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/fondo_tarjeta"
+                        app:layout_constraintBottom_toTopOf="@+id/guidelineCardView"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/iv_master_card"
+                        android:layout_width="42dp"
+                        android:layout_height="31.5dp"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:src="@drawable/icono_tipo_tarjeta_pro"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/iv_bk_icon_completo"
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_icono_kodemia_completo"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/guidelineCardView"
+                        app:layout_constraintVertical_bias="0.35" />
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/guidelineCardView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        app:layout_constraintGuide_percent="0.4" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </com.google.android.material.card.MaterialCardView>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

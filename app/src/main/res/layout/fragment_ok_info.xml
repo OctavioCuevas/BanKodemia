@@ -5,19 +5,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.view.Ok_infoFragment">
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
 
-    <ImageView
-        android:id="@+id/image_header_okInfo"
-        android:layout_width="93dp"
-        android:layout_height="71dp"
-        android:layout_marginTop="28dp"
-        android:src="@drawable/bk"
-        android:contentDescription="@string/logoheader"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <ImageView
+            android:id="@+id/image_header_okInfo"
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="8dp"
+            android:contentDescription="@string/logoheader"
+            android:src="@drawable/bk"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imageFly"
@@ -68,4 +75,7 @@
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="@+id/textView_infoReady"
         app:layout_constraintTop_toBottomOf="@+id/tv_thnksBnkodemia" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

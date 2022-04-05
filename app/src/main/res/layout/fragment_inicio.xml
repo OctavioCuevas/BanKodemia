@@ -1,161 +1,180 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.view.InicioFragment">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <ProgressBar
-        android:id="@+id/progressBar"
-        style="?android:attr/progressBarStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/recyclerView_Home" />
+        <ImageView
+            android:id="@+id/iv_user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:minHeight="48dp"
+            android:minWidth="48dp"
+            android:src="@drawable/ic_icono_usuario"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/iv_bk_icon"
+            tools:ignore="SpeakableTextPresentCheck" />
 
-    <ImageView
-        android:id="@+id/iv_user"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:src="@drawable/ic_icono_usuario"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/iv_bk_icon" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guidelineCenter"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.5" />
+        <ImageView
+            android:id="@+id/iv_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:minHeight="48dp"
+            android:minWidth="48dp"
+            android:src="@drawable/ic_icono_info"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/iv_bk_icon"
+            tools:ignore="SpeakableTextPresentCheck" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guidelineLeft"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.3333" />
+        <ImageView
+            android:id="@+id/iv_bk_icon"
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/bk"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guidelineRight"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.6666" />
-
-    <ImageView
-        android:id="@+id/iv_info"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:src="@drawable/ic_icono_info"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/iv_bk_icon" />
-
-    <ImageView
-        android:id="@+id/iv_bk_icon"
-        android:layout_width="70dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="8dp"
-        android:src="@drawable/bk"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/tv_servicios_t"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="32dp"
-        style="@style/boldTitle"
-        android:text="@string/dinero_disponible"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_bk_icon" />
-
-    <TextView
-        android:id="@+id/tv_cantidad_disponible"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:fontFamily="@font/poppins_semibold"
-        android:textColor="@color/black2"
-        android:textSize="20sp"
-        android:text="@string/moneyAvailable"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_servicios_t" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_enviar"
-        style="?attr/materialButtonOutlinedStyle"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="32dp"
-        android:paddingTop="8dp"
-        android:text="@string/enviar"
-        android:textSize="18sp"
-        app:cornerRadius="6dp"
-        app:layout_constraintEnd_toStartOf="@+id/guidelineCenter"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_cantidad_disponible"
-        app:strokeColor="?attr/colorPrimary"
-        app:strokeWidth="2dp" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_recibir"
-        style="@style/button"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="24dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
-        android:paddingTop="8dp"
-        android:text="@string/recibir"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/guidelineCenter"
-        app:layout_constraintTop_toBottomOf="@+id/tv_cantidad_disponible" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView_Home"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout"
-        android:backgroundTint="@color/bgItemCV"
-        android:layout_width="0dp"
-        android:layout_height="24dp"
-        android:layout_marginTop="16dp"
-        android:background="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_enviar">
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/recyclerView_Home" />
 
         <TextView
-            android:id="@+id/tv_date"
+            android:id="@+id/tv_servicios_t"
+            style="@style/boldTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
-            style="@style/singleTitle"
-            android:text="@string/_21_marzo_2022"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginTop="32dp"
+            android:text="@string/dinero_disponible"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="21 marzo 2022" />
+            app:layout_constraintTop_toBottomOf="@+id/iv_bk_icon" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/tv_cantidad_disponible"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="@string/moneyAvailable"
+            android:textColor="@color/black2"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_servicios_t" />
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
+            android:layout_width="0dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="16dp"
+            android:background="@color/white"
+            android:backgroundTint="@color/bgItemCV"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_enviar">
+
+            <TextView
+                android:id="@+id/tv_date"
+                style="@style/singleTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:text="@string/_21_marzo_2022"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="21 marzo 2022" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineCenter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineLeft"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.3333" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineRight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.6666" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView_Home"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_enviar"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="32dp"
+            android:paddingTop="8dp"
+            android:text="@string/enviar"
+            android:textSize="18sp"
+            app:cornerRadius="6dp"
+            app:layout_constraintEnd_toStartOf="@+id/guidelineCenter"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_cantidad_disponible"
+            app:strokeColor="?attr/colorPrimary"
+            app:strokeWidth="2dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_recibir"
+            style="@style/button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="24dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:paddingTop="8dp"
+            android:text="@string/recibir"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guidelineCenter"
+            app:layout_constraintTop_toBottomOf="@+id/tv_cantidad_disponible" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
