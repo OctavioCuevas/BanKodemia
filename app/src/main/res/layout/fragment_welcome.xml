@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.Welcome">
+    tools:context=".ui.view.Welcome">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -60,6 +60,7 @@
             android:id="@+id/imView_logo"
             android:layout_width="193dp"
             android:layout_height="243dp"
+            android:layout_marginTop="16dp"
             android:contentDescription="@string/welcome_image"
             android:scaleType="centerInside"
             app:layout_constraintEnd_toEndOf="parent"
@@ -72,14 +73,12 @@
             style="@style/button"
             android:layout_width="297dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginEnd="24dp"
-            android:layout_marginBottom="24dp"
+            android:layout_marginTop="24dp"
             android:fontFamily="@font/poppins_medium"
             android:text="@string/createAccount"
-            app:layout_constraintBottom_toTopOf="@+id/btn_login"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imView_logo"
             tools:ignore="TextContrastCheck" />
 
         <com.google.android.material.button.MaterialButton
@@ -87,16 +86,15 @@
             style="@style/Widget.Material3.Button.ElevatedButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:backgroundTint="@color/black2"
             android:fontFamily="@font/poppins2"
             android:text="@string/logintxt"
             android:textSize="18sp"
             app:cornerRadius="6sp"
-            android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/btn_crearCuenta"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/btn_crearCuenta"
+            app:layout_constraintTop_toBottomOf="@+id/btn_crearCuenta"
             app:strokeColor="@color/teal_200"
             app:strokeWidth="2dp"
             tools:ignore="TextContrastCheck" />

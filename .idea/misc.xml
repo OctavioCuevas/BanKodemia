@@ -24,7 +24,7 @@
         <entry key="app/src/main/res/drawable/round_corner.xml" value="0.198" />
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.18" />
         <entry key="app/src/main/res/layout/activity_home_details_transaction.xml" value="0.22604166666666667" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.22604166666666667" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="app/src/main/res/layout/activity_verificacion_actividad.xml" value="0.36342592592592593" />
         <entry key="app/src/main/res/layout/fragment_add_new_contact.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_create_account.xml" value="0.1" />

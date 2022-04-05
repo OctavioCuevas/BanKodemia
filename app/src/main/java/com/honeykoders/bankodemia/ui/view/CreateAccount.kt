@@ -14,6 +14,7 @@ import com.honeykoders.bankodemia.R
 import com.honeykoders.bankodemia.common.Utils
 import com.honeykoders.bankodemia.databinding.FragmentCreateAccountBinding
 import com.honeykoders.bankodemia.ui.model.LoginModel
+import com.honeykoders.bankodemia.ui.model.SearchUsersModel
 import com.honeykoders.bankodemia.ui.viewmodel.SearchUsersViewModel
 import com.honeykoders.bankodemia.ui.viewmodel.UserLoginModel
 import kotlinx.android.synthetic.main.fragment_create_account.*
@@ -73,13 +74,37 @@ class CreateAccount : Fragment() {
 
     private fun observersSearchUsers() {
         viewModelSearchUsers.searchUsersResponse.observe(viewLifecycleOwner){ user->
-            findNavController().navigate(R.id.customerDataFragment)
+            validateUser(user)
+            /*if(user.data.users.size == 0){
+                findNavController().navigate(R.id.customerDataFragment)
+            }else{
+                context?.let { utils.showMessage(it,R.string.mailIsAlreadyUsed) }
+            }*/
+
         }
 
         viewModelSearchUsers.error.observe(viewLifecycleOwner){ user->
             context?.let { utils.showMessage(it,R.string.mailIsAlreadyUsed) }
         }
 
+    }
+
+    private fun validateUser(user: SearchUsersModel?) {
+        val size = user?.data?.users?.size
+
+        Log.e("UserSize:", size.toString())
+        if (size != null){
+            if(size == 0) {
+                findNavController().navigate(R.id.customerDataFragment)
+            }else{
+                val email = user?.data?.users?.get(0)?.email
+                if (email.equals(binding.tietMaillogin.text.toString())){
+                    context?.let { utils.showMessage(it,R.string.mailIsAlreadyUsed) }
+                }else{
+                    findNavController().navigate(R.id.customerDataFragment)
+                }
+            }
+        }
     }
 
     private fun searchUserByMail(email:String){
