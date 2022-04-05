@@ -58,6 +58,7 @@ class SendMoney : Fragment() {
         return root
     }
 
+
     private fun showSnackbar(
         view: View,
         text: String,
@@ -74,5 +75,4 @@ class SendMoney : Fragment() {
         }
         snackbar.show()
     }
-
 }

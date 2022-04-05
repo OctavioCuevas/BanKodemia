@@ -2,8 +2,11 @@ package com.honeykoders.bankodemia.common
 
 import android.app.DatePickerDialog
 import android.app.Dialog
+import android.graphics.Color
 import android.os.Bundle
 import android.widget.DatePicker
+import androidx.core.graphics.green
+import androidx.core.graphics.toColor
 import androidx.fragment.app.DialogFragment
 import com.honeykoders.bankodemia.R
 import java.util.*
