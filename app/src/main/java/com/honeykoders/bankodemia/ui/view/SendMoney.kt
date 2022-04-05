@@ -1,10 +1,12 @@
 package com.honeykoders.bankodemia.ui.view
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.util.Log
+import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
@@ -12,14 +14,12 @@ import com.google.android.material.snackbar.BaseTransientBottomBar
 import com.google.android.material.snackbar.Snackbar
 import com.honeykoders.bankodemia.R
 import com.honeykoders.bankodemia.databinding.FragmentSendMoneyBinding
-import com.honeykoders.bankodemia.use_cases.GetUserContacts
 import com.honeykoders.bankodemia.ui.viewmodel.SendMoneyVM
+import com.honeykoders.bankodemia.use_cases.GetUserContacts
 
 class SendMoney : Fragment() {
     private var _binding: FragmentSendMoneyBinding? = null
     private val binding get() = _binding!!
-    private val sessionToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MjE4NmRmM2M0NjBiZDNkODZhNjc1MjEiLCJpYXQiOjE2NDg1MzA5OTgsImV4cCI6MTY0ODUzNDU5OH0.wQe3lixhzreihp9wUdYTHcmRm4dapr-Uh9puVDTqgik"
-
     val viewModel: SendMoneyVM by viewModels()
 
     override fun onCreateView(
@@ -30,7 +30,22 @@ class SendMoney : Fragment() {
         return initComponents()
     }
 
-    private fun initComponents() : View {
+    //Pressed return button - returns to home
+    override fun onResume() {
+        super.onResume()
+        requireView().isFocusableInTouchMode = true
+        requireView().requestFocus()
+        requireView().setOnKeyListener { v, keyCode, event ->
+            if (event.action === KeyEvent.ACTION_UP && keyCode == KeyEvent.KEYCODE_BACK) {
+                findNavController().navigate(R.id.inicioFragment)
+                true
+            } else {
+                false
+            }
+        }
+    }
+
+    private fun initComponents(): View {
         val root: View = binding.root
         binding.progressBarSendMoney.visibility = View.VISIBLE
         viewModel.context = this.requireContext()
@@ -38,7 +53,6 @@ class SendMoney : Fragment() {
         viewModel.onCreateVM()
 
         val userContacts = GetUserContacts()
-        userContacts.token = sessionToken
         userContacts.viewModel = viewModel
         userContacts.owner = this
         userContacts.lifecycleScope = lifecycleScope
@@ -48,8 +62,6 @@ class SendMoney : Fragment() {
 
         binding.btnBacktomain.setOnClickListener {
             findNavController().navigate(R.id.inicioFragment)
-            /*val intent = Intent(activity, ActivityHomeBinding::class.java)
-            startActivity(intent)*/
         }
 
         binding.btnAddContact.setOnClickListener {

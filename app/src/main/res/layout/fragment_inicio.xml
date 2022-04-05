@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.view.InicioFragment">
 
 
@@ -15,7 +15,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/recyclerView_Home" />
+        app:layout_constraintTop_toTopOf="@+id/rv_transactions" />
 
     <ImageView
         android:id="@+id/iv_user"
@@ -68,11 +68,11 @@
 
     <TextView
         android:id="@+id/tv_servicios_t"
+        style="@style/boldTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="32dp"
-        style="@style/boldTitle"
         android:text="@string/dinero_disponible"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/iv_bk_icon" />
@@ -83,9 +83,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:fontFamily="@font/poppins_semibold"
+        android:text="@string/moneyAvailable"
         android:textColor="@color/black2"
         android:textSize="20sp"
-        android:text="@string/moneyAvailable"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_servicios_t" />
@@ -95,9 +95,9 @@
         style="?attr/materialButtonOutlinedStyle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
         android:paddingTop="8dp"
         android:text="@string/enviar"
         android:textSize="18sp"
@@ -113,9 +113,9 @@
         style="@style/button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="24dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
+        android:layout_marginEnd="24dp"
         android:paddingTop="8dp"
         android:text="@string/recibir"
         app:layout_constraintEnd_toEndOf="parent"
@@ -123,7 +123,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_cantidad_disponible" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView_Home"
+        android:id="@+id/rv_transactions"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -135,21 +135,21 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
-        android:backgroundTint="@color/bgItemCV"
         android:layout_width="0dp"
         android:layout_height="24dp"
         android:layout_marginTop="16dp"
         android:background="@color/white"
+        android:backgroundTint="@color/bgItemCV"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_enviar">
 
         <TextView
             android:id="@+id/tv_date"
+            style="@style/singleTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
-            style="@style/singleTitle"
             android:text="@string/_21_marzo_2022"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"

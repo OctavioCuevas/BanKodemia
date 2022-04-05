@@ -18,11 +18,6 @@ import kotlinx.coroutines.launch
 
 class GetUserContacts() {
     val utils = Utils()
-
-    var token: String = ""
-        set(value) {
-            field = value.ifEmpty { throw EmptyTokenException() }
-        }
     lateinit var viewModel: SendMoneyVM
     lateinit var binding: FragmentSendMoneyBinding
     lateinit var lifecycleScope: LifecycleCoroutineScope

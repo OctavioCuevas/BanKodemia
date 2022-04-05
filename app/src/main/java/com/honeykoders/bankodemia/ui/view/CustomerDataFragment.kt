@@ -37,6 +37,23 @@ class CustomerDataFragment : Fragment() {
     ): View? {
         _binding = FragmentCustomerDataBinding.inflate(inflater, container, false)
         val root: View = binding.root
+
+        utils.setValidationListener(
+            binding.tilName,
+            binding.tietName,
+            getString(R.string.error_name)
+        )
+        utils.setValidationListener(
+            binding.tilLastname,
+            binding.tietLastname,
+            getString(R.string.error_lastname)
+        )
+        utils.setValidationListener(
+            binding.tilOccupation,
+            binding.tietOccupation,
+            getString(R.string.error_occupation)
+        )
+
         binding.btnAtras.setOnClickListener {
             findNavController().navigate(R.id.createAccount)
         }
@@ -91,9 +108,11 @@ class CustomerDataFragment : Fragment() {
     }
 
 
-    fun showDatePickerDialog(v: View) {
-        val dialogFecha = DatePickerFragment { year, month, day -> showDate(year, month, day) }
-        activity?.let { dialogFecha.show(it.getSupportFragmentManager(), "datePicker") }
+    private fun showDatePickerDialog(v: View) {
+        val dateDialog = DatePickerFragment { year, month, day -> showDate(year, month, day) }
+        activity?.let {
+            dateDialog.show(it.supportFragmentManager, "datePicker")
+        }
     }
 
 

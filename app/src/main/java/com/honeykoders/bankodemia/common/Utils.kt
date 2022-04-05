@@ -13,8 +13,12 @@ import androidx.preference.PreferenceManager
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import com.honeykoders.bankodemia.exceptions.VariableTypeNotFoundException
+import java.sql.Timestamp
+import java.text.SimpleDateFormat
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
+import java.util.*
 import java.util.regex.Pattern
-import kotlin.math.ceil
 import kotlin.random.Random
 
 
@@ -118,7 +122,7 @@ class Utils {
         return PatternsCompat.WEB_URL.matcher(value).matches()
     }
 
-    private fun setValidationListener(
+    fun setValidationListener(
         til: TextInputLayout,
         tiet: TextInputEditText,
         errorMessage: String
@@ -424,9 +428,9 @@ class Utils {
         editor.clear().apply()
     }
 
-    fun parseHour(date: String):String{
+    fun parseHour(date: String): String {
         var hour = ""
-        for(i in 11..15 ){
+        for (i in 11..15) {
             hour = hour + date[i].toString()
         }
         return hour
@@ -445,6 +449,66 @@ class Utils {
         for (number in randomValues)
             card += " $number"
         return card.trim() + " / " + randomBank
+    }
+
+    fun stringToDate(date: String): Date {
+        val sdf = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH)
+        //sdf.timeZone(TimeZone.getTimeZone("GMT"))
+        return sdf.parse(date)
+    }
+
+    fun stringToTime(date: String): Date {
+        val sdf = SimpleDateFormat("HH:mm:ss", Locale.ENGLISH)
+        //sdf.timeZone(TimeZone.getTimeZone("GMT"))
+        return sdf.parse(date)
+    }
+
+    fun formatTimeStamp(date: Date, type: Int): String? {
+        var format = when (type) {
+            1 -> SimpleDateFormat("dd 'de' MMMM 'de' yyyy hh:mm aa", Locale.ENGLISH)
+            2 -> SimpleDateFormat("dd/MM/yyyy hh:mm:ss aa", Locale.ENGLISH)
+            3 -> SimpleDateFormat("EEEE, dd 'de' MMMMMMM 'de' yyyy hh:mm aa", Locale.ENGLISH)
+            4 -> SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.ENGLISH)
+            5 -> SimpleDateFormat("dd/MM/yyyy hh:mm", Locale.ENGLISH)
+            else ->
+                SimpleDateFormat("dd 'de' MMMMMM 'de' yyyy (hh:mm aa)", Locale.ENGLISH)
+        }
+        return format.format(date)
+    }
+
+    fun formatTime(date: Date, type: Int): String? {
+        var format = when (type) {
+            1 -> SimpleDateFormat("hh:mm aa", Locale.ENGLISH)
+            2 -> SimpleDateFormat("hh:mm:ss aa", Locale.ENGLISH)
+            else ->
+                SimpleDateFormat("hh:mm", Locale.ENGLISH)
+        }
+        return format.format(date)
+    }
+
+    fun translateDate(date: String): String {
+        var date = date
+        date = date.replace("January", "Enero")
+        date = date.replace("February", "Febrero")
+        date = date.replace("March", "Marzo")
+        date = date.replace("April", "Abril")
+        date = date.replace("May", "Mayo")
+        date = date.replace("June", "Junio")
+        date = date.replace("July", "Julio")
+        date = date.replace("August", "Agosto")
+        date = date.replace("September", "Septiembre")
+        date = date.replace("October", "Octubre")
+        date = date.replace("November", "Noviembre")
+        date = date.replace("December", "Diciembre")
+
+        date = date.replace("Monday", "Lunes")
+        date = date.replace("Tuesday", "Martes")
+        date = date.replace("Wednesday", "Miércoles")
+        date = date.replace("Thursday", "Jueves")
+        date = date.replace("Friday", "Viernes")
+        date = date.replace("Saturday", "Sábado")
+        date = date.replace("Sunday", "Domingo")
+        return date
     }
 
 }

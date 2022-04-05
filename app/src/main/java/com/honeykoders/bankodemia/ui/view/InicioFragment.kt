@@ -27,6 +27,7 @@ class InicioFragment : Fragment() {
     //binding
     private var _binding: FragmentInicioBinding? = null
     private val binding get() = _binding!!
+
     //viewModel
     val viewModel: GetUserProfileViewModel by viewModels()
     val viewModelDeposit: MakeDepositViewModel by viewModels()
@@ -58,7 +59,7 @@ class InicioFragment : Fragment() {
         setCurrentDate()
     }
 
-    fun setCurrentDate(){
+    fun setCurrentDate() {
         val sdf = SimpleDateFormat("dd MMM yyyy")
         val currentDate = sdf.format(Date())
         binding.tvDate.text = currentDate.toString()
@@ -79,28 +80,35 @@ class InicioFragment : Fragment() {
 
     private fun observers() {
 
-        viewModel.getUserResponse.observe(viewLifecycleOwner){ userProfile ->
+        viewModel.getUserResponse.observe(viewLifecycleOwner) { userProfile ->
             Log.d("Success profile Get", userProfile.data.user._id)
             setCurrentBalance(userProfile.data.balance.toString())
             saveUserId(userProfile.data.user._id)
-            setRecyclerTransactions(userProfile.data.transactions, binding.recyclerViewHome)
+            setRecyclerTransactions(userProfile.data.transactions, binding.rvTransactions)
             binding.progressBar.visibility = View.GONE
         }
-        viewModel.error.observe(viewLifecycleOwner){ error ->
+
+        viewModel.error.observe(viewLifecycleOwner) { error ->
             Log.d("ErrorMessageGet", error.toString())
         }
 
-        viewModelDeposit.makeDepositResponse.observe(viewLifecycleOwner){ deposit ->
+        viewModelDeposit.makeDepositResponse.observe(viewLifecycleOwner) { deposit ->
             Log.d("Deposit", deposit.toString())
-            context?.let { utils.showMessage(it,"Se ha realizado un abono por: "+deposit.data.transaction.amount) }
+            context?.let {
+                utils.showMessage(
+                    it,
+                    "Se ha realizado un abono por: " + deposit.data.transaction.amount
+                )
+            }
         }
     }
 
-
     private fun saveUserId(id: String) {
         context?.let { it1 -> utils.initSharedPreferences(it1) }
-        utils.updateSharedPreferences("string","userId",id,false,
-            0,0.0f)
+        utils.updateSharedPreferences(
+            "string", "userId", id, false,
+            0, 0.0f
+        )
     }
 
     private fun setCurrentBalance(balance: String) {
@@ -108,15 +116,20 @@ class InicioFragment : Fragment() {
     }
 
     //Se mandan las transacciones para visualizar en pantalla Home
-    private fun setRecyclerTransactions(transactions: List<Transactions>, recyclerView:
-    RecyclerView) {
-        Log.e("size","${transactions.size}")
-        val transactionAdapter = TransactionsAdapter(context as Activity,
+    private fun setRecyclerTransactions(
+        transactions: List<Transactions>, recyclerView:
+        RecyclerView
+    ) {
+        Log.e("size", "${transactions.size}")
+        val transactionAdapter = TransactionsAdapter(
+            context as Activity,
             transactions as MutableList<Transactions>
         )
         recyclerView.apply {
-            layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL,
-                false)
+            layoutManager = LinearLayoutManager(
+                context, LinearLayoutManager.VERTICAL,
+                false
+            )
             adapter = transactionAdapter
         }
     }

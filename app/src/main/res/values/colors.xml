@@ -7,4 +7,6 @@
     <color name="gray">#7F7F7F</color>
     <color name="white">#FFFFFFFF</color>
     <color name="bgItemCV">#66E5E5E5</color>
+    <color name="hk_primary">#00CCCC</color>
+    <color name="chillon">#FABB00</color>
 </resources>

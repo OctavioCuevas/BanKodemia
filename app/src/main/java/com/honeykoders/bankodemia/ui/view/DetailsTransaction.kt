@@ -1,6 +1,7 @@
 package com.honeykoders.bankodemia.ui.view
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -27,8 +28,15 @@ class DetailsTransaction : Fragment() {
         val root: View = binding.root
         
         context?.let { it1 -> utils.initSharedPreferences(it1) }
-        binding.tvCantidad.text = "$" + utils.getSharedPreferencesByName("amount") +".00"
-        binding.textViewFechaHome.text = utils.getSharedPreferencesByName("date")
+        val quantity = "\$${utils.getSharedPreferencesByName("amount")}.00"
+        binding.tvCantidad.text = quantity
+
+        val date_str = utils.getSharedPreferencesByName("date")
+        Log.e("DebugHK", "La fecha string: $date_str")
+        val date = date_str?.substring(0,10)
+        val hour = date_str?.substring(11,19)
+        Log.e("DebugHK", "Date: $date hour: $hour")
+        binding.textViewFechaHome.text = utils.translateDate(utils.formatTimeStamp(utils.stringToDate("$date $hour"),1)!!                           )
         binding.tvConcepto.text = utils.getSharedPreferencesByName("concept")
 
         binding.btnDetalle.setOnClickListener {

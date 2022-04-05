@@ -51,4 +51,17 @@ fun main () {
     println(utils.isSequence("ab1111ba"))
     println(utils.isSequence("ab11ab11"))
     println(utils.isSequence("koder2koder3"))
+
+    val fecha = "2022-04-05T00:36:34.903Z"
+    val date = fecha.substring(0,10)
+    val hour = fecha.substring(11,19)
+
+    println("$date $hour")
+    val the_date = utils.stringToDate("$date $hour")
+    println(the_date)
+    var format = utils.formatTimeStamp(the_date,1)
+    println(format)
+    format = utils.formatTimeStamp(the_date,2)
+    println(format)
+
 }

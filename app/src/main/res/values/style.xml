@@ -64,10 +64,20 @@
 
     <style name="customDatePickerStyle" parent="Theme.AppCompat.Light.Dialog.Alert">
         <item name="android:datePickerStyle">@style/customDatePicker</item>
+        <item name="colorPrimary">@color/teal_200</item>
+        <item name="android:buttonBarButtonStyle">@style/datePickerButtons</item>
     </style>
 
     <style name="customDatePicker" parent="@android:style/Widget.Material.Light.DatePicker">
         <item name="android:datePickerMode">spinner</item>
         <item name="android:calendarViewShown">false</item>
     </style>
+
+
+    <style name="datePickerButtons">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">#fff</item>
+    </style>
+
+
 </resources>
