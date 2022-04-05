@@ -9,14 +9,13 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.honeykoders.bankodemia.common.Utils
 import com.honeykoders.bankodemia.databinding.FragmentSendMoneyBinding
-import com.honeykoders.bankodemia.exceptions.EmptyTokenException
 import com.honeykoders.bankodemia.ui.model.contacts.Contacts
 import com.honeykoders.bankodemia.ui.model.contacts.ContactsMain
 import com.honeykoders.bankodemia.ui.view.adapters.ContactsAdapter
 import com.honeykoders.bankodemia.ui.viewmodel.SendMoneyVM
 import kotlinx.coroutines.launch
 
-class GetUserContacts() {
+class GetUserContacts {
     val utils = Utils()
     lateinit var viewModel: SendMoneyVM
     lateinit var binding: FragmentSendMoneyBinding
@@ -49,7 +48,7 @@ class GetUserContacts() {
     }
 
     private fun setRecycler(contacts: List<Contacts>, recyclerView: RecyclerView) {
-        Log.e("size","${contacts.size}")
+        Log.e("size", "${contacts.size}")
         val contactsAdapter = ContactsAdapter(context, contacts)
         recyclerView.apply {
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)

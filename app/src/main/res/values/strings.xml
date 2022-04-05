@@ -146,6 +146,15 @@
     <string name="fecha_de_nacimiento">Fecha de nacimiento</string>
     <string name="plan_m_vil">Plan móvil</string>
     <string name="recarga_de_celular">Recarga de celular</string>
+    <string name="transaction_concept">Fondeo Bienvenida</string>
+    <string name="transaction_hour">6:39 p.m.</string>
+    <string name="transaction_amount">500.00</string>
+    <string name="user">user</string>
+    <string name="help">help</string>
+    <string name="card">card</string>
+    <string name="mastercard">mastercard</string>
+    <string name="bankodemia">bankodemia</string>
+    <string name="banks">BBVA, Santander, Banorte, Banamex</string>
 
 
 </resources>

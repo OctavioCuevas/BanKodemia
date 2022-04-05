@@ -12,9 +12,10 @@ import com.honeykoders.bankodemia.network.models.GetContacts
 import kotlinx.coroutines.launch
 import java.lang.Exception
 
-class SendMoneyVM() : ViewModel() {
+class SendMoneyVM : ViewModel() {
     lateinit var serviceGetContacts: GetContacts
-    lateinit var context :Context
+    lateinit var context: Context
+
     //LiveData
     val contactsResponse = MutableLiveData<ContactsMain>()
 
@@ -26,10 +27,7 @@ class SendMoneyVM() : ViewModel() {
         this.viewModelScope.launch {
             try {
                 val response = serviceGetContacts.getContactsService()
-
-                Log.e("ContactErrorLog", "Response: ${response}")
                 if (response.isSuccessful) {
-                    Log.e("ContactErrorLog", "Response: ${response.body()}")
                     contactsResponse.postValue(response.body())
                 } else {
                     throw NoContactsFoundException()

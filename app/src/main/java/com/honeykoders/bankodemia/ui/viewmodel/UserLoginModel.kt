@@ -1,7 +1,6 @@
 package com.honeykoders.bankodemia.ui.viewmodel
 
 import android.content.Context
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -14,38 +13,36 @@ import com.honeykoders.bankodemia.ui.model.ErrorResponseBadRequest
 import com.honeykoders.bankodemia.network.ServiceNetwork
 import kotlinx.coroutines.launch
 
-class UserLoginModel:ViewModel() {
+class UserLoginModel : ViewModel() {
     lateinit var service: ServiceNetwork
     val loginResponse = MutableLiveData<ResponseUserLoggedIn>()
     val badRequest = MutableLiveData<Boolean>()
     val error = MutableLiveData<String>()
-    val loading = MutableLiveData<Boolean>()
+    private val loading = MutableLiveData<Boolean>()
 
-    fun onCreate(context: Context){
+    fun onCreate(context: Context) {
         service = ServiceNetwork(context)
     }
 
-    fun loginUser(login: LoginModel){
+    fun loginUser(login: LoginModel) {
         loading.postValue(true)
         viewModelScope.launch {
-            val respuesta = service.loginUser(login)
-            Log.e("codigo", respuesta.raw().toString())
-            if (respuesta.isSuccessful){
-                loginResponse.postValue(respuesta.body())
-                Log.e("Success ",respuesta.body().toString())
-            }else{
-                if(respuesta.code() == 400){
+            val response = service.loginUser(login)
+            if (response.isSuccessful) {
+                loginResponse.postValue(response.body())
+            } else {
+                if (response.code() == 400) {
                     val gson = Gson()
                     val type = object : TypeToken<ErrorResponseBadRequest>() {}.type
-                    var errorResponse: ErrorResponse? = gson.fromJson(respuesta.errorBody()!!.charStream(), type)
-                    Log.e("Response400",errorResponse.toString())
+                    val errorResponse: ErrorResponse? =
+                        gson.fromJson(response.errorBody()!!.charStream(), type)
                     badRequest.postValue(true)
-                }else{
-                    if(respuesta.code() == 401){
+                } else {
+                    if (response.code() == 401) {
                         val gson = Gson()
                         val type = object : TypeToken<ErrorResponse>() {}.type
-                        var errorResponse: ErrorResponse? = gson.fromJson(respuesta.errorBody()!!.charStream(), type)
-                        Log.e("Response401",errorResponse.toString())
+                        val errorResponse: ErrorResponse? =
+                            gson.fromJson(response.errorBody()!!.charStream(), type)
                         error.postValue(errorResponse?.message)
                     }
                 }

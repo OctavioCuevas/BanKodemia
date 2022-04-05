@@ -12,12 +12,11 @@
         android:layout_height="wrap_content"
         android:visibility="gone">
 
-        <fragment
+        <androidx.fragment.app.FragmentContainerView
             android:id="@+id/viewer"
             android:name="com.honeykoders.bankodemia.ui.view.ProcesandoTransaccion"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-
             android:layout_centerInParent="true" />
     </RelativeLayout>
 
@@ -30,7 +29,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/contenedor_Principal"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
             <Button
                 android:id="@+id/btn_atras"
@@ -144,8 +143,8 @@
                 style="@style/button"
                 android:layout_width="297dp"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="32dp"
                 android:layout_marginTop="16dp"
+                android:layout_marginBottom="32dp"
                 android:text="@string/hacertransferencia"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -177,8 +176,8 @@
                 android:id="@+id/til_concepto"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
                 android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/concepto_de">

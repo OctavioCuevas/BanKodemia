@@ -12,54 +12,52 @@ import com.honeykoders.bankodemia.network.ServiceNetwork
 import kotlinx.coroutines.launch
 import java.io.IOException
 
-class TransactionViewModel:ViewModel() {
+class TransactionViewModel : ViewModel() {
     lateinit var service: ServiceNetwork
     val makeTransactionResponse = MutableLiveData<ResponseTransactionCreated>()
     val badRequest = MutableLiveData<Boolean>()
     val broken = MutableLiveData<Boolean>()
-    val inssuficientFunds = MutableLiveData<Boolean>()
+    val insufficientFunds = MutableLiveData<Boolean>()
     val error = MutableLiveData<String>()
     val loading = MutableLiveData<Boolean>()
 
-    fun onCreate(context: Context){
+    fun onCreate(context: Context) {
         service = ServiceNetwork(context)
     }
 
-    fun makeTransactionPayment(makeTransactionPayment: MakeTransactionPayment){
+    fun makeTransactionPayment(makeTransactionPayment: MakeTransactionPayment) {
         loading.postValue(true)
         try {
-           viewModelScope.launch {
-               val respuesta = service.makeTransactionPayment(makeTransactionPayment)
-               Log.e("codigo", respuesta.raw().toString())
-               if (respuesta.isSuccessful) {
-                   Log.e("codigo", respuesta.body().toString())
-                   makeTransactionResponse.postValue(respuesta.body())
-               }else{
-                   val gson = Gson()
-                   val type = object : TypeToken<ErrorResponse>() {}.type
-                   var errorResponse: ErrorResponse? = gson.fromJson(respuesta.errorBody()!!.charStream(), type)
-                   Log.e("Response", errorResponse.toString())
-                   if (errorResponse != null) {
-                       if (errorResponse.statusCode == 401) {//badRequest
-                           error.postValue(errorResponse.message[0].toString())
-                           badRequest.postValue(true)
-                       }else{
-                           if(respuesta.code() == 402){ //Yo are broke
-                               error.postValue(errorResponse.message[0].toString())
-                               broken.postValue(true)
-                           }else{
-                               if(respuesta.code() == 412){// inssuficientFunds
-                                   error.postValue(errorResponse.message[0].toString())
-                                   inssuficientFunds.postValue(true)
-                               }
-                           }
-                       }
-                   }
-               }
-           }
+            viewModelScope.launch {
+                val response = service.makeTransactionPayment(makeTransactionPayment)
+                if (response.isSuccessful) {
+                    makeTransactionResponse.postValue(response.body())
+                } else {
+                    val gson = Gson()
+                    val type = object : TypeToken<ErrorResponse>() {}.type
+                    val errorResponse: ErrorResponse? =
+                        gson.fromJson(response.errorBody()!!.charStream(), type)
+                    if (errorResponse != null) {
+                        if (errorResponse.statusCode == 401) {//badRequest
+                            error.postValue(errorResponse.message[0].toString())
+                            badRequest.postValue(true)
+                        } else {
+                            if (response.code() == 402) { //Yo are broke
+                                error.postValue(errorResponse.message[0].toString())
+                                broken.postValue(true)
+                            } else {
+                                if (response.code() == 412) {// insufficientFunds
+                                    error.postValue(errorResponse.message[0].toString())
+                                    insufficientFunds.postValue(true)
+                                }
+                            }
+                        }
+                    }
+                }
+            }
             loading.postValue(true)
-       }catch(e: IOException){
-           Log.e("Response", e.toString())
-       }
+        } catch (e: IOException) {
+            Log.e("Response", e.toString())
+        }
     }
 }
