@@ -7,11 +7,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import com.google.android.material.textfield.TextInputEditText
 import com.honeykoders.bankodemia.R
 import com.honeykoders.bankodemia.common.Utils
 import com.honeykoders.bankodemia.databinding.FragmentDialogTransferenciaBinding
@@ -32,10 +29,10 @@ class Transferencia : Fragment() {
     ): View? {
         _binding = FragmentTransferenciaBinding.inflate(inflater,container,false)
         val root: View = binding.root
-        initcomponets()
+        initComponents()
         observers()
 
-        binding.btnTransferencia?.setOnClickListener {
+        binding.btnTransferencia.setOnClickListener {
             showDialog()
             val cantidadEnviada = utils.numberValidationInt(binding.tietCantidad.text)
             binding.tietCantidad.setText(cantidadEnviada.toString())
@@ -49,11 +46,11 @@ class Transferencia : Fragment() {
 
     }
 
-    private fun initcomponets() {
+    private fun initComponents() {
         context?.let { it1 -> utils.initSharedPreferences(it1) }
         context?.let { viewModel.onCreate(context = it) }
         val transferTo = utils.getSharedPreferencesByName("contactName")
-        binding.tvNombreBeneficiario.setText(transferTo)
+        binding.tvNombreBeneficiario.text = transferTo
         binding.tvCuentaBanco.text = utils.getSharedPreferencesByName("accountNumber")
     }
 
@@ -129,9 +126,9 @@ class Transferencia : Fragment() {
                 findNavController().navigate(R.id.transaccionFinalizada)
             }
         }
-        viewModel.inssuficientFunds.observe(viewLifecycleOwner){ inssuficientFunds ->
-            if (inssuficientFunds){
-                Log.e("inssuficientFunds",inssuficientFunds.toString())
+        viewModel.insufficientFunds.observe(viewLifecycleOwner){ insufficientFunds ->
+            if (insufficientFunds){
+                Log.e("inssuficientFunds",insufficientFunds.toString())
                 context?.let { utils.showMessage(it,getString(R.string.insufficientFunds)) }
                 findNavController().navigate(R.id.transaccionFinalizada)
             }
