@@ -80,7 +80,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppins2"
                         android:inputType="textEmailAddress"
-                        android:text="koder@kodemia.mx"
+                        android:text="cory@mail.com"
                         tools:ignore="TextContrastCheck,SpeakableTextPresentCheck" />
                 </com.google.android.material.textfield.TextInputLayout>
 
